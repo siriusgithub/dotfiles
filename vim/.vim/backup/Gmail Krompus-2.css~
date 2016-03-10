@@ -1,0 +1,31 @@
+@-moz-document domain("mail.google.com") {
+  * {
+    border: none !important;
+    font-family: tamsyn !important;
+    font-size: 9pt !important;
+    border-radius: 0px !important;
+  }
+
+  body {
+    background: #080808 !important;
+  }
+
+  #gbqfqwb {
+    background: #0a0a0a !important;
+  }
+
+  .T-I-KE {
+    color: #ffffff !important;
+    background: #E23600 !important;
+  }
+
+  .aAU {
+    background: #080808 !important;
+    background-color: #080808 !important;
+  }
+
+  .aAt, .aAU {
+    background: #080808 !important;
+  }
+
+}

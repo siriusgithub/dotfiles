@@ -1,0 +1,7 @@
+s seek 5
+S seek 30
+r seek -2
+R seek -30
+k cycle pause
+
+

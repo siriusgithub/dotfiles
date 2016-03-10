@@ -1,0 +1,351 @@
+#-----------
+# VARIABLES
+#-----------
+
+  set $mod                            Mod1
+
+# Terminal
+  bindsym $mod+o                      exec termite --geometry=560x400
+
+# Rofi Launcher
+  bindsym ctrl+slash                  exec rofi -show run 
+  bindsym ctrl+apostrophe             exec rofi -show window
+
+# Sizes
+  set $bordersize                     1
+  set $fr                             90
+  set $frf                            15
+  set $tr                             7
+  set $trf                            1
+  set $gsi                            30
+  set $gso                            0
+
+# Colors
+
+# archblue                            #1793D1
+# debianred                           #D70A53
+# plasmagreen                         #18B092
+# matrixgreen                         #00FF00
+# mintgreen                           #5FAA24
+# numixredorange                      #C84433
+# ubuntuorange                        #F37320
+# vertexdark                          #2C6FF0
+
+  set $fgcolor                        #ffffff
+  set $sfgcolor                       #0A9DFB
+  set $swbgcolor                      #1C2131
+  set $hfgcolor                       #000020
+  set $bdcolor                        #004B6B
+# set $bdcolor                        #06619E
+# set $bgcolor                        #0F0E0D
+  set $bgcolor                        #000000
+  set $iacolor                        #0a0a0a
+  set $ufgcolor                       #C41F0C
+  set $ubgcolor                       #220707
+  set $rfgcolor                       #FFFFFF
+  set $rbgcolor                       #000000
+  set $rhlcolor                       #23D3FF
+
+# Fonts
+  set $font1                          pango:tamsyn 9
+  set $fontbar                        pango:tamsyn 9
+
+# Workspaces
+  set $ws1                           1:
+  set $ws2                           2:
+  set $ws3                           3:
+  set $ws4                           4:
+  set $ws5                           5:
+  set $ws6                           6:
+  set $ws7                           7:
+  set $ws8                           8:
+  set $ws9                           9:
+  set $ws10                          10:
+  set $ws11                          11:
+
+# HJKL
+  set $left                           h
+  set $down                           j
+  set $up                             k
+  set $right                          l
+
+#---------------
+# CONFIGURATION
+#---------------
+
+  floating_modifier                   $mod
+  focus_follows_mouse                 yes
+  popup_during_fullscreen             smart
+  workspace_layout                    default
+  workspace_auto_back_and_forth       no
+  force_focus_wrapping                no
+
+#------------
+# APPEARANCE
+#------------
+
+  font                                $font1
+
+# Set window appearence               border    bg        fg        urgent
+  client.focused                      $bdcolor  $bdcolor  $fgcolor $bdcolor
+  client.focused_inactive             $iacolor  $bgcolor  $fgcolor  $iacolor
+  client.unfocused                    $bgcolor  $bgcolor  $fgcolor  $iacolor
+
+# Configure window borders/
+  hide_edge_borders                   none
+  new_float                           pixel $bordersize
+  new_window                          pixel $bordersize
+
+# Window rules
+  for_window [class="^.*"]            border pixel $bordersize
+  for_window [class="Cadence"]        floating enable
+  for_window [class="Feh"]            floating enable
+  for_window [class="Firefox"]        border none
+  for_window [class="Gpick"]          floating enable, move absolute position 1279 px 0 px
+  for_window [class="Lxappearance"]   floating enable
+  for_window [class="Nitrogen"]       floating enable
+  for_window [class="Nitrogen"]       floating enable, workspace $ws11
+  for_window [class="Pidgin"]         floating enable
+  for_window [class="Qjackctl"]       floating enable
+  for_window [class="Qjackctl"]       floating enable, move position mouse
+  for_window [class="Renoise"]        border none
+  for_window [class="Speedcrunch"]    floating enable
+  for_window [class="Steam"]          floating enable
+  for_window [class="Sxiv"]           floating enable
+  for_window [class="TeamSpeak"]      floating enable
+  for_window [class="Thunar"]         floating enable, move position mouse
+  for_window [class="Transmission"]   floating enable
+  for_window [class="Zathura"]        border none, workspace $ws2
+  for_window [class="brogue"]         border none, workspace $ws5, floating disable
+  for_window [class="cool-retro-term"] border none
+  for_window [class="mpv"]            floating enable, border none, move absolute position 0px 0px
+  for_window [class="vivaldi"]        border none
+  for_window [instance="gcolor2"]     move absolute position 1406 px 0 px
+  for_window [title="Chromium"]       border none, workspace $ws6
+  for_window [title="Dungeon Crawl Stone Soup"] border none, workspace $ws5, floating disable
+  for_window [title="GNU Image Manipulation Program"] border none, workspace $ws4
+  for_window [title="JACK Audio Connection Kit"] floating enable
+  for_window [title="LibreOffice"]    border none, workspace $ws3
+  for_window [title="OpenGL"]         fullscreen enable, floating disable, border none
+  for_window [title="Volume Control"] floating enable
+  for_window [title="pentadactyl.www*" class="(?i)termite"]  floating enable, move absolute position 801 px 640 px
+  for_window [title="qutebrowser"]    border none
+
+# Workspace assignments
+  assign [title="Transmission"]       $ws1
+  assign [class="Zathura"]            $ws2
+  assign [title="LibreOffice"]        $ws3
+  assign [title="GNU Image*"]         $ws4
+  assign [class="brogue"]             $ws5
+  assign [title="Dungeon Crawl*"]     $ws5
+  assign [title="Chromium"]           $ws6
+  assign [class="vivaldi"]            $ws6 
+  assign [class="(?)Steam"]           $ws7
+  assign [title="OpenGL"]             $ws7
+# assign [class="mpv"]                $ws8
+  assign [class="Firefox"]            $ws9
+  assign [class="Renoise"]            $ws10
+  assign [class="Nitrogen"]           $ws11
+
+# Tiny Urxvt
+  bindsym $mod+shift+Return exec urxvt -g 45x5 -name floating
+  for_window [instance="^floating$" class="^URxvt$"] floating enable, move position 1646px 0px
+
+# Dmenu
+#  bindsym $mod+Shift+slash exec "dmenu_run -i -fn gohufont-7:normal -nb '$bgcolor' -nf '$fgcolor' -sb '$hfgcolor' -sf '$sfgcolor' -h 20 -w 800 -x 218 -y 1061"
+#  bindsym $mod+slash exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn gohufont-7:normal -nb '$bgcolor' -nf '$fgcolor' -sb '$hfgcolor' -sf '$sfgcolor' -h 20 -w 800 -x 218 -y 1061"
+
+#---------------------
+# GENERAL KEYBINDINGS
+#---------------------
+
+  bindsym $mod+Shift+d exec killall dunst && exec dunst && exec notify-send "restart dunst"
+# Layout mode
+  bindsym $mod+e                      layout stacking
+  bindsym $mod+a                      layout tabbed
+  bindsym $mod+shift+e                layout default
+  bindsym $mod+s                      layout toggle split
+  bindsym $mod+f                      fullscreen toggle
+  bindsym $mod+n                      split h
+  bindsym $mod+t                      split v
+  bindsym $mod+Shift+space            floating toggle
+  bindsym $mod+space                  focus mode_toggle
+  bindsym $mod+button3                floating toggle
+  bindsym $mod+shift+apostrophe       border pixel $bordersize
+  bindsym $mod+apostrophe             border none
+  bindsym $mod+shift+f                border toggle
+  bindsym $mod+shift+s                sticky toggle
+  bindsym $mod+q                      kill
+  bindsym --whole-window $mod+button2 kill
+  bindsym $mod+Tab                    workspace back_and_forth
+  bindsym $mod+Shift+Tab              workspace $ws9
+# bindsym $mod+Control+Tab
+  bindsym $mod+bracketright resize shrink width 0 px or 21 ppt
+  bindsym $mod+shift+bracketright resize grow width 0 px or 21 ppt
+
+# switch to workspace
+  bindsym $mod+1                      workspace $ws1
+  bindsym $mod+2                      workspace $ws2
+  bindsym $mod+3                      workspace $ws3
+  bindsym $mod+4                      workspace $ws4
+  bindsym $mod+5                      workspace $ws5
+  bindsym $mod+6                      workspace $ws6
+  bindsym $mod+7                      workspace $ws7
+  bindsym $mod+8                      workspace $ws8
+  bindsym $mod+9                      workspace $ws9
+  bindsym $mod+0                      workspace $ws10
+
+# move focused container to workspace
+  bindsym $mod+Shift+1                move container to workspace $ws1
+  bindsym $mod+Shift+2                move container to workspace $ws2
+  bindsym $mod+Shift+3                move container to workspace $ws3
+  bindsym $mod+Shift+4                move container to workspace $ws4
+  bindsym $mod+Shift+5                move container to workspace $ws5
+  bindsym $mod+Shift+6                move container to workspace $ws6
+  bindsym $mod+Shift+7                move container to workspace $ws7
+  bindsym $mod+Shift+8                move container to workspace $ws8
+  bindsym $mod+Shift+9                move container to workspace $ws9
+  bindsym $mod+Shift+0                move container to workspace $ws10
+
+  bindsym $mod+comma                  workspace prev
+  bindsym $mod+period                 workspace next
+
+# bindsym $mod+a focus parent
+# bindsym $mod+shift+a focus child
+  bindsym $mod+$left                  focus left
+  bindsym $mod+$down                  focus down
+  bindsym $mod+$up                    focus up
+  bindsym $mod+$right                 focus right
+
+  bindsym $mod+Shift+$left            move left  60 px
+  bindsym $mod+Shift+$down            move down  60 px
+  bindsym $mod+Shift+$up              move up    60 px
+  bindsym $mod+Shift+$right           move right 60 px
+
+  bindsym $mod+Shift+m                move scratchpad
+  bindsym $mod+m                      scratchpad show
+
+  bindsym $mod+Shift+c                reload
+  bindsym $mod+Shift+r                restart
+  bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'A guttural moan erupts from the chasm. You feel your blood run cold, and your trousers run hot. The Forgotten Beast Oggez Rashas rises from the depths!' -b 'Fly!' 'i3-msg exit'"
+
+#------------------
+# MODE KEYBINDINGS
+#------------------
+
+  mode "resize" {
+# Coarse adjustment
+    bindsym $left        resize grow width $fr px or $tr ppt
+    bindsym $down        resize shrink height $fr px or $tr ppt
+    bindsym $up          resize grow height $fr px or $tr ppt
+    bindsym $right       resize shrink width $fr px or $tr ppt
+# Fine adjustment
+    bindsym shift+$left  resize grow width $frf px or $trf ppt
+    bindsym shift+$down  resize shrink height $frf px or $trf ppt
+    bindsym shift+$up    resize grow height $frf px or $trf ppt
+    bindsym shift+$right resize shrink width $frf px or $trf ppt
+
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+    bindsym space   mode "default"
+}
+
+  bindsym $mod+r mode "resize"
+#------
+# GAPS
+#------
+
+#  gaps inner                          $gsi
+#  gaps outer                          $gso
+
+  bindsym $mod+g mode "$mode_gaps"
+# set $mode_gaps Gaps: (o) outer, (i) inner
+  set $mode_gaps gaps
+# set $mode_gaps_outer Outer Gaps: n|e|h (local), Shift + n|e|h (global)
+  set $mode_gaps_outer
+# set $mode_gaps_inner Inner Gaps: n|e|h (local), Shift + n|e|h (global)
+  set $mode_gaps_inner
+
+#gaps off
+  bindsym $mod+bracketleft       gaps inner all set 1;gaps outer all set 0;border pixel $bordersize
+#gaps on
+  bindsym $mod+shift+bracketleft gaps inner all set $gsi;gaps outer all set $gso;border pixel $bordersize
+
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym space  mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym j       gaps inner current plus 5
+    bindsym k       gaps inner current minus 5
+    bindsym h       gaps inner current set 0
+
+    bindsym Shift+j gaps inner all plus 5
+    bindsym Shift+k gaps inner all minus 5
+    bindsym Shift+h gaps inner all set 0
+
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+    bindsym space   mode "default"
+}
+
+mode "$mode_gaps_outer" {
+    bindsym j       gaps outer current plus 5
+    bindsym k       gaps outer current minus 5
+    bindsym h       gaps outer current set 0
+
+    bindsym Shift+j gaps outer all plus 5
+    bindsym Shift+k gaps outer all minus 5
+    bindsym Shift+h gaps outer all set 0
+
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+    bindsym space   mode "default"
+}
+
+# Pomodoro 25 min, Zelda LTTP SFX
+  bindsym Mod4+p exec mpv ~/scripts/zeldapomodoro/LTTP_Item.wav && sleep 1500 && notify-send "♥ ♥ ♥" && mpv ~/scripts/zeldapomodoro/LTTP_Get_Fairy.wav &
+
+#-----
+# BAR
+#-----
+
+  bindsym $mod+Shift+b bar mode toggle
+
+  bar {
+    strip_workspace_numbers         yes
+    status_command                  i3blocks
+    position                        bottom
+    font                            $fontbar
+    height                          20
+    colors {
+      background                    $bgcolor
+      statusline                    $fgcolor
+# Workspace Colors                  #border     #bg         #text
+      inactive_workspace            $bgcolor    $bgcolor    $fgcolor
+      focused_workspace             $swbgcolor  $swbgcolor  $sfgcolor
+      urgent_workspace              $ubgcolor   $ubgcolor   $ufgcolor
+    }
+}
+
+  exec --no-startup-id i3lock -i ~/images/wallpapers/active/loginarch.png &
+  exec --no-startup-id firefox &
+
+# program launcher
+# mode "launch" {
+# These bindings will launch programs
+#
+#   bindsym f exec firefox
+#   bindsym c exec chromium
+#   bindsym v exec gvim
+#
+#   bindsym Return mode "default"
+#   bindsym Escape mode "default"
+#   bindsym space  mode "default"
+#}
+#
+# bindsym $mod+a mode "launch"

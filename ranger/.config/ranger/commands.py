@@ -1,0 +1,102 @@
+# This is a sample commands.py.  You can add your own commands here.
+#
+# Please refer to commands_full.py for all the default commands and a complete
+# documentation.  Do NOT add them all here, or you may end up with defunct
+# commands when upgrading ranger.
+
+# You always need to import ranger.api.commands here to get the Command class:
+from ranger.api.commands import *
+
+# A simple command for demonstration purposes follows.
+#------------------------------------------------------------------------------
+
+# You can import any python module as needed.
+import os
+
+# Any class that is a subclass of "Command" will be integrated into ranger as a
+# command.  Try typing ":my_edit<ENTER>" in ranger!
+class my_edit(Command):
+    # The so-called doc-string of the class will be visible in the built-in
+    # help that is accessible by typing "?c" inside ranger.
+    """:my_edit <filename>
+
+    A sample command for demonstration purposes that opens a file in an editor.
+    """
+
+    # The execute method is called when you run this command in ranger.
+    def execute(self):
+        # self.arg(1) is the first (space-separated) argument to the function.
+        # This way you can write ":my_edit somefilename<ENTER>".
+        if self.arg(1):
+            # self.rest(1) contains self.arg(1) and everything that follows
+            target_filename = self.rest(1)
+        else:
+            # self.fm is a ranger.core.filemanager.FileManager object and gives
+            # you access to internals of ranger.
+            # self.fm.thisfile is a ranger.container.file.File object and is a
+            # reference to the currently selected file.
+            target_filename = self.fm.thisfile.path
+
+        # This is a generic function to print text in ranger.  
+        self.fm.notify("Let's edit the file " + target_filename + "!")
+
+        # Using bad=True in fm.notify allows you to print error messages:
+        if not os.path.exists(target_filename):
+            self.fm.notify("The given file does not exist!", bad=True)
+            return
+
+        # This executes a function from ranger.core.acitons, a module with a
+        # variety of subroutines that can help you construct commands.
+        # Check out the source, or run "pydoc ranger.core.actions" for a list.
+        self.fm.edit_file(target_filename)
+
+    # The tab method is called when you press tab, and should return a list of
+    # suggestions that the user will tab through.
+    def tab(self):
+        # This is a generic tab-completion function that iterates through the
+        # content of the current directory.
+        return self._tab_directory_content()
+
+class toggled(Command):
+    """
+    :toggled
+
+    Changes the name of currently highlighted files from foo_bar_baz.txt to
+    foo-bar-baz.txt and vice versa.
+    """
+
+    def execute(self):
+        from ranger.fsobject import File
+        from os import access
+
+        # yes, this is pathetic
+        s = str(self.fm.env.cf)
+        s1 = s.replace('-', '_')
+        s2 = s.replace('_', '-')
+        new_name = ''.join([b if a != b else c for (a,b,c) in zip(s,s1,s2)])
+
+        if access(new_name, os.F_OK):
+            return
+
+        self.fm.rename(self.fm.env.cf, new_name)
+        f = File(new_name)
+        self.fm.env.cwd.pointed_obj = f
+        self.fm.env.cf = f
+
+class cmdhelp(Command):
+    """
+    :cmdhelp <command>
+
+    Show docstring of <command>
+    """
+
+    def execute(self):
+        from sys import modules
+        from inspect import getmembers, isclass
+
+        clsname = self.rest(1)
+        clsmembers = dict(getmembers(modules[__name__], isclass))
+        if clsname in clsmembers:
+            return self.fm.notify("%s" % clsmembers[clsname].__doc__, bad=False)
+        else:
+            return self.fm.notify("`%s' is not a command!" % clsname, bad=True)

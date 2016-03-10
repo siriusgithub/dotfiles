@@ -1,0 +1,30 @@
+map -builtin s <ignorekeys>
+
+map  5<Down>
+map  k 10<Up>
+
+" One handed zoom
+nmap = +
+
+cmap <C-p> <Up>
+cmap <C-n> <Down>
+
+" GOTOs
+map -builtin ge b gmail<cr>
+map -builtin gE t gmail.com<cr>
+map -builtin gc o google.com/calendar<cr>
+map -builtin gC t google.com/calendar<cr>
+map -builtin gd o drive.google.com<cr>
+map -builtin gD t drive.google.com<cr>
+
+"set passkeys+=mail.google.com:c/uenxsyDpjkrRIUdli#!g{}[]m,gi,gs,gd,ga,zz,gp,gl
+"set passkeys+=youtube.com/watch:kjlNPm<>/
+"set passkeys+=soundcloud.com:<Space><Up><Down><Left><Right>0123456789mjklrshp/
+"set passkeys+=duckduckgo.com:kjhlsdmv/<Left><Right><Up><Down>
+
+ignorekeys add -only=jc/uenxsyDpjkrRIUdli#!g{}[]m,gi,gs,gd,ga,zz,gp,gl mail\.google\.com
+ignorekeys add -only=k,j,l,N,P,m,<,>,/ youtube\.com\/watch
+
+set gui=none,bookmarks,tabs
+
+colorscheme zenburn

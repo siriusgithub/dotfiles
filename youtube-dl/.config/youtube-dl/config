@@ -1,0 +1,1 @@
+-o "~/downloads/yt-dl/%(title)s-%(id)s.%(ext)s"

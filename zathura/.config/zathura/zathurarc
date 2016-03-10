@@ -1,0 +1,49 @@
+set recolor true
+set recolor-darkcolor "#ff0000"
+set recolor-lightcolor "#060606"
+set statusbar-bg "#000000"
+set statusbar-fg "#EDEDED"
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+set scroll-page-aware true
+set zoom-center true
+set font gohufont 9
+set zoom-step 8
+set guioptions z
+set toggle_statusbar
+
+set first-page-column 2
+
+"map [normal] k search forward
+"map [normal] K search back
+"map n scroll down
+"map e scroll up
+"map [normal] i scroll right
+"map [normal] N navigate down
+"map [normal] E scroll_full
+map normal <Space> scroll PgDn
+
+" Using modifiers
+
+" It is also possible to use modifiers like the Control or Alt button on the keyboard. It is possible to use the following modifiers:
+
+    A - Alt
+    C - Control
+    S - Shift
+
+"t is required to define the binding with the following structure: map <A-a> shortcut_function
+" map <C-a> shortcut_function
+
+" Special keys
+
+" zathura allows it also to assign keys like the space bar or the tab button which also have to be written in between angle brackets. The following special keys are currently available:
+
+" Identifier Description
+
+" BackSpace Back space CapsLock Caps lock Esc Escape Down Arrow down Up Arrow up Left Arrow left Right Arrow right F1 F1 F2 F2 F3 F3 F4 F4 F5 F5 F6 F6 F7 F7 F8 F8 F9 F9 F10 F10 F11 F11 F12 F12 PageDown Page Down PageUp Page Up Return Return Space Space Super Windows button Tab Tab
+
+" Of course it is possible to combine those special keys with a modifier. The usage of those keys should be explained by the following examples:
+
+" map <Space> shortcut_function
+" map <C-Space> shortcut_function
+

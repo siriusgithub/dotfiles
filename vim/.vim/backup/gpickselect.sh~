@@ -1,0 +1,7 @@
+#! /bin/bash
+
+gpick
+
+sleep 1
+
+xdotool key "Control_L+p"

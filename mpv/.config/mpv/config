@@ -1,0 +1,11 @@
+fs=no
+keep-open=yes
+no-sub-visibility
+no-osc
+osd-duration=170
+screenshot-directory=/home/krompus/films/screenshots/
+ytdl-format=best
+volume=100
+#ytdl-format=137+bestaudio/298+bestaudio/22/135+bestaudio/18/best
+#ytdl-format=bestvideo+bestaudio $(vclips -o)
+

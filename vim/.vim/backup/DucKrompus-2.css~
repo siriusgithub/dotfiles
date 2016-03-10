@@ -1,0 +1,30 @@
+@namespace url(http://www.w3.org/1999/xhtml) ;
+
+@-moz-document domain("duckduckgo.com") {
+
+  html {
+    background-color: #151515 !important;
+  }
+
+  .header-wrap
+    backgound-color: #00ff00 !important;
+  }
+
+  body {
+    background: #151515 !important;
+    background-color #151515 !important;
+  }
+
+  pre {
+    font-family: tamsyn !important;
+    font-size: 9pt !important;
+    background: #0a0a0a !important;
+  }
+
+  code {
+    font-family: tamsyn !important;
+    font-size: 9pt !important;
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+  }
+}

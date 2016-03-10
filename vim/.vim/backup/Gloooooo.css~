@@ -1,0 +1,50 @@
+/*@namespace html url(http://www.w3.org/1999/xhtml);
+@namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+* {
+  font-family: tamsyn !important;
+  font-size: 9pt !important;
+  border:none !important;
+}*/
+@namespace html url(http://www.w3.org/1999/xhtml);
+@namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/*----- SITES TO EXCLUDE -----*/
+
+@-moz-document regexp("^(?!(https:\/\/www\.google\.ca\/maps)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.google\)).*") {
+@-moz-document regexp("^(?!(https:\/\/mail\.google\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/translate\.google\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.reddit\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.facebook\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.youtube\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/soundcloud\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/imgur\.com)).*") {
+@-moz-document regexp("^(?!(http:\/\/www\.imdb\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/xkcd\.com)).*") {
+@-moz-document regexp("^(?!(http:\/\/i3wm)).*") {
+@-moz-document regexp("^(?!(https:\/\/duckduckgo\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/imgur\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/pelvis89\.imgur\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/github\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/gist\.github\.com)).*") {
+@-moz-document regexp("^(?!(http:\/\/5digits\.org)).*") {
+@-moz-document regexp("^(?!(http:\/\/en\.wikipedia\.org)).*") {
+@-moz-document regexp("^(?!(https:\/\/drive\.google\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/thepiratebay)).*") {
+@-moz-document regexp("^(?!(https:\/\/kat)).*") {
+@-moz-document regexp("^(?!(https:\/\/discordapp\.com)).*") {
+/*@-moz-document regexp("^(?!(https:\/\/stackexchange)).*") {
+@-moz-document regexp("^(?!(http:\/\/stackexchange)).*") {
+@-moz-document regexp("^(?!(https:\/\/stackoverflow\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/superuser\.com)).*") {*/
+
+
+/*----- DEFAULT TEXT, BORDER & BACKGROUND COLORS -----*/
+* {
+  font-family: tamsyn !important;
+  font-size: 9pt !important;
+  border:none !important;
+  text-shadow: none !important;
+  }
+}}}}}}}}}}}}}}}}}}}}}}}

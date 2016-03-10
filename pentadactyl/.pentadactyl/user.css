@@ -1,0 +1,6 @@
+@-moz-document domain("www.facebook.com") {
+    #rightCol{ display: none !important; }
+    #appsNav{ display: none !important; }
+    #pagesNav{ display: none !important; }
+    .fbChatSidebar,#fbDockChatBuddylistNub{ display: none !important; }
+}

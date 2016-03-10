@@ -1,0 +1,84 @@
+@namespace url(http://www.w3.org/1999/xhtml) ;
+
+@-moz-document domain("ubuntu.com") {
+
+  * {
+    border: none !important;
+  }
+
+  body,
+  html {
+    font-family: tamsyn !important;
+    font-size: 9pt !important;
+    background: none !important;
+    background-color: #111111 !important;
+    border-radius: 0.5em !important;
+    border: none !important;
+    font-family: gohufont !important;
+    color: #ffffff !important;
+  }
+
+  div,
+  p,
+  h1,
+  h2,
+  h3,
+  table,
+  tr,
+  td,
+  th,
+  ul,
+  li,
+  input,
+  select,
+  footer,
+  header,
+  nav {
+    font-family: tamsyn !important;
+    font-size: 9pt !important;
+    background: none !important;
+    background-color: #171717 !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  #title a {
+    font-size: 13pt !important;
+  }
+
+  hr {
+    background-color: #171717 !important;
+  }
+
+  input {
+    background: #0a0a0a !important;
+  }
+
+  .arrow-up {
+    background: transparent !important;
+  }
+
+  a {
+    border: 0px !important;
+    color: #dd4814 !important;
+  }
+
+  img {
+    opacity: .7 !important;
+    transition: opacity .2s;
+    border-radius: 0.5em !important;
+  }
+
+  img:hover,
+  a:hover img {
+    opacity: 1 !important;
+    border-radius: 0.5em !important;
+  }
+
+  pre {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+    font-family: tamsyn !important;
+  }
+}

@@ -1,0 +1,8 @@
+browser {
+  background-color: #151515 !important;
+}
+
+/* Selects every <div> element whose style attribute value contains the substring "z-index" */
+div[style*="z-index"] {
+  display: none !important;
+}

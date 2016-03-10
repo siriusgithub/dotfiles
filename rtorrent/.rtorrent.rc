@@ -1,0 +1,153 @@
+# This is an example resource file for rTorrent. Copy to
+# ~/.rtorrent.rc and enable/modify the options as needed. Remember to
+# uncomment the options you wish to enable.
+# 
+# Archwiki https://wiki.archlinux.org/index.php/RTorrent
+
+# Colors
+# Set colors using the options below in .rtorrent.rc:
+# Options: color_inactive_fg, color_inactive_bg, color_dead_fg, color_dead_bg, 
+#          color_active_fg, color_active_bg, color_finished_fg, color_finished_bg, 
+#            
+#
+# Nice example-config: color_inactive_fg = 4
+#                      color_dead_fg = 1
+#                      color_active_fg = 3
+#                      color_finished_fg = 2
+#
+# Explanation:
+#  Inactive: Deactivated torrent
+#  Dead:     Active but can't find seeders
+#  Active:   Active and downloading
+#  Finished: Download done
+#
+#  If the torrent is highlighted (using bold text) you're uploading data
+#
+# Colors: 0 = black 1 = red 2 = green 3 = yellow 4 = blue 5 = magenta 6 = cyan 7 = white
+#color_inactive_fg = 7
+#color_dead_fg = 1
+#color_active_fg = 2
+#color_finished_fg = 5
+
+# Keyboard bindings
+# Ctrl-q    Quit application
+# Ctrl-s    Start download. Runs hash first unless already done.
+# Ctrl-d    Stop an active download or remove a stopped download
+# Ctrl-k    Stop and close the files of an active download.
+# Ctrl-r    Initiate hash check of torrent. Starts downloading if file is not available.
+# Ctrl-o    Specify the download directory for a added, but not started torrent.
+# Left      Returns to the previous screen
+# Right     Goes to the next screen
+# Backspace Adds and starts the specified *.torrent
+# Return    Adds and doesn't start the specified *.torrent
+# a|s|d     Increase global upload throttle about 1|5|50 KB/s
+# A|S|D     Increase global download throttle about 1|5|50 KB/s
+# z|x|c     Decrease global upload throttle about 1|5|50 KB/s
+# Z|X|C     Decrease global download throttle about 1|5|50 KB/s
+
+# Maximum and minimum number of peers to connect to per torrent.
+min_peers = 12
+max_peers = 20
+
+# Same as above but for seeding completed torrents (-1 = same as downloading)
+min_peers_seed = 2
+max_peers_seed = 10
+
+# Maximum number of simultanious uploads per torrent.
+max_uploads = 6
+
+# Global upload and download rate in KiB. "0" for unlimited.
+download_rate = 300
+upload_rate = 30
+
+# Default directory to save the downloaded torrents.
+directory = ~/downloads/rtorrent/
+
+# Default session directory. Make sure you don't run multiple instance
+# of rtorrent using the same session directory. Perhaps using a
+# relative path?
+session = ~/downloads/rtorrent/.session/
+
+# Watch a directory for new torrents, and stop those that have been
+# deleted.
+schedule = watch_directory,5,5,"load.start=~/downloads/rtorrent/.watch/*.torrent"
+schedule = untied_directory,5,5,stop_untied=
+schedule = tied_directory,5,5,start_tied=
+schedule = bind_collapse,0,0,"ui.bind_key=download_list,*,view.collapsed.toggle="
+#system.method.insert = pyro.extended, value|const, 1
+
+# Close torrents when diskspace is low.
+#schedule = low_diskspace,5,60,close_low_diskspace=100M
+
+# The ip address reported to the tracker.
+#ip = 127.0.0.1
+#ip = rakshasa.no
+
+# The ip address the listening socket and outgoing connections is
+# bound to.
+#bind = 127.0.0.1
+#bind = rakshasa.no
+
+# Port range to use for listening.
+port_range = 49164-49164
+
+# Start opening ports at a random position within the port range.
+#port_random = no
+
+# Check hash for finished torrents. Might be usefull until the bug is
+# fixed that causes lack of diskspace not to be properly reported.
+check_hash = yes
+
+# Set whether the client should try to connect to UDP trackers.
+#use_udp_trackers = yes
+
+# Alternative calls to bind and ip that should handle dynamic ip's.
+#schedule = ip_tick,0,1800,ip=rakshasa
+#schedule = bind_tick,0,1800,bind=rakshasa
+
+# Encryption options, set to none (default) or any combination of the following:
+encryption = require,require_RC4,allow_incoming,try_outgoing
+#
+# The example value allows incoming encrypted connections, starts unencrypted
+# outgoing connections but retries with encryption if they fail, preferring
+# plaintext to RC4 encryption after the encrypted handshake
+#
+# encryption = allow_incoming,enable_retry,prefer_plaintext
+
+# Enable DHT support for trackerless torrents or when all trackers are down.
+# May be set to "disable" (completely disable DHT), "off" (do not start DHT),
+# "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
+# The default is "off". For DHT to work, a session directory must be defined.
+# 
+dht = auto
+
+# UDP port to use for DHT. 
+# 
+dht_port = 6881
+
+# Enable peer exchange (for torrents not marked private)
+#
+#peer_exchange = yes
+
+# UI/VIEW: Colors
+ui.color.alarm.set="bold white on red"
+ui.color.complete.set="blue"
+ui.color.even.set=""
+ui.color.focus.set="reverse"
+ui.color.footer.set="white"
+ui.color.incomplete.set="yellow"
+ui.color.info.set="white"
+ui.color.label.set="gray"
+ui.color.leeching.set="bold bright yellow"
+ui.color.odd.set=""
+ui.color.progress0.set="red"
+ui.color.progress20.set="bold bright red"
+ui.color.progress40.set="bold bright magenta"
+ui.color.progress60.set="yellow"
+ui.color.progress80.set="bold bright yellow"
+ui.color.progress100.set="green"
+ui.color.progress120.set="bold bright green"
+ui.color.queued.set="magenta"
+ui.color.seeding.set="bold bright green"
+ui.color.stopped.set="blue"
+ui.color.title.set="bold gray"

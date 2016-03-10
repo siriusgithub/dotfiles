@@ -1,0 +1,239 @@
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 0.1.3
+#
+# If you edit this, do not forget to uncomment any lines that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h 
+# The XK_ is not needed. 
+#
+# List of modifier (on my keyboard): 
+#   Control, Shift, Mod1 (Alt), Mod2 (NumLock), 
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll). 
+#
+# Another way to specifie a key is to use 'xev' and set the 
+# keycode with c:nnn or the modifier with m:nnn where nnn is 
+# the keycode or the state returned by xev 
+#
+# This file is created by xbindkey_config 
+# The structure is : 
+# # Remark 
+# "command" 
+# m:xxx + c:xxx 
+# Shift+... 
+
+
+
+
+#keystate_numlock = enable
+#keystate_scrolllock = enable
+#keystate_capslock = enable
+
+
+
+#colourtemp def
+"redshift -O 6500"
+    m:0x40 + c:58
+    Mod4 + m 
+
+#colourtemp day
+"redshift -O 4500"
+    m:0x40 + c:59
+    Mod4 + comma 
+
+#colourtemp night
+"redshift -O 3000"
+    m:0x40 + c:60
+    Mod4 + period 
+
+#toggle invert colours
+"xcalib -invert -alter"
+    m:0x40 + c:61
+    Mod4 + slash 
+
+#rotate screen
+"scripts/rotatescreen/rotate.sh"
+    m:0x40 + c:51
+    Mod4 + backslash 
+
+#Qwerty
+"setxkbmap us -option ctrl:nocaps"
+    m:0x40 + c:115
+    Mod4 + End 
+
+#Colemak
+"xmodmap .Xmodmap && setxkbmap us -variant colemak -option ctrl:nocaps"
+    m:0x40 + c:110
+    Mod4 + Home 
+
+#clip
+"termite -e "vim clip""
+    m:0x21 + c:38
+    Shift+Mod3 + a 
+
+#mpc toggle
+"mpc toggle"
+    m:0x0 + c:172
+    XF86AudioPlay 
+
+#zelda goddess
+"scripts/zeldapomodoro/goddess.sh"
+    m:0x40 + c:26
+    Mod4 + f 
+
+#xfce4-terminal
+"xfce4-terminal"
+    m:0x20 + c:36
+    Mod3 + Return 
+
+#vim
+"termite -e vim --geometry=560x400"
+    m:0x40 + c:55
+    Mod4 + v 
+
+#xclip to ~/clip
+"(echo; printf \"\"; echo; xclip -o -selection clipboard; echo) >> ~/clip"
+    m:0x20 + c:38
+    Mod3 + a 
+
+#Cool Retro Term
+"cool-retro-term"
+    m:0x28 + c:36
+    Alt+Mod3 + Return 
+
+#xbindkeys
+"xbindkeys_config"
+    m:0x40 + c:53
+    Mod4 + x 
+
+#blurlock
+". ~/scripts/blurlock.sh"
+    m:0x8 + c:51
+    Alt + backslash 
+
+#Scrot
+"scrot -e 'mv $f ~/scrot'"
+    m:0x30 + c:40
+    Mod2+Mod3 + s 
+
+#screenshot imgur
+"imgur-screenshot -f"
+    m:0x20 + c:46
+    Mod3 + i 
+
+#screenshot imgur (selection)
+"imgur-screenshot"
+    m:0x21 + c:40
+    Shift+Mod3 + s 
+
+#screenshot local
+"scrot -e 'mv $f ~/scrot/'"
+    m:0x0 + c:107
+    Print 
+
+#youtube-dl
+"notify-send "$ youtube-dl" && termite -e ~/scripts/ytdl.sh && notify-send "youtube-dl complete""
+    m:0x21 + c:32
+    Shift+Mod3 + y 
+
+#xtrlock
+"xtrlock"
+    m:0x28 + c:51
+    Alt+Mod3 + backslash 
+
+#blacklock
+"i3lock -c 000000"
+    m:0x9 + c:51
+    Shift+Alt + backslash 
+
+#ALSA mute toggle
+"amixer set Master toggle"
+    m:0x0 + c:121
+    XF86AudioMute 
+
+#ALSA raise volume
+"amixer set Master 5%+"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume 
+
+#ALSA lower volume
+"amixer set Master 5%-"
+    m:0x0 + c:122
+    XF86AudioLowerVolume 
+
+#mpc next
+"mpc next"
+    m:0x10 + c:171
+    Mod2 + XF86AudioNext 
+
+#mpc prev
+"mpc prev"
+    m:0x10 + c:173
+    Mod2 + XF86AudioPrev 
+
+#mpc raise volume
+"mpc volume +5"
+    m:0x18 + c:69
+    Alt+Mod2 + F3 
+
+#mpc lower volume
+"mpc volume -5"
+    m:0x18 + c:68
+    Alt+Mod2 + F2 
+
+#mpc toggle
+"mpc toggle"
+    m:0x30 + c:65
+    Mod2+Mod3 + space 
+
+#ncmpcpp
+"termite -e ncmpcpp"
+    m:0x20 + c:58
+    Mod3 + m 
+
+#Start Jack
+"jack_control start"
+    m:0x31 + c:29
+    Shift+Mod2+Mod3 + j 
+
+#Stop Jack
+"jack_control stop"
+    m:0x30 + c:29
+    Mod2+Mod3 + j 
+
+#gpick
+"gpick"
+    m:0x20 + c:54
+    Mod3 + c 
+
+#screenshot paste
+". ~/scripts/screenshot.sh"
+    m:0x20 + c:40
+    Mod3 + s 
+
+#mpc next
+"mpc next"
+    m:0x20 + c:60
+    Mod3 + period 
+
+#mpc prev
+"mpc prev"
+    m:0x20 + c:59
+    Mod3 + comma 
+
+#mpv clip
+"mpv $(xclip -o)"
+    m:0x20 + c:32
+    Mod3 + y 
+
+#mpc append
+"muss -a"
+    m:0x20 + c:61
+    Mod3 + slash 
+
+#
+# End of xbindkeys configuration

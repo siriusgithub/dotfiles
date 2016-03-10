@@ -1,0 +1,5 @@
+#!/bin/bash
+while true; do
+   dd if=/dev/sdb5 iflag=direct count=1 of=/dev/null
+   sleep 60
+done

@@ -1,0 +1,75 @@
+@namespace html url(http://www.w3.org/1999/xhtml);
+
+/*----- SITES TO EXCLUDE -----*/
+
+@-moz-document regexp("^(?!(https:\/\/www\.google\.ca\/maps)).*") {
+@-moz-document regexp("^(?!(http:\/\/play\.typeracer\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.google\)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.reddit\)).*") {
+@-moz-document regexp("^(?!(https:\/\/mail\.google\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.facebook\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/www\.youtube\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/soundcloud\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/imgur\.com)).*") {
+@-moz-document regexp("^(?!(http:\/\/www\.imdb\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/xkcd\.com)).*") {
+@-moz-document regexp("^(?!(http:\/\/i3wm)).*") {
+@-moz-document regexp("^(?!(https:\/\/imgur\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/pelvis89\.imgur\.com)).*") {
+@-moz-document regexp("^(?!(http:\/\/5digits\.org)).*") {
+@-moz-document regexp("^(?!(http:\/\/en\.wikipedia\.org)).*") {
+@-moz-document regexp("^(?!(https:\/\/drive\.google\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/thepiratebay)).*") {
+@-moz-document regexp("^(?!(https:\/\/kat)).*") {
+@-moz-document regexp("^(?!(https:\/\/discordapp\.com)).*") {
+/*@-moz-document regexp("^(?!(https:\/\/stackexchange)).*") {
+@-moz-document regexp("^(?!(http:\/\/stackexchange)).*") {
+@-moz-document regexp("^(?!(https:\/\/stackoverflow\.com)).*") {
+@-moz-document regexp("^(?!(https:\/\/superuser\.com)).*") {*/
+
+
+/*----- DEFAULT TEXT, BORDER & BACKGROUND COLORS -----*/
+
+* {
+  border: none !important;
+  text-shadow: none !important;
+  border-radius: 0px !important;
+}
+
+body {
+  font-family: tamsyn !important;
+  font-size: 9pt !important;
+}
+
+p {
+  font-family: tamsyn !important;
+  font-size: 9pt !important;
+}
+
+div {
+  font-family: tamsyn !important;
+  font-size: 9pt !important;
+}
+
+pre code {
+  font-family: tamsyn !important;
+  font-size: 8pt !important;
+  font-size-adjust: 1 !important;
+}
+
+code {
+  font-family: tamsyn !important;
+  font-size: 9pt !important;
+}
+
+input,
+input *,
+.input * {
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+}
+
+/*::-moz-placeholder {
+  color: #444 !important;
+  opacity: 1 !important;
+}*/
