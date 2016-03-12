@@ -1,6 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Ranger
-Exec=termite -e ranger %f
-MimeType=inode/directory;
