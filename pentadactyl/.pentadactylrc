@@ -25,16 +25,16 @@
   map -b  s                 <pass-all-keys>
 
 " Faster scrolling
-  nmap -b j                9<Down>
-  nmap -b k                9<Up>
-  nmap -b h                9<Left>
-  nmap -b l                9<Right>
-  nmap -b J                 <Down>
-  nmap -b K                 <Up>
-  nmap -b H                 <Left>
-  nmap -b L                 <Right>
-  nmap -b <c-y>            9<c-y>
-  nmap -b <c-e>            9<c-e>
+  nmap -b j                7<Down>
+  nmap -b k                7<Up>
+  nmap -b h                7<Left>
+  nmap -b l                7<Right>
+  nmap -b J                2<Down>
+  nmap -b K                2<Up>
+  nmap -b H                2<Left>
+  nmap -b L                2<Right>
+  nmap -b <c-y>            7<c-y>
+  nmap -b <c-e>            7<c-e>
 
 " Tab keybinds
 " Reverse tab close (d closes and focuses left)

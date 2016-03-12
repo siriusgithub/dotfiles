@@ -61,14 +61,24 @@
     Mod4 + backslash 
 
 #Qwerty
-"setxkbmap us -option ctrl:nocaps"
+"setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmap"
     m:0x40 + c:115
     Mod4 + End 
 
+#Qwerty-Copy
+"setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmap"
+    m:0x20 + c:10
+    Mod3 + 1 
+
 #Colemak
-"xmodmap .Xmodmap && setxkbmap us -variant colemak -option ctrl:nocaps"
+"setxkbmap us -variant colemak -option ctrl:nocaps && xmodmap .Xmodmap"
     m:0x40 + c:110
     Mod4 + Home 
+
+#Colemak-Copy
+"setxkbmap us -variant colemak -option ctrl:nocaps && xmodmap .Xmodmap"
+    m:0x20 + c:11
+    Mod3 + 2 
 
 #clip
 "termite -e "vim clip""

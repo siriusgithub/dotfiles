@@ -92,6 +92,7 @@ noremap <right> <nop>
 "-----------------------------------------------------------------------------
   nnoremap <Space> <Nop>
   nmap <space> <leader>
+  vmap <space> <leader>
 
   nnoremap <Leader>V :e ~/.vimrc<CR>
   nnoremap <Leader>N :e ~/notes<CR>

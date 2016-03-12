@@ -10632,3 +10632,307 @@ cd down
 cd downloads/
 ls
 vim i3config-f8l 
+conf xres
+r
+cd dotfiles/
+ls
+git init
+git add .
+ls
+git commit -m
+git commit -m "dots!"
+git remote add origin git@github.com:krompus/dotfiles.git
+git push -u origin master
+git remote add origin https://github.com/krompus/dotfiles.git
+git push -u origin master
+ls -al ~/.ssh
+ssh-keygen -t rsa -b 4096 -C "b.adam.martin@gmail.com"
+git remote add origin git@github.com:krompus/dotfiles.git
+git push -u origin master
+git remote add origin git@github.com:krompus/dotfiles.git
+r
+git push -u origin master
+cd
+cd .ssh/
+ls
+cat id_rsa
+cat id_rsa.pub 
+cd ../dotfiles/
+ls
+git push -u origin master
+weechat
+
+pkill weechat
+pkill weechat
+pkill weechat
+top
+ncmpcpp
+r
+r
+trash-empty 
+zsh
+vim .xinitrc
+r
+finger
+finger krompus
+scrot
+r
+cofi
+screenfetch
+r
+xrdb .Xresources 
+vim
+yt http://www.xvideos.com/video10910851/angel_serena
+conf penta
+r
+vi3
+conf i3
+vim .vimrc
+r
+vim .vimrc
+r
+poo
+
+
+man mpc
+r
+r
+r
+r
+r
+r
+conf ranger
+vman mpv
+r
+yt http://spankbang.com/b84n/video/lindsey+woods
+yt http://spankbang.com/b84n/video/lindsey+woods
+yt http://spankbang.com/fkwn/video/keeps+having+orgasms
+r
+r
+r
+cofi
+conf termite
+yaourt input font
+cd downloads/
+wine WoWS_internet_install_na.exe 
+top
+cd downloads/
+wine WoWS_internet_install_na.exe 
+top
+cd downloads/
+wine WoWS_internet_install_na.exe 
+r
+env WINEPREFIX="/home/krompus/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/krompus/.wine/dosdevices/c:/users/Public/Desktop/World\\ of\\ Warships.lnk
+r
+winetricks 
+winecfg 
+winetricks d3dx9
+winetricks d3dcompiler_43
+regedit 
+cd downloads/
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+wine --debug WoWS_internet_install_na.exe > log.txt
+man wine
+winedbg WoWS_internet_install_na.exe > log.txt
+winedbg WoWS_internet_install_na.exe
+top
+r
+r
+git init
+git add README.md
+vim README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:krompus/krompus.github.io.git
+git push -u origin master
+ls
+
+vim krompus.html 
+conf penta
+fg 11642
+pkill 11642
+kill -9 11642
+weechat
+r
+r
+rtorrent
+rtorrent
+rtorrent
+mkcd code
+vim ex3.py
+python2 ex3.py 
+vim ex3.py
+vim /etc/pacman.d/mirrorlist
+compton --config ~/.config/compton/compton.conf -b &
+compton --config ~/.config/compton/compton.conf -b &
+pkill compton
+compton --config ~/.config/compton/compton.conf -b
+compton --config ~/.config/compton/compton.conf -b
+compton --config ~/.config/compton/compton.conf -b
+ya
+uname -r
+top
+vim .xinitrc
+r
+reboot
+top
+compton --config ~/.config/compton/compton.conf -b
+vim .xinitrc
+vim .xinitrc
+xcape -t 150 &
+compton
+compton --config ~/.config/compton/compton.confairblader -b
+compton
+compton -b
+cd downloads/
+wine WoWS_internet_install_na.exe 
+r
+pkill WoWSLauncher.ex 
+pkill WoWSLauncher.ex 
+cd downloads/
+wine WoWS_internet_install_na.exe 
+cd downloads/
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+cd downloads/
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+cd downloads/
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+r
+r
+cd downloads/
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+winetricks vcrun2008
+winetricks msxml6
+winetricks dotnet3.5sp1
+winetricks
+winetricks
+r
+wine --version
+yaourt wine
+wine uninstaller --remove '{E45D8920-A758-4088-B6C6-31DBB276992E}'
+wine "c:\\windows\\Microsoft.NET\\Framework\\v2.0.50727\\ngen.exe" update
+yaourt steamcurses
+steamcurses
+steamcurses
+steamcurses
+steamcurses -h
+steamcurses -w ~/.wine/drive_c/Program\ Files\ \(x86\)//Steam/steamapps//common/
+steamcurses -w ~/.wine/drive_c/Program\ Files\ \(x86\)//Steam/steamapps//common/
+steamcurses -w ~/.wine/drive_c/Program\ Files\ \(x86\)//Steam/steamapps/
+steamcurses -w ~/.wine/drive_c/Program\ Files\ \(x86\)//Steam/
+steamcurses -w ~/.wine/drive_c/Program\ Files\ \(x86\)//Steam//steamapps/
+cd
+vim .steamcurses/steamcurses.conf 
+steamcurses -w ~/.wine/drive_c/Program\ Files\ \(x86\)//Steam//steamapps/
+vim .weechat/weechat.conf 
+cd .weechat/
+vim exec.conf 
+grep * freenode
+grep -r freenode
+grep -r linuxmasterrace
+grep -r linuxmasterrace autojoin
+grep -r linuxmasterrace;autojoin
+ls
+vim irc.conf
+cd .weechat/
+vim irc.conf
+cd downloads/
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+cd downloads/
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+r
+pkill WoWSLauncher.ex 
+tp
+top
+cd .weechat/
+vim irc.conf
+cofi
+trash-list
+trash-empty 
+conf bash
+r
+top
+trash-empty 
+conf ranger
+r
+rtorrent
+cd downloads/
+winetricks WoWS_internet_install_na.exe 
+r
+rr
+r
+wine WoWS_internet_install_na.exe 
+pkill WoWSLauncher.ex 
+wine WoWS_internet_install_na.exe 
+cd downloads/
+cd ..
+cd desktop/
+ls
+./'World of Warships.desktop' 
+cd ../.wine/
+ls
+cd drive_c//Games//World_of_Warships/
+ls
+wine WorldOfWarships.exe 
+top
+vi3
+conf i3
+cd ../.wine/
+cd .wine/
+cd
+ls
+r
+conf i3
+conf i3
+top
+top
+pkill wineserver 
+pkill worldofwarships 
+xmodmap .Xmodmap && setxkbmap us -option ctrl:nocaps
+xmodmap .Xmodmap && setxkbmap us -option ctrl:nocaps
+xmodmap .Xmodmap && setxkbmap us -option ctrl:nocaps
+setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmap
+vim .xinitrc
+weechat
+weechat
+weechat
+r
+r
+trash-list
+trash-empty 
+r
+r
+r
+r
+r
+top
+asdfsdafasdf;lkj1asdf;lkjasdf2asdf;lkjasdfasdf2asdf;lkjjasdfasdfasdfasdfarsttarstarstoiennoienarstioenarstioennasdf;lkjjasdf;lkjjasdflkjasdf;lkjjasdfl;kjfasdf;lkj1asdf;lkjjasdf;lkjj
+arstoiennarisetnnriosten
+asdfsdafasdf;lkj1asdf;lkjasdf2asdf;lkjasdfasdf2asdf;lkjjasdfasdfasdfasdfarsttarstarstoiennoienarstioenarstioennasdf;lkjjasdf;lkjjasdflkjasdf;lkjjasdfl;kjfasdf;lkj1asdf;lkjjasdf;lkjj
+reboot
+vim
+cd backups/
+ls
+cd /var/cache/pacman/pkg
+pacman -U firefox-44.0.2-2-x86_64.pkg.tar.xz 
+sudo pacman -U firefox-44.0.2-2-x86_64.pkg.tar.xz 
+conf i3
+vim /etc/pacman.conf
+ya
+sudo pacman -S xorg-server
+sudo pacman -Sc xorg-devel
+sudo pacman -S xorg-devel
+sudo pacman -S xorg-server-devel 
+sudo nvidia-settings 
+sudo nvidia-settings 
+sudo nvidia-settings 
+conf termite
+r
+conf i3

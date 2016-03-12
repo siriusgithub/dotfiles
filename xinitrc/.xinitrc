@@ -37,10 +37,11 @@ fi
 xrdb ~/.Xresources &
 xbanish &
 nitrogen --restore
-compton --config ~/.config/compton/compton.conf -b &
+#compton --config ~/.config/compton/compton.conf -b &
+compton -b &
 xset r rate 150 25 &
+setxkbmap us -variant colemak -option ctrl:nocaps
 xmodmap ~/.Xmodmap &
-setxkbmap us -variant colemak -option ctrl:nocaps &
 caffeine &
 udiskie -N -s &
 dunst &
@@ -48,7 +49,5 @@ mpd &
 xcape -t 150 &
 keynav &
 xbindkeys &
-#cadence-session-start -s
-#qjackctl &
 
 exec i3

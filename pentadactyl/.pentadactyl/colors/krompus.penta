@@ -6,35 +6,33 @@
 " 
 " [Work in Progress]
 
+" Textboxes while editing with vim.
 hi -l EditorEditing EditorEditing>* background-color: #220707 !important; color: #c41f0c !important;
 hi -l EditorBlink1 color: #0B9CF9 !important;
 hi -l EditorBlink2 color: #0B9CF9 !important;
-"hi -l=s_base03,s_red_back EditorError
 
-hi -a StatusLineNormal			       border-top: 1px normal #343434;
-hi -a StatusLineNormal						 background: #009900 repeat scroll 0 0 transparent;
-
+" Status Line
+hi -a StatusLineNormal border-top: 1px normal #343434;
+hi -a StatusLineNormal background: #009900 repeat scroll 0 0 transparent;
+hi -a StatusLine			 font-weight: normal; font-family: tamsyn !important;
+hi -a StatusLine		   color: #ffffff; font-size: 9pt !important; 
 hi -l StatusLineNormal StatusLineSecure     background: #080808 !important;
 hi -l StatusLineNormal StatusLineExtended   background: #100D14 !important;
 hi -l StatusLineNormal StatusLine[selected]
 hi -l StatusLineNormal StatusLineBroken     background: #120605 !important;
 
-hi -a StatusLine									 font-weight: normal; font-family: tamsyn !important;
-hi -a StatusLine									 color: #ffffff; font-size: 9pt !important; 
-hi -l StatusLine StatusCmdLine
+" Toolbar Text  
+hi -a StatusModeMsg    padding-left: 28px !important;
+hi -a StatusModeMsg    color: #2feddd; background: #1C2131;
 
-"TEXT IN TULBAR 
-hi -a StatusModeMsg                padding-left: 28px !important;
-hi -a StatusModeMsg                color: #2feddd; background: #1C2131;
-
-hi -a StatusErrorMsg               color: #ff0000 !important; text-shadow: 0 0 0px #666666;
+hi -a StatusErrorMsg   color: #ff0000 !important; text-shadow: 0 0 0px #666666;
 hi -l StatusErrorMsg   StatusWarningMsg 
 hi -l StatusErrorMsg   StatusQuestion 
 hi -l StatusErrorMsg   StatusInfoMsg 
-hi -a StatusInfoMsg                color: #24E000 !important;
+hi -a StatusInfoMsg    color: #24E000 !important;
 hi -l StatusInfoMsg StatusMoreMsg
 
-"INFO MESSAGES
+" Message
 hi -a ModeMsg											 color: #00E0BF; background: #0d0c0c !important;
 hi -a ModeMsg											 padding: 0.2em;
 hi -a ModeMsg											 border-top: none !important;
@@ -49,10 +47,11 @@ hi -l Question WarningMsg ErrorMsg color: #ff0000;
 hi -a CmdErrorMsg									 color: #ff0000;
 hi -a CmdWarningMsg								 color: #e55e23;
 
-"IFRAME
+" Iframe
 hi -a Events                       border-bottom: none !important;
 hi -a Events                       background: #121212;
-"WRAPPERS ITEMS AND TITLE
+
+" Wrappers, items and style
 hi -a Normal											 color: #ffffff; background: #0d0d0c;
 
 hi -a CompGroup                    color: inherit; background: transparent;
@@ -61,7 +60,8 @@ hi -a CompGroup                    border-left:  none; -moz-border-radius-toplef
 hi -a CompGroup                    border-right: none; -moz-border-radius-topright: 0px;
 
 hi -a Completions                  
-"TITLE
+
+" Title
 hi -a Title												 color: #ff5555; background-color: transparent; 
 hi -a Title												 padding: 0px 5px;
 hi -a Title												 font-weight: normal; font-family: tamsyn; 
@@ -71,7 +71,8 @@ hi -a CompTitle                    background: 00FF00;
 hi -a CompTitle                    font-family: tamsyn; font-size: 9pt; text-align: left;
 hi -a CompTitle>*                  padding-left: 40px;
 hi -a CompTitleSep								 height: 0px;
-"ITEM
+
+" Item
 hi -a CompItem                     font-family: tamsyn;
 hi -a CompItem                     font-size: 9pt;
 hi -a CompItem:nth-child(2n+1)     background: inherit;
@@ -88,16 +89,20 @@ hi -l CompDesc CompResult
 hi -a CompResult									 width: 50%;
 hi -a CompResult									 border-right: 5px solid;
 hi -a CompResult									 -moz-border-right-colors: transparent transparent transparent transparent;
-"MESSAGES IN IFRAME
+
+"Messages in iframe
 hi -a CompMsg											 background: transparent;
 hi -a CompMsg											 font-style: tamsyn; font-size: 9pt;
-"ARROW NAVIGATION
+
+"Arrow navigation
 hi -a CompLess										 text-align: center; height: 0; line-height: .5ex; padding-top: 1ex;
 hi -a CompMore										 text-align: center; height: .5ex; line-height: .5ex; margin-bottom: -.5ex;
-"IN ITEM RESULT
+
+"In item result
 hi -a Indicator				color: #2bef4s;
 hi -a Preview					color: gray;
-"IN DESCRIPTION ITEM
+
+"In description item
 hi -a Tag             color: #044C87;
 hi -a Keyword         color: #C51717;
 
@@ -105,19 +110,18 @@ hi -a Gradient				          height: 1px; margin-bottom: -1px; margin-top: -1px;
 hi -a GradientLeft							background-color: #121212;
 hi -a GradientRight							background-color: #121212;
 
-"DOWNLOAD
+"Download
 hi -a DownloadHead                 color: #AFD700
 hi -a DownloadSource               color: #FFA34C
 hi -a LinkInfo                     color: #FFFFFF
 hi -a Button                       color: #cccccc
 
-
+" Addon bar
 hi -a AddonName                    color: #FF5555; font-weight: bold;
 hi -a AddonVersion                 color: #ffffff
 hi -a AddonDescription             color: #888888
 hi -a AddonHead                    color: transparent;
 hi -a Enabled                      color: #2FEDDD; font-weight: bold;
-
 hi -a Link                      color: #2feddd;
 hi -l Link Link:not(:hover)>LinkInfo
 hi -l Link Message              color: #ffffff; 
@@ -127,6 +131,7 @@ hi -l Link LinkInfo	               color: #ffffff;
 hi -a URL				    text-decoration: none; color: #2feddd; background: inherit;
 hi -a URL:hover			text-decoration: none; cursor: pointer;
 
+hi -a CmdLine                      background: transparent !important;
 hi -a CmdCmdLine									 border:none;
 hi -a CmdNormal									   font-family: tamsyn;
 hi -a CmdNormal									   font-size: 9pt;
@@ -136,14 +141,15 @@ hi -a CmdNormal									   padding-top: 2px;
 "hi -a CmdInput										 
 "hi -a CmdOutput										 color: #0000FF;
 
-hi -a CmdModeMsg									 color: #ff00ff;
+hi -a CmdModeMsg									 color: transparent !important;
 hi -l CmdModeMsg CmdInfoMsg				
 hi -l CmdModeMsg CmdModeMsg				
 hi -l CmdModeMsg CmdQuestion				
 hi -l CmdModeMsg CmdPrompt				
 
 hi -a Search          font-family: tamsyn; font-size: 9pt !important; padding: 0; color: #FA6800 !important; background-color: transparent !important; padding: 0 !important;
-"NOTE: hint color 
+
+" Hints
 hi -a Hint						font-family: tamsyn !important; font-size: 12px !important; font-weight: bold !important;
 hi -a Hint						color: #2feddd !important; background-color: #0e0e0e !important; padding: 2px; border: none !important;
 hi -a Hint[active]		color: #c41f0c !important; background: #220707 !important; 
