@@ -18,7 +18,8 @@ PS1='\[\e[1;29m\][\u@\h \W]\$\[\e[0m\] '
 alias ....='cd ../../../'
 alias ...='cd ../../'
 alias ..='cd ..'
-alias 360='sudo xboxdrv --detach-kernel-driver --buttonmap 1=3,3=1,2=4,4=2,rt=start,lt=back,start=rt,back=lt --ui-buttonmap guide=KEY_LEFTSHIFT+KEY_TAB,rt=KEY_END,lt=KEY_G --detach --dbus disabled --daemon'
+alias 360='gksudo "xboxdrv --detach-kernel-driver --buttonmap 1=3,3=1,2=4,4=2,rt=start,lt=back,start=rt,back=lt --ui-buttonmap guide=KEY_LEFTSHIFT+KEY_TAB,rt=KEY_END,lt=KEY_G --detach --dbus disabled --daemon"'
+alias k360='gksudo "kill -9 xboxdrv"'
 alias :q='exit'
 alias ISS='mpv http://www.ustream.tv/channel/live-iss-stream'
 alias balc='sh ~/scripts/bashcalc.sh'
@@ -27,12 +28,12 @@ alias catl='lolcat'
 alias cd..='cd ..'
 alias celeryman='mpv ~/scripts/celeryman/celeryman.mp4'
 alias colemak='xmodmap .Xmodmap && setxkbmap us -variant colemak -option ctrl:nocaps'
-alias cofi='sleep 8m && notify-send "COFI!  " &'
+alias cofi='notify-send "COFI!  " && sleep 8m && notify-send "COFI!  " &'
 alias delsym='find . -maxdepth 1 -type l -exec trash-put {} \;'
 alias dir='ls --color=auto'
 alias delswp='find ./ -type f -name "\.*sw[klmnop]" -delete'
 alias edit='vim'
-alias f='find . |grep '
+#alias f='find . |grep '
 alias brutaldoom='cd .config/gzdoom && gzdoom brutalv20b.pk3 DoomMetalVol4.wad'
 alias h='history|grep '
 alias j='jobs -l'
@@ -42,6 +43,7 @@ alias m='ncmpcpp'
 alias pacmake='makepkg -fcsi'         # Make package from PKGBUILD file in current directory
 alias py='python'
 alias r='source $(which ranger)'
+alias rem='echo \!! >> ~/.histrem'
 alias rr='ranger'
 alias s='s -p duckduckgo'
 # zsh seach
@@ -50,9 +52,51 @@ alias sernix='steam steam://connect/216.131.79.171:27015'
 alias stahp='echo STAHP | toilet --gay'
 alias steam-wine='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe >/dev/null 2>&1 &'
 alias t='task'
+alias tron='ssh sshtron.zachlatta.com'
 alias um='udiskie-umount --detach'
 alias vis='vim "+set si"'
 alias yt='youtube-dl $(xclip -o)'
+alias mus='xdg-open "$(locate -ir .mp3$ | fzf)"'
+
+# Functions
+
+farore() {
+    local st=0
+    if [[ $f ]]; then
+        cd "$f"; st=$?
+        unset f
+    else
+        f=$PWD
+    fi
+    return "$st"
+}
+
+fkill() {
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    kill -${1:-9} $pid
+  fi
+}
+
+note () {
+    # if file doesn't exist, create it
+    if [[ ! -f $HOME/.notes ]]; then
+        touch "$HOME/.notes"
+    fi
+
+    if ! (($#)); then
+        # no arguments, print file
+        cat "$HOME/.notes"
+    elif [[ "$1" == "-c" ]]; then
+        # clear file
+        printf "%s" > "$HOME/.notes"
+    else
+        # add all arguments to file
+        printf "%s\n" "$*" >> "$HOME/.notes"
+    fi
+}
 
 mkcd() {
   if [[ -z "$1" ]]
@@ -150,6 +194,7 @@ conf() {
     penta)     $EDITOR ~/.pentadactylrc ;;
     php)       sudo $EDITOR /etc/php5/apache2/php.ini ;;
     ranger)    $EDITOR ~/.config/ranger/rc.conf ;;
+    r)    $EDITOR ~/.config/ranger/rc.conf ;;
     sxhkd)     $EDITOR ~/.config/sxhkd/sxhkdrc ;;
     termite)   $EDITOR ~/.config/termite/config ;;
     tmux)      $EDITOR ~/.tmux.conf ;;
@@ -194,13 +239,29 @@ eval $(dircolors ~/.dircolors)
 # gruvbox 256 colours
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
+
 # export settings
+export CHEATCOLORS=true
 export RANGER_LOAD_DEFAULT_RC FALSE
 export EDITOR='vim'
 export HISTFILESIZE=
 export HISTSIZE=
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
 
 # Disable <C-s> freeze output
 #"stty -ixon
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

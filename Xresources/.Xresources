@@ -1,8 +1,8 @@
 ! Compile xft: Turn on/off double-buffering for xft (default enabled).  On
 ! URxvt*buffered: boolean
 ! Select the fonts to be used. This is a comma separated list of font names
-  URxvt*font: xft:gohufont:size=9
-  URxvt*boldFont: xft:gohufont:size=9
+  URxvt*font: xft:tamsyn:size=9
+  URxvt*boldFont: xft:tamsyn:size=9
   URxvt.letterSpace: 0
   URxvt*lineSpace: 1
   URxvt.geometry: 104x35
@@ -17,22 +17,21 @@
 ! Enabled modi
 ! rofi.modi:                           window,run,ssh
 ! ! Window opacity
- rofi.opacity:                        80
-! ! Window width
- rofi.width:                          18
+ rofi.opacity:                        85
+! ! Window width 8
+ rofi.width:                          8                     
 ! ! Number of lines
- rofi.lines:                          10
+ rofi.lines:                          15
 ! ! Number of columns
 ! rofi.columns:                        1
 ! ! Font to use
  rofi.font:                           tamsyn 9
 ! ! Use extended color scheme
  rofi.color-enabled:                  true
-! ! Color scheme for normal row
-!                                     bg      fg      bgalt   hlbg    hlfg
- rofi.color-normal:                   #000000,#ffffff,#000000,#404040,#ffffff
+! ! Color scheme for normal row       bg      fg      bgalt   hlbg    hlfg
+ rofi.color-normal:                   #000000,#ffffff,#121212,#452800,#ffa34c
 ! ! Color scheme for urgent row
- rofi.color-urgent:                   #330b0b,#ff3838,#330b0b,#e13b3b,#000000
+ rofi.color-urgent:                   #330b0b,#ff5555,#330b0b,#cc0000,#000000
 ! ! Color scheme for active row
  rofi.color-active:                   #1a2135,#23d3ff,#1a2135,#268bd2,#000000
 ! ! Color scheme window
@@ -40,21 +39,21 @@
 ! ! Border width
 ! rofi.bw:                             1
 ! ! Location on screen
- rofi.location:                       2
+ rofi.location:                       0
 ! ! Padding
 ! rofi.padding:                        5
 ! ! Y-offset relative to location
- rofi.yoffset:                        100
+ rofi.yoffset:                        0
 ! ! X-offset relative to location
  rofi.xoffset:                        0
 ! ! Always show number of lines
 ! rofi.fixed-num-lines:                false
 ! ! Terminal to use
-! rofi.terminal:                       rofi-sensible-terminal
+ rofi.terminal:                       termite
 ! ! Ssh client to use
-! rofi.ssh-client:                     ssh
+ rofi.ssh-client:                     ssh
 ! ! Ssh command to execute
-! rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+ rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
 ! ! Run command to execute
 ! rofi.run-command:                    {cmd}
 ! ! Command to get extra run targets
@@ -66,7 +65,7 @@
 ! ! Use levenshtein sorting
 ! rofi.levenshtein-sort:               false
 ! ! Set case-sensitivity
-! rofi.case-sensitive:                 false
+  rofi.case-sensitive:                 false
 ! ! Enable sidebar-mode
 ! rofi.sidebar-mode:                   false
 ! ! Set lazy filter limit
@@ -132,7 +131,7 @@
 ! ! Keybinding
 ! rofi.kb-move-char-forward:           Right,Control+f
 ! ! Keybinding
-! rofi.kb-remove-word-back:            Control+Alt+h
+  rofi.kb-remove-word-back:            Control+Alt+h,Control+w
 ! ! Keybinding
 ! rofi.kb-remove-word-forward:         Control+Alt+d
 ! ! Keybinding
@@ -164,9 +163,9 @@
 ! ! Keybinding
 ! rofi.kb-row-tab:                     Tab
 ! ! Keybinding
-! rofi.kb-page-prev:                   Page_Up
+  rofi.kb-page-prev:                   Control+b
 ! ! Keybinding
-! rofi.kb-page-next:                   Page_Down
+  rofi.kb-page-next:                   Control+f
 ! ! Keybinding
 ! rofi.kb-row-first:                   Home,KP_Home
 ! ! Keybinding
@@ -220,7 +219,7 @@
 ! ! Keybinding
 ! rofi.key-window: !Control+apostrophe           
 ! ! Keybinding
-! rofi.key-run: !Control+forwardslash                       
+  rofi.key-run:  Control+slash                       
 ! ! Keybinding
 ! rofi.key-ssh:                        
 !
@@ -234,7 +233,7 @@
  
 ! special
 *.foreground:   #e6e1dc
-*.background:   #202020
+*.background:   #060606
 URxvt*background: [73]#000000
 
 ! black
@@ -270,246 +269,31 @@ URxvt*background: [73]#000000
 *.color7:       #b6b6b6
 *.color15:      #f0f0f0
 
-! Use the specified colour to display bold or italic characters when the
-! URxvt*colorIT: colour
-
-! Use the specified colour to display underlined characters when the
-! URxvt*colorUL: #87FF00
-
-! If set, use the specified colour as the colour for the underline itself. If
-! URxvt*underlineColor: colour
-
-! True: simulate reverse video by foreground and background colours; option
-! URxvt*reverseVideo: boolean
-
-! True: specify that jump scrolling should be used. When receiving lots of
-! URxvt*jumpScroll: boolean
-
-! True: (the default) specify that skip scrolling should be used. When
-! URxvt*skipScroll: boolean
-
-! Fade the text by the given percentage when focus is lost; option -fade.
-! URxvt*fading: 12
-
-! Fade to this colour, when fading is used (see fading:). The default colour
-! URxvt*fadeColor: colour
-
-! Set the application icon pixmap; option -icon.
-! URxvt*iconFile: file
-
-! Use the specified colour for the scrollbar [default #B2B2B2].
   URxvt*scrollColor: #000000
-
-! Use the specified colour for the scrollbars trough area [default #969696].
-  URxvt*troughColor: #303030
-
-! The colour of the border around the text area and between the scrollbar and
-! URxvt*borderColor: colour
-
-! URxvt*boldFont: fontlist
-
-! URxvt*italicFont: fontlist
-
-! The font list to use for displaying bold, italic or bold italic characters,
-! URxvt*boldItalicFont: fontlist
-
-! When font styles are not enabled, or this option is enabled (True, option
-! URxvt*intensityStyles: boolean
-
-! Set window title string, the default title is the command-line specified
-! URxvt*title: string
-
-! Set the name used to label the windows icon or displayed in an icon manager
-! URxvt*iconName: string
-
-! True: de-iconify (map) on receipt of a bell character. False: no de-iconify
-! URxvt*mapAlert: boolean
-
-! True: set the urgency hint for the wm on receipt of a bell character.
   URxvt*urgentOnBell: true
-
-! True: use visual bell on receipt of a bell character; option -vb.  False: no
-! URxvt*visualBell: boolean
-
-! True: start as a login shell by prepending a - to argv[0] of the shell;
-! URxvt*loginShell: boolean
-
-! Specify the maximum time in milliseconds between multi-click select events.
-! URxvt*multiClickTime: number
-
-! True: inhibit writing record into the system log file utmp; option -ut.
-! URxvt*utmpInhibit: boolean
-
-! Specify a command pipe for vt100 printer [default lpr(1)]. Use Print to
-! URxvt*print-pipe: string
-
-! Set scrollbar style to rxvt, plain, next or xterm. plain is the authors
   URxvt*scrollstyle: plain
-
-! Set the scrollbar width in pixels.
   URxvt*thickness: 5
-
-! True: enable the scrollbar [default]; option -sb. False: disable the
   URxvt*scrollBar: false
-
-! True: place the scrollbar on the right of the window; option -sr.  False:
   URxvt*scrollBar_right: true
-
-! True: display an rxvt scrollbar without a trough; option -st.  False:
   URxvt*scrollBar_floating: true
-
-! Align the top, bottom or centre [default] of the scrollbar thumb with the
-! URxvt*scrollBar_align: mode
-
-! True: scroll to bottom when tty receives output; option -si.  False: do not
-! URxvt*scrollTtyOutput: boolean
-
-! True: scroll with scrollback buffer when tty receives new lines (i.e.  try
-! URxvt*scrollWithBuffer: boolean
-
-! True: scroll to bottom when a non-special key is pressed. Special keys are
-! URxvt*scrollTtyKeypress: boolean
-
-! Save number lines in the scrollback buffer [default 64]. This resource is
   URxvt*saveLines: 2000
-
-! Internal border of number pixels. This resource is limited to 100; option
   URxvt*internalBorder: 0
-
-! External border of number pixels. This resource is limited to 100; option
-! URxvt*externalBorder: number
-
-! Set MWM hints to request a borderless window, i.e. if honoured by the WM,
-! URxvt*borderLess: boolean
-
-! Compile frills: Disable the usage of the built-in block graphics/line
-! URxvt*skipBuiltinGlyphs: boolean
-
-! Specifies the terminal type name to be set in the TERM environment variable;
-! URxvt*termName: termname
-
-! True: handle Meta (Alt) + keypress to set the 8th bit. False: handle Meta
-! URxvt*meta8: boolean
-
-! True: the mouse wheel scrolls a page full. False: the mouse wheel scrolls
-! URxvt*mouseWheelScrollPage: boolean
-
-! True: store tabs as wide characters. False: interpret tabs as cursor
-! URxvt*pastableTabs: boolean
-
-! True: blink the cursor. False: do not blink the cursor [default]; option
-! URxvt*cursorBlink: boolean
-
-! True: Make the cursor underlined. False: Make the cursor a box [default];
-! URxvt*cursorUnderline: boolean
-
-! True: blank the pointer when a key is pressed or after a set number of
-! URxvt*pointerBlank: boolean
-
-! Mouse pointer foreground colour.
-! URxvt*pointerColor: colour
-
-! Mouse pointer background colour.
-! URxvt*pointerColor2: colour
-
-! Specifies number of seconds before blanking the pointer [default 2]. Use a
-! URxvt*pointerBlankDelay: number
-
-! The string to send when the backspace key is pressed. If set to DEC or unset
-! URxvt*backspacekey: string
-
-! The string to send when the delete key (not the keypad delete key) is
-! URxvt*deletekey: string
-
-! The characters used as delimiters for double-click word selection
-! URxvt*cutchars: string
-
-! URxvt*{|}
-
-! OverTheSpot, OffTheSpot, Root; option -pt.
-! URxvt*preeditType: style
-
-! name of inputMethod to use; option -im.
-! URxvt*inputMethod: name
-
-! The locale to use for opening the IM. You can use an "LC_CTYPE" of e.g.
-! URxvt*imLocale: name
-
-! Specify the font-set used for XIM styles "OverTheSpot" or "OffTheSpot". It
-! URxvt*imFont: fontset
-
-! Change the meaning of triple-click selection with the left mouse button.
-! URxvt*tripleclickwords: boolean
-
-! Enables "insecure" mode. Rxvt-unicode offers some escape sequences that echo
-! URxvt*insecure: boolean
-
-! Set the key to be interpreted as the Meta key to: alt, meta, hyper, super,
-! URxvt*modifier: modifier
-
-! Specify the reply rxvt-unicode sends to the shell when an ENQ (control-E)
-! URxvt*answerbackString: string
-
-! Turn on/off secondary screen (default enabled).
-! URxvt*secondaryScreen: boolean
-
-! Turn on/off secondary screen scroll (default enabled). If this option is
-! URxvt*secondaryScroll: boolean
-
-! Turn on/off hold window after exit support. If enabled, urxvt will not
-! URxvt*hold: boolean
-
-! Sets the working directory for the shell (or the command specified via -e).
-! URxvt*chdir: path
-
-! Compile frills: Associate action with keysym sym. The intervening resource
-! URxvt*keysym.sym: action
-
   URxvt*perl-ext-common: default,matcher,keyboard-select,vtwheel,clipboard,resize-font
   URxvt.url-launcher: /usr/bin/firefox
   URxvt.matcher.button: 1
   URxvt.keysym.Shift-M-u: perl:matcher:last
   URxvt.keysym.M-u: perl:matcher:list
   URxvt.keysym.M-Escape: perl:keyboard-select:activate
-! Comma-separated list(s) of perl extension scripts (default: "default") to
   URxvt*perl-ext: default,url-select
-
-! URxvt.keysym.c-k: perl:url-select:select_next
-! URxvt.url-select.launcher: /usr/bin/xdg-open
-! URxvt.url-select.underline: true
   URxvt.matcher.rend.0: Uline fg6
-! Perl code to be evaluated when all extensions have been registered. See the
-! URxvt*perl-eval: string
-
-! Colon-separated list of additional directories that hold extension scripts.
-! URxvt*perl-lib: path
-
-! Additional selection patterns, see the urxvtperl(3) manpage for details.
-! URxvt*selection.pattern-idx: perl-regex
-
-! Selection auto-transform patterns, see the urxvtperl(3) manpage for details.
-! URxvt*selection-autotransform.idx: perl-transform
-
-! This resource is deprecated and will be removed. Use a keysym resource
-! URxvt*searchable-scrollback: keysym *DEPRECATED*
-
-! Specifies the program to be started with a URL argument. Used by the
-! URxvt*url-launcher: string
-
-! Compile frills: Sets the WM_TRANSIENT_FOR property to the given window id.
-! URxvt*transient-for: windowid
-
-! Compile frills: Sets override-redirect for the terminal window, making it
-! URxvt*override-redirect: boolean
-
-! Turn on/off ISO 14755 (default enabled).
   URxvt*iso14755: false
-! Turn on/off ISO 14755 5.2 mode (default enabled).
-! urXVT*Iso14755_52: boolean
-
   URxvt.keysym.Shift-Control-C: perl:clipboard:copy
   URxvt.keysym.Control-V: perl:clipboard:paste
   URxvt.clipboard.copycmd:  xclip -i -selection clipboard
   URxvt.clipboard.pastecmd: xclip -o -selection clipboard
   URxvt.resize-font.smaller: C-minus
   URxvt.resize-font.bigger: C-equal
+
+xterm*faceName: Tamsyn:size=9:antialias=false
+xterm*font: 7x13
+xterm*boldfont: Tamsyn:size=9:antialias=false

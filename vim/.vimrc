@@ -11,10 +11,12 @@ call vundle#begin()
  Plugin 'ap/vim-css-color'
  Plugin 'beloglazov/vim-online-thesaurus'
  Plugin 'chrisbra/Colorizer'
+"Plugin 'etnadji/vim-epub'
  Plugin 'gmarik/Vundle.vim'
  Plugin 'haya14busa/vim-operator-flashy'
  Plugin 'itchyny/lightline.vim'
  Plugin 'jez/vim-superman'
+ Plugin 'junegunn/fzf'
  Plugin 'justinmk/vim-sneak'
  Plugin 'kana/vim-operator-user'
  Plugin 'kewah/vim-cssfmt'
@@ -33,7 +35,6 @@ call vundle#begin()
 "Plugin 'LanguageTool'
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'godlygeek/csapprox'
-"Plugin 'junegunn/fzf'
 "Plugin 'maxbrunsfeld/vim-yankstack'
 
 "Colourschemes
@@ -152,7 +153,7 @@ nnoremap <leader>ch :ColorToggle<CR>
 " Text display.
   syntax on                       " Syntax highlighting.
   set number                      " Shetow line numbers.
-  set textwidth=93                " Max line width.
+  set textwidth=92                " Max line width.
   set colorcolumn=+1              " Vertical line at textwidth.
 " set guicursor+=a:blinkon1       " Turn cursor blinking on.
 " set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
@@ -192,16 +193,16 @@ nnoremap <leader>ch :ColorToggle<CR>
 " set relativenumber
   set showcmd                     " Display incomplete commands
   set encoding=utf-8
-  set clipboard=unnamedplus,autoselect " Use + register (X Window clipboard) as unnamed register
+  set clipboard=unnamedplus "(autoselect) " Use + register (X Window clipboard) as unnamed register
 
 " Tidy swaps
-  set directory=$HOME/.vim/swap//
+  set directory=$HOME/.vim/swap/
   if !isdirectory(&directory)
     call mkdir(&directory)
   endif
 
 " Tidy backups
-  set backupdir=$HOME/.vim/backup//
+  set backupdir=$HOME/.vim/backup/
   if !isdirectory(&backupdir)
     call mkdir(&backupdir)
   endif
@@ -228,7 +229,7 @@ autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
 
 " Read-only pdf through pdftotext
 autocmd BufReadPre *.pdf silent set ro
-autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
+autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -87
 
 " Read-only rtf through unrtf
 autocmd BufReadPre *.rtf silent set ro
@@ -236,11 +237,14 @@ autocmd BufReadPost *.rtf silent %!unrtf --text
 
 " For jpegs
 autocmd BufReadPre *.jpg,*.jpeg silent set ro
-autocmd BufReadPost *.jpg,*.jpeg silent %!jp2a --width=78 "%"
+autocmd BufReadPost *.jpg,*.jpeg silent %!jp2a --width=87 "%"
 
 " For other image formats
 autocmd BufReadPre *.png,*.gif,*.bmp silent set ro
-autocmd BufReadPost *.png,*.gif,*.bmp silent %!convert "%" jpg:- | jp2a --width=78 -
+autocmd BufReadPost *.png,*.gif,*.bmp silent %!convert "%" jpg:- | jp2a --width=87 -
+
+" For epub
+au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 
 "-----------------------------------------------------------------------------
 " Custom commands

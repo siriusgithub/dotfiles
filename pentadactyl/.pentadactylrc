@@ -94,15 +94,15 @@
   nmap -b em :execute AddonManager.getAddonByID("44", a => a.userDisabled = !a.userDisabled);<CR>
   
 " Passkeys
-  set passkeys+=*:<Up><Down><Left><Right>
-" set passkeys+=mail.google.com:c/hmuenxsyDpjkrRIUdli?#!g{}[]m,gi,gs,gd,ga,zz,gp,gl
-  set passkeys+=mail.google.com:c/uenxsyDpkrRIUdli{}[]m,gi,gs,gd,ga,zz,gp,gl
-  set passkeys+=drive.google.com:c/hmuenxsyDpjkrRIUdli?#!<Left><Right><Up><Down>g{}[]m,gi,gs,gd,ga,zz,gp,gl,
-  set passkeys+=youtube.com/watch:fkjlpNPnm<>
-  set passkeys+=soundcloud.com:<Space>0123456789mjklrhp
-  set passkeys+=duckduckgo.com:kjhlsmv
-  set passkeys+=stylish-edit:qwfpgjluyarstdhneiozxcvbkm./<Esc>
-  set passkeys+=github.com:sncipwlicr,gc,gp,gw
+  set pk+=*:<Up><Down><Left><Right>
+" set pk+=mail.google.com:c/hmuenxsyDpjkrRIUdli?#!g{}[]m,gi,gs,gd,ga,zz,gp,gl
+  set pk+=mail.google.com:c/uenxsyDpkrRIUdli{}[]m,gi,gs,gd,ga,zz,gp,gl
+  set pk+=drive.google.com:c/hmuenxsyDpjkrRIUdli?#!<Left><Right><Up><Down>g{}[]m,gi,gs,gd,ga,zz,gp,gl,
+  set pk+=youtube.com/watch:fkjlpNPnm<>
+  set pk+=soundcloud.com:<Space>0123456789mjklrhp
+  set pk+=duckduckgo.com:kjhlsmv
+  set pk+=stylish-edit:qwfpgjluyarstdhneiozxcvbkm./<Esc>
+  set pk+=github.com:sncipwlicr,gc,gp,gw
   
 " Site settings
   :autocmd LocationChange 'https://docs.google.com/*'    :normal! gi
