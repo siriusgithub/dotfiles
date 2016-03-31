@@ -1,56 +1,57 @@
 "-----------------------------------------------------------------------------
 " Initialization
 "-----------------------------------------------------------------------------
-
 set nocompatible "choose no compatibility with legacy vi
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 "General
- Plugin 'ap/vim-css-color'
- Plugin 'beloglazov/vim-online-thesaurus'
- Plugin 'chrisbra/Colorizer'
-"Plugin 'etnadji/vim-epub'
- Plugin 'gmarik/Vundle.vim'
- Plugin 'haya14busa/vim-operator-flashy'
- Plugin 'itchyny/lightline.vim'
- Plugin 'jez/vim-superman'
- Plugin 'junegunn/fzf'
- Plugin 'justinmk/vim-sneak'
- Plugin 'kana/vim-operator-user'
- Plugin 'kewah/vim-cssfmt'
- Plugin 'mattn/gist-vim'
- Plugin 'mattn/webapi-vim'
- Plugin 'mbbill/undotree'
- Plugin 'myusuf3/numbers.vim'
- Plugin 'reedes/vim-lexical'
- Plugin 'reedes/vim-pencil'
- Plugin 'tpope/vim-eunuch'
- Plugin 'tpope/vim-repeat'
- Plugin 'tpope/vim-rsi'
- Plugin 'tpope/vim-surround'
- Plugin 'xolox/vim-misc'
-"Plugin 'KevinGoodsell/vim-csexact'
-"Plugin 'LanguageTool'
-"Plugin 'Yggdroot/indentLine'
-"Plugin 'godlygeek/csapprox'
-"Plugin 'maxbrunsfeld/vim-yankstack'
+ Plug 'ap/vim-css-color'
+ Plug 'beloglazov/vim-online-thesaurus'
+ Plug 'chrisbra/Colorizer'
+"Plug 'etnadji/vim-epub'
+ Plug 'gmarik/Vundle.vim'
+ Plug 'haya14busa/vim-operator-flashy'
+ Plug 'itchyny/lightline.vim'
+ Plug 'jez/vim-superman'
+ Plug 'junegunn/fzf'
+ Plug 'junegunn/goyo.vim'
+ Plug 'justinmk/vim-sneak'
+ Plug 'kana/vim-operator-user'
+ Plug 'kewah/vim-cssfmt'
+ Plug 'mattn/gist-vim'
+ Plug 'mattn/webapi-vim'
+ Plug 'mbbill/undotree'
+"Plug 'myusuf3/numbers.vim'
+ Plug 'reedes/vim-lexical'
+ Plug 'reedes/vim-pencil'
+ Plug 'tpope/vim-eunuch'
+ Plug 'tpope/vim-repeat'
+ Plug 'tpope/vim-rsi'
+ Plug 'tpope/vim-surround'
+ Plug 'xolox/vim-misc'
+"Plug 'KevinGoodsell/vim-csexact'
+"Plug 'LanguageTool'
+"Plug 'Yggdroot/indentLine'
+"Plug 'godlygeek/csapprox'
+"Plug 'maxbrunsfeld/vim-yankstack'
 
 "Colourschemes
- Plugin 'badwolf'
- Plugin 'lucy/term.vim'
- Plugin 'morhetz/gruvbox'
- Plugin 'noahfrederick/vim-noctu'
- Plugin 'noahfrederick/vim-hemisu'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'flazz/vim-colorschemes'
-"Plugin 'nanotech/jellybeans.vim'
-"Plugin 'tomasr/molokai'
-"Plugin 'whatyouhide/vim-gotham'
-"Plugin 'xolox/vim-colorscheme-switcher'
+ Plug 'romainl/apprentice'
+ Plug 'badwolf'
+ Plug 'chriskempson/base16-vim'
+ Plug 'lucy/term.vim'
+ Plug 'morhetz/gruvbox'
+ Plug 'noahfrederick/vim-noctu'
+ Plug 'noahfrederick/vim-hemisu'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'flazz/vim-colorschemes'
+"Plug 'nanotech/jellybeans.vim'
+"Plug 'tomasr/molokai'
+"Plug 'whatyouhide/vim-gotham'
+"Plug 'xolox/vim-colorscheme-switcher'
 
-call vundle#end()   " All plugins must be added before this line
+call plug#end()
 
 " Machine specific settings if they exist.
 silent! source ~/.vimrc-local
@@ -67,8 +68,8 @@ nnoremap <BS> <Nop>|nnoremap <Del> <Nop>
 "nnoremap <C-l> <C-w>l
 "nnoremap <C-n> gt
 "nnoremap <C-p> gT
-nnoremap <C-y> 2<C-y>
-nnoremap <C-e> 2<C-e>
+"nnoremap <C-y> 2<C-y>
+"nnoremap <C-e> 2<C-e>
 
 " Don't move around in insert mode
 inoremap <up> <nop>
@@ -102,7 +103,7 @@ noremap <right> <nop>
 
 set switchbuf=useopen,usetab
   nnoremap <Leader>b :ls<cr>:b<space>
-  nnoremap <Leader>l :NumbersToggle<CR>
+  nnoremap <Leader>tn :NumbersToggle<CR>
 
 " Diff
   nnoremap <silent> <Leader>dt :diffthis<CR>
@@ -124,17 +125,33 @@ set switchbuf=useopen,usetab
  nnoremap <leader>v V`]
 
 " New tab
- nnoremap <leader><Tab> :tabnew 
+ nnoremap <leader>o :tabnew 
 
-"search for trails and bad words
+" Search for trails and bad words
 nnoremap <leader>wb /\v(kkk<bar>:wq<bar>:q<bar>nigger<bar>shit<bar>fuck<bar>jjj?)<CR>
 
 " Format css
 nnoremap <silent> <leader>cs :Cssfmt<CR>
 vnoremap <silent> <leader>cs :CssfmtVisual<CR>
 
-"Highlight colors
-nnoremap <leader>ch :ColorToggle<CR>
+" Toggles
+" Goyo
+nnoremap <leader>tg :Goyo<CR>
+" Highlight colors
+nnoremap <leader>tc :ColorToggle<CR>
+
+" Pencil
+nnoremap <leader>tp :TogglePencil<CR>
+
+" Syntax
+:map <leader>ts :if exists("g:syntax_on") <Bar>
+  \   syntax off <Bar>
+  \ else <Bar>
+  \   syntax enable <Bar>
+  \ endif <CR>
+
+" Search highlight
+nnoremap <leader>th :noh <CR>
 
 "-----------------------------------------------------------------------------
 " Options
@@ -167,6 +184,7 @@ nnoremap <leader>ch :ColorToggle<CR>
   set expandtab                   " Use spaces, not tabs.
   set tabstop=2|set softtabstop=2 " Tabs = 2 spaces.
   set shiftwidth=2
+  set list lcs=trail:·,precedes:«,extends:»,eol:¬,tab:▸\ 
 
 " Editing.
   set autoindent
@@ -240,8 +258,8 @@ autocmd BufReadPre *.jpg,*.jpeg silent set ro
 autocmd BufReadPost *.jpg,*.jpeg silent %!jp2a --width=87 "%"
 
 " For other image formats
-autocmd BufReadPre *.png,*.gif,*.bmp silent set ro
-autocmd BufReadPost *.png,*.gif,*.bmp silent %!convert "%" jpg:- | jp2a --width=87 -
+"autocmd BufReadPre *.png,*.gif,*.bmp silent set ro
+"autocmd BufReadPost *.png,*.gif,*.bmp silent %!convert "%" jpg:- | jp2a --width=87 -
 
 " For epub
 au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
@@ -272,6 +290,31 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+
+"-----------------------------------------------------------------------------
+" Goyo
+"-----------------------------------------------------------------------------
+
+ let g:goyo_width = 90
+ let g:goyo_height = 90
+ let g:goyo_linenr = 0
+
+function! s:goyo_enter()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 "-----------------------------------------------------------------------------
 " Ranger
@@ -315,11 +358,11 @@ augroup lexical
   autocmd FileType text call lexical#init({ 'spell': 0 })
 augroup END
 
-let g:lexical#spelllang = ['en_ca', 'en_us', 'fr_ca']
+let g:lexical#spelllang = ['en_ca', 'en_us', 'fr']
 
 let g:lexical#spell_key = '<leader>ws'
 let g:lexical#dictionary_key = '<leader>wd'
-"let g:lexical#thesaurus_key = '<leader>t'
+"let g:lexical#thesaurus_key = '<leader>wt'
 
 
 "-----------------------------------------------------------------------------

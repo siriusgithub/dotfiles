@@ -11,7 +11,7 @@ do
         "C-i")
                 mv "$file" ~/images/ ;;
         "C-p")
-                mv "$file" ~/blue/.pr0n/ ;;
+                mv "$file" /mnt/blue/.pr0n/ ;;
         "C-r")
                 convert -rotate 90 "$file" "$file" ;;
         "C-c")

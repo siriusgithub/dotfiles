@@ -155,7 +155,7 @@ streaming() {
      GOP="30" # i-frame interval, should be double of FPS, 
      GOPMIN="15" # min i-frame interval, should be equal to fps, 
      THREADS="6" # max 6
-     CBR="2000k" # constant bitrate (should be between 1000k - 3000k)
+     CBR="3000k" # constant bitrate (should be between 1000k - 3000k)
      QUALITY="fast"  # one of the many FFMPEG preset
      AUDIO_RATE="44100"
      STREAM_KEY="live_79128495_JEiftPYCTpxw0TbH6tTS7kgk7TmZUE" # use the terminal command Streaming streamkeyhere to stream your video to twitch or justin

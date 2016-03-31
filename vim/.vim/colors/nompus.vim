@@ -1,4 +1,4 @@
-" krompus.vim; fork of noctu.vim - Vim color scheme for 16-color terminals
+" krompus.vim; fork of noctu.vim - Vim color scheme for 16-color terminals"{{{"}}}
 " --------------------------------------------------------------
 " Author:   Krompus (https://github.com/krompus)
 " Author:   Noah Frederick (http://noahfrederick.com/)
@@ -18,8 +18,7 @@ let colors_name="krompus"
 "}}}"}}}
 " Vim UI {{{
 hi Cursor              ctermfg=7     ctermbg=1
-"hi CursorLine          ctermbg=0     cterm=NONE
-hi CursorLine          ctermbg=0     cterm=NONE
+hi CursorLine          ctermbg=NONE  cterm=NONE
 hi MatchParen          ctermfg=7     ctermbg=NONE  cterm=underline
 hi Pmenu               ctermfg=15    ctermbg=0
 hi PmenuThumb          ctermbg=7
@@ -32,13 +31,13 @@ hi SpellRare           ctermfg=11    ctermbg=NONE  cterm=underline
 hi SpellLocal          ctermfg=13    ctermbg=NONE  cterm=underline
 hi NonText             ctermfg=8
 hi LineNr              ctermfg=8     ctermbg=NONE
-hi CursorLineNr        ctermfg=11    ctermbg=0
-hi Visual              ctermfg=0     ctermbg=1
+hi CursorLineNr        ctermfg=11    ctermbg=NONE
+hi Visual              ctermfg=0     ctermbg=9
 hi IncSearch           ctermfg=0     ctermbg=13    cterm=NONE
 hi Search              ctermfg=16     ctermbg=9
-hi StatusLine          ctermfg=7     ctermbg=0     cterm=bold
+hi StatusLine          ctermfg=7     ctermbg=1     cterm=bold
 "hi StatusLine          ctermfg=7     ctermbg=NONE     cterm=bold
-hi StatusLineNC        ctermfg=8     ctermbg=0     cterm=bold
+hi StatusLineNC        ctermfg=8     ctermbg=1     cterm=bold
 "hi StatusLineNC        ctermfg=8     ctermbg=NONE     cterm=bold
 hi VertSplit           ctermfg=0     ctermbg=0     cterm=NONE
 hi TabLine             ctermfg=8     ctermbg=0     cterm=NONE
@@ -73,24 +72,32 @@ hi! link SpecialKey    NonText
 
 "}}}
 " Generic syntax {{{
-hi Delimiter       ctermfg=7
+hi Delimiter       ctermfg=14
 hi Comment         ctermfg=8
 hi Underlined      ctermfg=4   cterm=underline
-hi Type            ctermfg=4
-hi String          ctermfg=9
-hi Keyword         ctermfg=2
+hi Type            ctermfg=11
+hi Typedef            ctermfg=11
+hi String          ctermfg=10
+hi Keyword         ctermfg=13
+hi Label           ctermfg=12
+hi PreProc          ctermfg=11
+hi Repeat           ctermfg=11
+hi StorageClass     ctermfg=11
+hi Tag              ctermfg=11
 hi Todo            ctermfg=15  ctermbg=NONE     cterm=bold,underline
 hi Function        ctermfg=4
-hi Identifier      ctermfg=7   cterm=NONE
-hi Statement       ctermfg=2   cterm=bold
-hi Constant        ctermfg=13
-hi Number          ctermfg=12
+hi Identifier      ctermfg=9   cterm=NONE
+hi Statement       ctermfg=9   cterm=bold 
+hi Constant        ctermfg=3
+hi Number          ctermfg=3
 hi Boolean         ctermfg=4
-hi Special         ctermfg=13
+hi Special         ctermfg=14
 hi Ignore          ctermfg=0
 hi! link Operator  Delimiter
-hi! link PreProc   Delimiter
 hi! link Error     ErrorMsg
+hi cssBraces      ctermfg=15
+hi cssClassName   ctermfg=2
+hi cssColor       ctermfg=6
 
 "}}}
 " HTML {{{
@@ -144,6 +151,11 @@ hi! link markdownCodeBlock          String
 hi markdownCode                     cterm=bold
 hi markdownBold                     cterm=bold
 hi markdownItalic                   cterm=underline
+
+"}}}
+" Python highlighting{{{
+hi! pythonOperator                  ctermfg=05
+hi! pythonRepeat                    ctermfg=05
 
 "}}}
 " Ruby {{{

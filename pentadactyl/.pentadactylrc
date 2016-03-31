@@ -19,22 +19,27 @@
 " Leader keybinds 
   map     <space>           <Leader>
   nmap    <leader>z         :js window.content.document.toggleImageSize();<CR>
-  map     <leader>b         :buffers 
+  map     <leader>b         :buffers<CR>
+  map     <leader>th        :noh<CR><Esc> 
 
 " Passthrough mode
   map -b  s                 <pass-all-keys>
 
 " Faster scrolling
-  nmap -b j                7<Down>
-  nmap -b k                7<Up>
-  nmap -b h                7<Left>
-  nmap -b l                7<Right>
+  nmap -b j                5<Down>
+  nmap -b k                5<Up>
+  nmap -b h                5<Left>
+  nmap -b l                5<Right>
   nmap -b J                2<Down>
   nmap -b K                2<Up>
   nmap -b H                2<Left>
   nmap -b L                2<Right>
-  nmap -b <c-y>            7<c-y>
-  nmap -b <c-e>            7<c-e>
+  nmap -b <c-y>            4<c-y>
+  nmap -b <c-e>            4<c-e>
+
+" Reverse P/p open clipboard url
+  nmap -b p <tab-open-clipboard-url>
+  nmap -b P <open-clipboard-url>
 
 " Tab keybinds
 " Reverse tab close (d closes and focuses left)
@@ -74,6 +79,9 @@
 " One-handed zoom
   map <=> <C-+>
   map <-> <C-->
+  map zz <C-0>
+  map zi <C-+>
+  map zo <C-->
 
 " GOTOs
   map -b ge b gmail<CR>
@@ -96,13 +104,13 @@
 " Passkeys
   set pk+=*:<Up><Down><Left><Right>
 " set pk+=mail.google.com:c/hmuenxsyDpjkrRIUdli?#!g{}[]m,gi,gs,gd,ga,zz,gp,gl
-  set pk+=mail.google.com:c/uenxsyDpkrRIUdli{}[]m,gi,gs,gd,ga,zz,gp,gl
+  set pk+=mail.google.com:c/uenxyjDpkrNRIUdli{}[]m,gi,gs,gd,ga,zz,gp,gl
   set pk+=drive.google.com:c/hmuenxsyDpjkrRIUdli?#!<Left><Right><Up><Down>g{}[]m,gi,gs,gd,ga,zz,gp,gl,
   set pk+=youtube.com/watch:fkjlpNPnm<>
   set pk+=soundcloud.com:<Space>0123456789mjklrhp
   set pk+=duckduckgo.com:kjhlsmv
   set pk+=stylish-edit:qwfpgjluyarstdhneiozxcvbkm./<Esc>
-  set pk+=github.com:sncipwlicr,gc,gp,gw
+  set pk+=github.com:scipwlicr,gc,gp,gw
   
 " Site settings
   :autocmd LocationChange 'https://docs.google.com/*'    :normal! gi

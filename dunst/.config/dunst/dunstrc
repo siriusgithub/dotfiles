@@ -216,6 +216,10 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
+[play_sound]
+    summary = "*"
+    script = /home/krompus/bin/notifsound
+
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh

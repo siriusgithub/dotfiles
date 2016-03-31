@@ -7,19 +7,19 @@
 " [Work in Progress]
 
 " Textboxes while editing with vim.
-hi -l EditorEditing EditorEditing>* background-color: #220707 !important; color: #c41f0c !important;
+hi -l EditorEditing EditorEditing>* background-color: #0D0303 !important; color: #c41f0c !important;
 hi -l EditorBlink1 color: #0B9CF9 !important;
 hi -l EditorBlink2 color: #0B9CF9 !important;
 
 " Status Line
-hi -a StatusLineNormal border-top: 1px normal #343434;
+hi -a StatusLineNormal border-top: none;
 hi -a StatusLineNormal background: #009900 repeat scroll 0 0 transparent;
 hi -a StatusLine			 font-weight: normal; font-family: tamsyn !important;
 hi -a StatusLine		   color: #ffffff; font-size: 9pt !important; 
-hi -l StatusLineNormal StatusLineSecure     background: #080808 !important;
+hi -l StatusLineNormal StatusLineSecure     background: #0e0e0e !important;
 hi -l StatusLineNormal StatusLineExtended   background: #100D14 !important;
 hi -l StatusLineNormal StatusLine[selected]
-hi -l StatusLineNormal StatusLineBroken     background: #120605 !important;
+hi -l StatusLineNormal StatusLineBroken     background: #160808 !important;
 
 " Toolbar Text  
 hi -a StatusModeMsg    padding-left: 28px !important;
@@ -33,7 +33,7 @@ hi -a StatusInfoMsg    color: #24E000 !important;
 hi -l StatusInfoMsg StatusMoreMsg
 
 " Message
-hi -a ModeMsg											 color: #00E0BF; background: #0d0c0c !important;
+hi -a ModeMsg											 color: #00E0BF; background: #0e0e0e !important;
 hi -a ModeMsg											 padding: 0.2em;
 hi -a ModeMsg											 border-top: none !important;
 hi -a ModeMsg											 border-bottom: none !important;
@@ -52,7 +52,7 @@ hi -a Events                       border-bottom: none !important;
 hi -a Events                       background: #121212;
 
 " Wrappers, items and style
-hi -a Normal											 color: #ffffff; background: #0d0d0c;
+hi -a Normal											 color: #ffffff; background: #1c1c1c;
 
 hi -a CompGroup                    color: inherit; background: transparent;
 hi -a CompGroup                    border-top:   none;
@@ -62,7 +62,7 @@ hi -a CompGroup                    border-right: none; -moz-border-radius-toprig
 hi -a Completions                  
 
 " Title
-hi -a Title												 color: #ff5555; background-color: transparent; 
+hi -a Title												 color: #ff4545; background-color: transparent; 
 hi -a Title												 padding: 0px 5px;
 hi -a Title												 font-weight: normal; font-family: tamsyn; 
 hi -a Title												 text-shadow: none; font-size: 9pt;
@@ -76,7 +76,7 @@ hi -a CompTitleSep								 height: 0px;
 hi -a CompItem                     font-family: tamsyn;
 hi -a CompItem                     font-size: 9pt;
 hi -a CompItem:nth-child(2n+1)     background: inherit;
-hi -a CompItem[selected]           background: #202020
+hi -a CompItem[selected]           background: #111111
 hi -a CompIcon                     display: inline-block; width: 16px; min-width: 16px;
 hi -a CompIcon                     margin-right: 1em; margin-left: 2px;
 hi -a Filter                       color: #ff2b29; text-decoration: none;
@@ -117,7 +117,7 @@ hi -a LinkInfo                     color: #FFFFFF
 hi -a Button                       color: #cccccc
 
 " Addon bar
-hi -a AddonName                    color: #FF5555; font-weight: bold;
+hi -a AddonName                    color: #ff4545; font-weight: bold;
 hi -a AddonVersion                 color: #ffffff
 hi -a AddonDescription             color: #888888
 hi -a AddonHead                    color: transparent;
@@ -135,7 +135,7 @@ hi -a CmdLine                      background: transparent !important;
 hi -a CmdCmdLine									 border:none;
 hi -a CmdNormal									   font-family: tamsyn;
 hi -a CmdNormal									   font-size: 9pt;
-hi -a CmdNormal									   background-color: #080808;
+hi -a CmdNormal									   background-color: #0e0e0e;
 hi -a CmdNormal									   padding-top: 2px;
 
 "hi -a CmdInput										 

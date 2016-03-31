@@ -37,8 +37,7 @@ fi
 xrdb ~/.Xresources &
 xbanish &
 nitrogen --restore
-compton --config ~/.config/compton/compton.conf &
-#compton -b &
+compton -G --config ~/.config/compton/compton.conf &
 xset r rate 150 25 &
 setxkbmap us -variant colemak -option ctrl:nocaps
 xmodmap ~/.Xmodmap &
@@ -50,5 +49,6 @@ xcape -t 150 &
 keynav &
 xbindkeys &
 transmission-daemon &
+#./bin/start_jack.sh &
 
 exec i3
