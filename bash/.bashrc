@@ -1,5 +1,5 @@
 #-----------------
-# ~/.bashrc 
+# krompus ~/.bashrc 
 #-----------------
 
 # If not running interactively, don't do anything
@@ -7,127 +7,10 @@
 
 # PS1
 # Default [krompus@creator ~]
-#PS1='[\u@\h \W]\$ '  # Default
 PS1='\[\e[1;29m\][\u@\h \W]\$\[\e[0m\] '
-#PS1='[\u@\h \W]\$ '
-# Green
-#PS1='[\u@\h \W]\$ '  # Default
-#PS1='\[\e[1;29m\][\u@\h \W]\$\[\e[0m\] '
 
-# alias rm='echo "This is not the command you are looking for"; false'
-alias ....='cd ../../../'
-alias ...='cd ../../'
-alias ..='cd ..'
-alias 360='gksudo "xboxdrv --detach-kernel-driver --buttonmap 1=3,3=1,2=4,4=2,rt=start,lt=back,start=rt,back=lt --ui-buttonmap guide=KEY_LEFTSHIFT+KEY_TAB,rt=KEY_END,lt=KEY_G --detach --dbus disabled --daemon"'
-alias k360='gksudo "kill -9 xboxdrv"'
-alias :q='exit'
-alias ISS='mpv http://www.ustream.tv/channel/live-iss-stream'
-alias balc='sh ~/scripts/bashcalc.sh'
-alias cath='highlight -O ansi'
-alias catl='lolcat'
-alias cd..='cd ..'
-alias celeryman='mpv ~/scripts/celeryman/celeryman.mp4'
-alias colemak='xmodmap .Xmodmap && setxkbmap us -variant colemak -option ctrl:nocaps'
-alias cofi='notify-send "COFI!  " && sleep 8m && notify-send "COFI!  " &'
-alias delsym='find . -maxdepth 1 -type l -exec trash-put {} \;'
-alias dir='ls --color=auto'
-alias delswp='find ./ -type f -name "\.*sw[klmnop]" -delete'
-alias edit='vim'
-#alias f='find . |grep '
-alias brutaldoom='cd .config/gzdoom && gzdoom brutalv20b.pk3 DoomMetalVol4.wad'
-alias h='history|grep '
-alias j='jobs -l'
-alias ll='ls -la'
-alias ls='ls -hF --color=auto'
-alias m='ncmpcpp'
-alias pacmake='makepkg -fcsi'         # Make package from PKGBUILD file in current directory
-alias py='python'
-alias r='source $(which ranger)'
-alias rem='echo \!! >> ~/.histrem'
-alias rr='ranger'
-alias s='s -p duckduckgo'
-# zsh seach
-#alias s='setopt | nobanghist && s -p duckduckgo'
-alias sernix='steam steam://connect/216.131.79.171:27015'
-alias stahp='echo STAHP | toilet --gay'
-alias steam-wine='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe >/dev/null 2>&1 &'
-alias t='task'
-alias tron='ssh sshtron.zachlatta.com'
-alias um='udiskie-umount --detach'
-alias vis='vim "+set si"'
-alias yt='youtube-dl $(xclip -o)'
-alias mus='xdg-open "$(locate -ir .mp3$ | fzf)"'
-
-# Functions
-
-farore() {
-    local st=0
-    if [[ $f ]]; then
-        cd "$f"; st=$?
-        unset f
-    else
-        f=$PWD
-    fi
-    return "$st"
-}
-
-fkill() {
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-
-  if [ "x$pid" != "x" ]
-  then
-    kill -${1:-9} $pid
-  fi
-}
-
-note () {
-    # if file doesn't exist, create it
-    if [[ ! -f $HOME/.notes ]]; then
-        touch "$HOME/.notes"
-    fi
-
-    if ! (($#)); then
-        # no arguments, print file
-        cat "$HOME/.notes"
-    elif [[ "$1" == "-c" ]]; then
-        # clear file
-        printf "%s" > "$HOME/.notes"
-    else
-        # add all arguments to file
-        printf "%s\n" "$*" >> "$HOME/.notes"
-    fi
-}
-
-mkcd() {
-  if [[ -z "$1" ]]
-  then
-    echo 'Usage: mkcd <dir>'
-  else
-    mkdir $1; cd $1
-  fi
-}
-
-
-# do not delete / or prompt if deleting more than 3 files at a time #
-#alias \rm='rm -I --preserve-root'
-
-# pacman remove orphans
-orphans() {
-  if [[ ! -n $(pacman -Qdt) ]]; then
-    echo "No orphans to remove."
-  else
-    sudo pacman -Rns $(pacman -Qdtq)
-  fi
-}
-
-# vman - SuperMan! Open man pages with vim from the commandline:
-vman() {
-  vim -c "SuperMan $*"
-
-  if [ "$?" != "0" ]; then
-    echo "No manual entry for $*"
-  fi
-}
+source ~/.alias
+source ~/.func
 
 complete -o default -o nospace -F _man vman
 
@@ -167,69 +50,6 @@ streaming() {
        -bufsize $CBR "rtmp://$SERVER.twitch.tv/app/$STREAM_KEY"
  }
 
-#       ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 -f alsa -f flv -ac 2 -ar $AUDIO_RATE \
-#       -vcodec libx264 -g $GOP -keyint_min $GOPMIN -b:v $CBR -minrate $CBR -maxrate $CBR -pix_fmt yuv420p\
-#       -s $OUTRES -preset $QUALITY -tune film -acodec libmp3lame -threads $THREADS -strict normal \
-#       -bufsize $CBR "rtmp://$SERVER.twitch.tv/app/$STREAM_KEY"
- 
-#ffmpeg -f alsa -ac 2 -i hw:0,0 -f x11grab -r 30 -s $(xwininfo -root | awk '/geometry/ {print $2}') -i :0.0 -vcodec libx264 -threads 0 /tmp/output.mkv
-#    ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 -f alsa -i pulse -f flv -ac 2 -ar $AUDIO_RATE \
-#      -vcodec libx264 -g $GOP -keyint_min $GOPMIN -b:v $CBR -minrate $CBR -maxrate $CBR -pix_fmt yuv420p\
-#      -s $OUTRES -preset $QUALITY -tune film -acodec libmp3lame -threads $THREADS -strict normal \
-#      -bufsize $CBR "rtmp://$SERVER.twitch.tv/app/$STREAM_KEY"
-#} 
-
-# Easily edit .conf files
-conf() {
-    case $1 in
-    apache)    sudo $EDITOR /etc/apache2/apache2.conf ;;
-    bash)      $EDITOR ~/.bashrc ;;
-    compton)   $EDITOR ~/.config/compton/compton.conf ;;
-    i3)        $EDITOR ~/.i3/config ;;
-    i3b)       $EDITOR ~/.i3blocks.conf ;;
-    keynav)    $EDITOR ~/.keynavrc ;;
-    mpd)       $EDITOR ~/.mpdconf ;;
-    mpv)       $EDITOR ~/.mpv/config ;;
-    ncmpcpp)   $EDITOR ~/.ncmpcpp/config ;;
-    penta)     $EDITOR ~/.pentadactylrc ;;
-    php)       sudo $EDITOR /etc/php5/apache2/php.ini ;;
-    ranger)    $EDITOR ~/.config/ranger/rc.conf ;;
-    r)    $EDITOR ~/.config/ranger/rc.conf ;;
-    sxhkd)     $EDITOR ~/.config/sxhkd/sxhkdrc ;;
-    termite)   $EDITOR ~/.config/termite/config ;;
-    tmux)      $EDITOR ~/.tmux.conf ;;
-    vimpc)     $EDITOR ~/.vimpcrc ;;
-    vim)       $EDITOR ~/.vimrc ;;
-    xinit)     $EDITOR ~/.xinitrc ;;
-    xres)      $EDITOR ~/.Xresources && xrdb ~/.Xresources ;;
-    zshrc)     $EDITOR ~/.zshrc ;;
-        *)          echo "Unknown application: $1" ;;
-    esac
-}    
-
-
-# confirmation #
-alias cp='cp -i'
-alias ln='ln -i'
-alias mv='mv -i'
- 
-# Parenting changing perms on / #
-alias chgrp='chgrp --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chown='chown --preserve-root'
-
-# yaourt update/upgrade
-alias ya='yaourt -Syua --noconfirm'
-alias yaf='yaourt -Syyuua --noconfirm'
-alias yac='yaourt -Syua'
-
-
-# if user is not root, pass all commands via sudo #
-if [ $UID -ne 0 ]; then
-    alias reboot='sudo reboot'
-    alias up='sudo pacman -Syu'
-fi
-
 # fuck
 eval "$(thefuck --alias)"
 
@@ -238,17 +58,6 @@ eval $(dircolors ~/.dircolors)
 
 # gruvbox 256 colours
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
-
-man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-    man "$@"
-}
 
 # export settings
 export CHEATCOLORS=true

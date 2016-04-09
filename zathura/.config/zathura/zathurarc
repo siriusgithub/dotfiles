@@ -1,5 +1,5 @@
 set recolor true
-set recolor-darkcolor "#A1E634"
+set recolor-darkcolor "#ffffff"
 set recolor-lightcolor "#000000"
 set statusbar-bg "#000000"
 set statusbar-fg "#EDEDED"
@@ -17,19 +17,19 @@ set first-page-column 2
 "map [normal] k search forward
 "map [normal] K search back
 "map n scroll down
-"map e scroll up
 "map [normal] i scroll right
 "map [normal] N navigate down
 "map [normal] E scroll_full
-map normal <Space> scroll PgDn
+"map normal <Space> scroll PgDn
+"map normal <Space> <C-f>
 
 " Using modifiers
 
 " It is also possible to use modifiers like the Control or Alt button on the keyboard. It is possible to use the following modifiers:
 
-    A - Alt
-    C - Control
-    S - Shift
+"    A - Alt
+"    C - Control
+"    S - Shift
 
 "t is required to define the binding with the following structure: map <A-a> shortcut_function
 " map <C-a> shortcut_function

@@ -61,22 +61,22 @@
     Mod4 + backslash 
 
 #Qwerty
-"setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmap"
+"setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmapq"
     m:0x40 + c:115
     Mod4 + End 
 
 #Qwerty-Copy
-"setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmap"
+"setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmapq"
     m:0x20 + c:10
     Mod3 + 1 
 
 #Colemak
-"setxkbmap us -variant colemak -option ctrl:nocaps && xmodmap .Xmodmap"
+"setxkbmap us -variant colemak -option ctrl:nocaps && xmodmap .Xmodmapc"
     m:0x40 + c:110
     Mod4 + Home 
 
 #Colemak-Copy
-"setxkbmap us -variant colemak -option ctrl:nocaps && xmodmap .Xmodmap"
+"setxkbmap us -variant colemak -option ctrl:nocaps && xmodmap .Xmodmapc"
     m:0x20 + c:11
     Mod3 + 2 
 
@@ -96,7 +96,7 @@
     Mod4 + f 
 
 #zelda pomodoro
-". ~/bin/zeldapomodoro/item.sh"
+". ~/bin/zeldapomodoro/pomodoro.sh"
     m:0x40 + c:27
     Mod4 + p 
 
@@ -262,6 +262,11 @@
 
 #clerk
 "clerk"
+    m:0x9 + c:49
+    Shift+Alt + grave 
+
+#clerk add album
+"clerk --add album"
     m:0x8 + c:49
     Alt + grave 
 

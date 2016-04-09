@@ -100,6 +100,7 @@ noremap <right> <nop>
   nnoremap <Leader>N :e ~/notes<CR>
   nnoremap <Leader>p :set invpaste<CR>:set paste?<CR>
   nnoremap <Leader>B :saveas ~/backups/
+  nnoremap <leader>y  :let @+=expand("%:p")<CR>
 
 set switchbuf=useopen,usetab
   nnoremap <Leader>b :ls<cr>:b<space>

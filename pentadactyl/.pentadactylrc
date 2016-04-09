@@ -26,12 +26,12 @@
   map -b  s                 <pass-all-keys>
 
 " Faster scrolling
-  nmap -b j                5<Down>
   nmap -b k                5<Up>
+  nmap -b j                5<Down>
   nmap -b h                5<Left>
   nmap -b l                5<Right>
-  nmap -b J                2<Down>
   nmap -b K                2<Up>
+  nmap -b J                2<Down>
   nmap -b H                2<Left>
   nmap -b L                2<Right>
   nmap -b <c-y>            4<c-y>
@@ -50,9 +50,15 @@
   map -b  <C-Space>         <C-^>
   imap -b <C-Space>         <esc>     <C-^>
 
+" Command mode keybinds
+  cmap -b <c-b>             <Left>
+  cmap -b <c-f>             <Right>
+
 " Insert mode keybinds
-  imap -b <c-n>             <Down>
   imap -b <c-p>             <Up>
+  imap -b <c-n>             <Down>
+  imap -b <c-b>             <Left>
+  imap -b <c-f>             <Right>
   imap -b <c-s-Tab>         <Esc>gT
   imap -b <c-Tab>           <Esc>gt
   imap -b <c-j>             <CR>
@@ -67,11 +73,10 @@
   map -b  ZZ                :restart  <CR>
 
 " Main mode keybinds
-  mmap -b <c-n>             <Down>
   mmap -b <c-p>             <Up>
+  mmap -b <c-n>             <Down>
   mmap -b <c-f>             <Right>
   mmap -b <c-b>             <Left>
-
 
 " Start Caret mode
   map -b  v                 <Insert>
@@ -107,7 +112,7 @@
   set pk+=mail.google.com:c/uenxyjDpkrNRIUdli{}[]m,gi,gs,gd,ga,zz,gp,gl
   set pk+=drive.google.com:c/hmuenxsyDpjkrRIUdli?#!<Left><Right><Up><Down>g{}[]m,gi,gs,gd,ga,zz,gp,gl,
   set pk+=youtube.com/watch:fkjlpNPnm<>
-  set pk+=soundcloud.com:<Space>0123456789mjklrhp
+  set pk+=soundcloud.com:<Space>0123456789mjklhP
   set pk+=duckduckgo.com:kjhlsmv
   set pk+=stylish-edit:qwfpgjluyarstdhneiozxcvbkm./<Esc>
   set pk+=github.com:scipwlicr,gc,gp,gw

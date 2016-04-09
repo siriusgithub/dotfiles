@@ -1,5 +1,5 @@
 clear
-alt+semicolon start
+ctrl+apostrophe start
 Escape end
 ctrl+bracketleft end
 q record ~/.keynav_macros

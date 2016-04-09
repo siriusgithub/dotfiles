@@ -37,7 +37,7 @@ fi
 xrdb ~/.Xresources &
 xbanish &
 nitrogen --restore
-compton -G --config ~/.config/compton/compton.conf &
+compton -G --config ~/.config/compton/compton.conf --no-fading-openclose &
 xset r rate 150 25 &
 setxkbmap us -variant colemak -option ctrl:nocaps
 xmodmap ~/.Xmodmap &
