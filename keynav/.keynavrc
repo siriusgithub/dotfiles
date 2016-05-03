@@ -22,6 +22,7 @@ c cursorzoom 300 300
 e end
 1 warp,click 1,end
 2 warp,click 2,end
+s warp,click 2,end
 3 warp,click 3,end
 r warp,click 3,end
 ctrl+h cut-left

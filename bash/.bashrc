@@ -10,7 +10,6 @@
 PS1='\[\e[1;29m\][\u@\h \W]\$\[\e[0m\] '
 
 source ~/.alias
-source ~/.func
 
 complete -o default -o nospace -F _man vman
 

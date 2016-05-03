@@ -6,14 +6,22 @@
 
 # Terminal
   bindsym $mod+o                      exec termite --geometry=560x400
-  bindsym $mod+shift+o                exec termite --geometry=560x400 --name=floating
+  bindsym $mod+e                 exec urxvt
+  bindsym $mod+shift+o                exec termite --geometry=560x400 --name=float
+  for_window [instance="^float$" class="(?i)termite"] floating enable
 
+# Termituake!
+  bindsym $mod+shift+i                exec termite --geometry=1920x480 --name=floating
+  bindsym $mod+i                      [instance="^floating$" class="(?i)termite"] scratchpad show
+  for_window [instance="^floating$" class="(?i)termite"] floating enable, move position -1px 578px, move scratchpad
+
+#  bindsym $mod+b                      [instance="^floating$" class="(?i)URxvt"] scratchpad show
 
 # Rofi Launcher
 # bindsym ctrl+slash                  exec rofi -show run 
   bindsym $mod+shift+slash            exec rofi -run-list-command ". ~/sh/alias.sh" -run-command "/bin/bash -i -c '{cmd}'" -show run
-  bindsym ctrl+slash                  exec rofi -show window -width 20
-  bindsym $mod+slash                  exec --no-startup-id j4-dmenu-desktop --dmenu='rofi -dmenu -i -width 8'
+  bindsym ctrl+slash                  exec rofi -show window -width 30
+  bindsym $mod+slash                  exec --no-startup-id j4-dmenu-desktop --dmenu='rofi -dmenu -i'
   bindsym $mod+equal                  exec teiler
 
 # Sizes
@@ -36,9 +44,9 @@
 # ubuntuorange                        #f37320
 # vertexdark                          #2c6ff0
 
-  set $fgcolor                        #dddddd
+  set $fgcolor                        #cfcfcf
   set $sfgcolor                       #ffffff
-  set $sbgcolor                       #5d5d5d
+  set $sbgcolor                       #262626
   set $hfgcolor                       #000020
   set $bdcolor                        #02394F
 # set $bdcolor                        #FF5959
@@ -54,7 +62,7 @@
 
 # Fonts
   set $font1                          pango:tamsyn 9
-  set $fontbar                        pango:tamsyn 8
+  set $fontbar                        pango:tamsyn 9
 
 # Workspaces
   set $ws1                           1:
@@ -64,9 +72,9 @@
   set $ws5                           5:
   set $ws6                           6:
   set $ws7                           7:
-  set $ws8                           8:
+  set $ws8                           8:
   set $ws9                           9:
-  set $ws10                          10:
+  set $ws10                          10:
   set $ws11                          11:
 
 # HJKL
@@ -80,7 +88,7 @@
 #---------------
 
   floating_modifier                   $mod
-  focus_follows_mouse                 yes
+  focus_follows_mouse                 no
   popup_during_fullscreen             smart
   workspace_layout                    default
   workspace_auto_back_and_forth       no
@@ -114,6 +122,7 @@
   for_window [class="Nitrogen"]       floating enable
   for_window [class="Nitrogen"]       floating enable, workspace $ws11
   for_window [class="Pidgin"]         floating enable
+  for_window [Title="Library"]        floating enable, border pixel $bordersize
   for_window [class="Qjackctl"]       floating enable
   for_window [class="Qjackctl"]       floating enable, move position mouse
   for_window [class="Renoise"]        border none
@@ -137,18 +146,20 @@
   for_window [title="Volume Control"] floating enable
   for_window [title="Xbindkeys Config"] floating enable
   for_window [title="World of Warships"] border none
-  for_window [title="pentadactyl.www*" class="(?i)termite"]  floating enable, move absolute position 801 px 640 px
-  for_window [title="pentadactyl.txt*" class="(?i)termite"]  floating enable, move absolute position 801 px 640 px
+  for_window [title="pentadactyl.www*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px
+  for_window [title="pentadactyl.*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px
+  for_window [title="pentadactyl.txt*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px
   for_window [title="qutebrowser"]    border none
   for_window [instance="gcolor2"]     move absolute position 1406 px 0 px
-  for_window [instance="^floating$" class="(?i)termite"] floating enable
   for_window [instance="^floating$" class="^URxvt$"] floating enable, move position 1646px 0px
 
 # Workspace assignments
   assign [title="Transmission"]       $ws1
 # assign [class="Zathura"]            $ws2
+  assign [class="Renoise"]            $ws2
   assign [title="LibreOffice"]        $ws3
   assign [title="GNU Image*"]         $ws4
+  assign [title="Open Image"]         $ws4
   assign [class="brogue"]             $ws5
   assign [title="Dungeon Crawl*"]     $ws5
   assign [title="Chromium"]           $ws6
@@ -156,9 +167,8 @@
   assign [class="(?)Steam"]           $ws7
   assign [title="OpenGL"]             $ws7
   assign [title="World of Warships"]  $ws7
-# assign [class="mpv"]                $ws8
   assign [class="Firefox"]            $ws9
-  assign [class="Renoise"]            $ws10
+# assign [class="mpv"]                $ws10
   assign [class="Nitrogen"]           $ws11
 
 # Tiny Urxvt
@@ -222,6 +232,7 @@
 
   bindsym $mod+comma                  workspace prev
   bindsym $mod+period                 workspace next
+  bindsym $mod+Shift+x                workspace next
 
 # bindsym $mod+a focus parent
 # bindsym $mod+shift+a focus child
@@ -240,7 +251,7 @@
 
   bindsym $mod+Shift+c                reload
   bindsym $mod+Shift+r                restart
-  bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'A guttural moan erupts from the chasm. You feel your blood run cold, and your trousers run hot. The Forgotten Beast Oggez Rashas rises from the depths!' -b 'Fly!' 'i3-msg exit'"
+  bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'A guttural moan erupts from the chasm. You feel your blood run cold, and your trousers run hot. The Forgotten Beast Oggez Rashas rises from the depths!' -b 'Fly!' 'i3-msg exit'"
 
 #------------------
 # MODE KEYBINDINGS
@@ -248,15 +259,15 @@
 
   mode "resize" {
 # Coarse adjustment
-    bindsym $left        resize grow width $fr px or $tr ppt
-    bindsym $down        resize shrink height $fr px or $tr ppt
-    bindsym $up          resize grow height $fr px or $tr ppt
-    bindsym $right       resize shrink width $fr px or $tr ppt
+    bindsym $right       resize grow width $fr px or $tr ppt
+    bindsym $up          resize shrink height $fr px or $tr ppt
+    bindsym $down        resize grow height $fr px or $tr ppt
+    bindsym $left        resize shrink width $fr px or $tr ppt
 # Fine adjustment
-    bindsym shift+$left  resize grow width $frf px or $trf ppt
-    bindsym shift+$down  resize shrink height $frf px or $trf ppt
-    bindsym shift+$up    resize grow height $frf px or $trf ppt
-    bindsym shift+$right resize shrink width $frf px or $trf ppt
+    bindsym shift+$right resize grow width $frf px or $trf ppt
+    bindsym shift+$up    resize shrink height $frf px or $trf ppt
+    bindsym shift+$down  resize grow height $frf px or $trf ppt
+    bindsym shift+$left  resize shrink width $frf px or $trf ppt
 
     bindsym Return  mode "default"
     bindsym Escape  mode "default"
@@ -342,5 +353,6 @@ mode "$mode_gaps_outer" {
     }
 }
 
-  exec --no-startup-id i3lock -i ~/images/wallpapers/active/loginarch.png &
+#  exec --no-startup-id i3lock -i ~/images/wallpapers/active/loginarch.png &
+  exec --no-startup-id i3lock-fancy -p -f inconsolata
   exec --no-startup-id firefox &

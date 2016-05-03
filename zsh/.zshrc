@@ -1,7 +1,10 @@
 plugins=(zsh-syntax-highlighting)
 
+bindkey -e
+stty -ixon
 setopt append_history
 setopt inc_append_history
+setopt noflowcontrol
 
 export BROWSER="firefox"
 export EDITOR="vim"
@@ -14,10 +17,24 @@ export PATH
 
 source ~/.zsh.sh
 source ~/.alias
-source ~/.func
+
+#zle -N copyx; copyx() { echo -E - $BUFFER | xclip -i }; bindkey '^K' copyx
+zle -N copyx; copyx() { echo -E $BUFFER | xsel -ib }; bindkey '^X' copyx
+alias curl='noglob curl'
+
+#FZF_DEFAULT_OPTS='
+#  --color hl:177,fg+:12,hl+:207
+#  --color info:36,spinner:107,pointer:197,marker:149
+#'
 
 # Suffix aliases; Open with
 alias -s jpg='sxiv-rifle'
+alias -s jpeg='sxiv-rifle'
+alias -s png='sxiv-rifle'
+alias -s gif='mpv --loop=8'
+alias -s webm='mpv --loop=8'
+alias -s avi='mpv'
+alias -s mp4='mpv'
 
 eval "$(thefuck --alias)"
 eval $(dircolors ~/.dircolors)
@@ -30,9 +47,8 @@ compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-bindkey -e
+HISTSIZE=10000
+SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
 
 # .dircolors
@@ -48,7 +64,6 @@ zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[green]}%}%s%{${fg[cyan]}
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 #zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/krompus/.zshrc'
-
 
 setprompt() {
   # load some modules
@@ -87,3 +102,5 @@ setprompt
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

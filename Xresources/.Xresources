@@ -2,22 +2,22 @@
 ! URxvt*buffered: boolean
 ! Select the fonts to be used. This is a comma separated list of font names
   URxvt*font: xft:tamsyn:size=9
-  URxvt*boldFont: xft:tamsyn:size=9
+  URxvt*boldFont: xft:tamsyn:size=9:bold
   URxvt.letterSpace: 0
   URxvt*lineSpace: 1
   URxvt.geometry: 104x35
 
   URxvt*depth: 32
 !  URxvt*inheritPixmap: true
-!  URxvt*.transparent: true
+  URxvt*.transparent: true
 !  URxvt shading: 0 to 99 darkens, 101 to 200 lightens
-!  URxvt*.shading: 30
+  URxvt*.shading: 7
 
 ! Rofi
 ! Enabled modi
 ! rofi.modi:                           window,run,ssh
 ! ! Window opacity
- rofi.opacity:                        85
+ rofi.opacity:                        75
 ! ! Window width 8
  rofi.width:                          8                     
 ! ! Number of lines
@@ -25,11 +25,11 @@
 ! ! Number of columns
 ! rofi.columns:                        1
 ! ! Font to use
- rofi.font:                           tamsyn 9
+ rofi.font:                           tamsyn bold 14
 ! ! Use extended color scheme
  rofi.color-enabled:                  true
 ! ! Color scheme for normal row       bg      fg      bgalt   hlbg    hlfg
- rofi.color-normal:                   #000000,#ffffff,#121212,#452800,#ffa34c
+ rofi.color-normal:                   #000000,#ffffff,#000000,#452800,#ffffff
 ! ! Color scheme for urgent row
  rofi.color-urgent:                   #330b0b,#ff5555,#330b0b,#cc0000,#000000
 ! ! Color scheme for active row
@@ -41,7 +41,7 @@
 ! ! Location on screen
  rofi.location:                       0
 ! ! Padding
-! rofi.padding:                        5
+ rofi.padding:                        90
 ! ! Y-offset relative to location
  rofi.yoffset:                        0
 ! ! X-offset relative to location
@@ -95,13 +95,13 @@
 ! ! Pre-set filter
 ! rofi.filter:                         
 ! ! Separator style (none, dash, solid)
-! rofi.separator-style:                dash
+  rofi.separator-style:                none
 ! ! Hide scroll-bar
-! rofi.hide-scrollbar:                 false
+  rofi.hide-scrollbar:                 true
 ! ! Show markup
 ! rofi.markup-rows:                    false
 ! ! Fullscreen
-! rofi.fullscreen:                     false
+  rofi.fullscreen:                     true
 ! ! Fake transparency
 ! rofi.fake-transparency:              false
 ! ! DPI
@@ -109,7 +109,7 @@
 ! ! Threads to use for string matching
 ! rofi.threads:                        1
 ! ! Scrollbar width
- rofi.scrollbar-width:                0
+  rofi.scrollbar-width:                0
 ! ! Pidfile location
 ! rofi.pid:                            /run/user/1000/rofi.pid
 ! ! Keybinding
@@ -121,7 +121,7 @@
 ! ! Keybinding
 ! rofi.kb-move-front:                  Control+a
 ! ! Keybinding
-! rofi.kb-move-end:                    Control+e
+  rofi.kb-move-end:                    Control+e
 ! ! Keybinding
 ! rofi.kb-move-word-back:              Alt+b
 ! ! Keybinding
@@ -171,9 +171,9 @@
 ! ! Keybinding
 ! rofi.kb-row-last:                    End,KP_End
 ! ! Keybinding
-! rofi.kb-row-select:                  Control+space
+  rofi.kb-row-select:                  Control+0
 ! ! Keybinding
-! rofi.kb-cancel:                      Escape,Control+bracketleft
+  rofi.kb-cancel:                      Escape, Control+Colon
 ! ! Keybinding
 ! rofi.kb-custom-1:                    Alt+1
 ! ! Keybinding
@@ -229,7 +229,7 @@
 !*cursorColor:   #0A9DFF
 !*cursorColor2:  #000000
 *highlightColor: #C33230
-*highlightTextColor: #FFB066
+*highlightTextColor: #ffffff
  
 !! special
 !*.foreground:   #e6e1dc

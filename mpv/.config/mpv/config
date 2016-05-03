@@ -3,7 +3,7 @@ keep-open=yes
 no-sub-visibility
 no-osc
 osd-duration=170
-screenshot-directory=/home/krompus/films/screenshots/
+screenshot-directory=/home/krompus/film/screenshots/
 volume=100
 osd-font='inconsolata'
 osd-font-size=16

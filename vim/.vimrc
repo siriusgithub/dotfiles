@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'junegunn/goyo.vim'
  Plug 'justinmk/vim-sneak'
  Plug 'kana/vim-operator-user'
+ Plug 'kana/vim-arpeggio'
  Plug 'kewah/vim-cssfmt'
  Plug 'mattn/gist-vim'
  Plug 'mattn/webapi-vim'
@@ -26,6 +27,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'reedes/vim-lexical'
  Plug 'reedes/vim-pencil'
  Plug 'tpope/vim-eunuch'
+ Plug 'tpope/vim-markdown'
  Plug 'tpope/vim-repeat'
  Plug 'tpope/vim-rsi'
  Plug 'tpope/vim-surround'
@@ -46,7 +48,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'noahfrederick/vim-hemisu'
 "Plug 'altercation/vim-colors-solarized'
 "Plug 'flazz/vim-colorschemes'
-"Plug 'nanotech/jellybeans.vim'
+ Plug 'nanotech/jellybeans.vim'
 "Plug 'tomasr/molokai'
 "Plug 'whatyouhide/vim-gotham'
 "Plug 'xolox/vim-colorscheme-switcher'
@@ -60,28 +62,49 @@ silent! source ~/.vimrc-local
 " General Mappings
 "-----------------------------------------------------------------------------
 
-noremap ' `|noremap ` '
-nnoremap <BS> <Nop>|nnoremap <Del> <Nop>
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
-"nnoremap <C-n> gt
-"nnoremap <C-p> gT
-"nnoremap <C-y> 2<C-y>
-"nnoremap <C-e> 2<C-e>
+" Arpeggio {{{
+" otherwise vim complains
+autocmd VimEnter * call s:arpeggio_maps()
+
+" works great with low timeout except during lag (due to neocomplete mostly)
+function! s:arpeggio_maps()
+  Arpeggio inoremap st <c-w>
+  Arpeggio inoremap ie <end>
+  Arpeggio inoremap ne <esc>
+  Arpeggio inoremap se <cr>
+" Arpeggio inoremap wf <c-r>+
+endfunction
+
+let g:arpeggio_timeoutlen=11
+
+" }}}
+
+ noremap ' `|noremap ` '
+ nnoremap <BS> <Nop>|nnoremap <Del> <Nop>
+ nnoremap <C-j> <C-w>j
+ nnoremap <C-k> <C-w>k
+ nnoremap <C-l> <C-w>l
+ nnoremap <C-h> <C-w>h
+ nnoremap <C-w><C-l> gt
+ nnoremap <C-w><C-h> gT
+ nnoremap <C-n> gj
+ nnoremap <C-p> gk
+ nnoremap j gj
+ nnoremap k gk
+ nnoremap <C-y> 2<C-y>
+ nnoremap <C-e> 2<C-e>
 
 " Don't move around in insert mode
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+ inoremap <up> <nop>
+ inoremap <down> <nop>
+ inoremap <left> <nop>
+ inoremap <right> <nop>
 
 " Disable arrow keys!
 "noremap <up> <nop>
 "noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
+ noremap <left> <nop>
+ noremap <right> <nop>
 
 "-----------------------------------------------------------------------------
 " Command Mode Mappings
@@ -92,32 +115,32 @@ noremap <right> <nop>
 "-----------------------------------------------------------------------------
 " 'Leader' key binds
 "-----------------------------------------------------------------------------
-  nnoremap <Space> <Nop>
-  nmap <space> <leader>
-  vmap <space> <leader>
+ nnoremap <Space>             <Nop>
+ nmap     <Space>             <leader>
+ vmap     <Space>             <leader>
 
-  nnoremap <Leader>V :e ~/.vimrc<CR>
-  nnoremap <Leader>N :e ~/notes<CR>
-  nnoremap <Leader>p :set invpaste<CR>:set paste?<CR>
-  nnoremap <Leader>B :saveas ~/backups/
-  nnoremap <leader>y  :let @+=expand("%:p")<CR>
+ nnoremap <Leader>V           :e ~/.vimrc<CR>
+ nnoremap <Leader>N           :e ~/notes<CR>
+ nnoremap <Leader>p           :set invpaste<CR>:set paste?<CR>
+ nnoremap <Leader>B           :saveas ~/backups/
+ nnoremap yp                  :let @+=expand("%:p")<CR>
 
-set switchbuf=useopen,usetab
-  nnoremap <Leader>b :ls<cr>:b<space>
-  nnoremap <Leader>tn :NumbersToggle<CR>
+ set switchbuf=useopen,usetab
+ nnoremap <Leader>b           :ls<cr>:b<space>
+ nnoremap <Leader>tn          :NumbersToggle<CR>
 
 " Diff
-  nnoremap <silent> <Leader>dt :diffthis<CR>
-  nnoremap <silent> <Leader>do :diffoff<CR>
-  nnoremap <silent> <Leader>dd :call DiffToggle()<CR>
-  nnoremap <silent> <Leader>d/ /<<<<<<<\\|=======\\|>>>>>>><CR>
-    function! DiffToggle()
-      if &diff
-        diffoff
-      else
-        diffthis
-      endif
-    :endfunction
+ nnoremap <silent> <Leader>dt :diffthis<CR>
+ nnoremap <silent> <Leader>do :diffoff<CR>
+ nnoremap <silent> <Leader>dd :call DiffToggle()<CR>
+ nnoremap <silent> <Leader>d/ /<<<<<<<\\|=======\\|>>>>>>><CR>
+  function! DiffToggle()
+    if &diff
+      diffoff
+    else
+      diffthis
+    endif
+  :endfunction
 
 " Strip all trailing whitespace in the current file.
  nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -126,23 +149,24 @@ set switchbuf=useopen,usetab
  nnoremap <leader>v V`]
 
 " New tab
- nnoremap <leader>o :tabnew 
+ nnoremap <c-w><c-t> :tabnew 
 
 " Search for trails and bad words
-nnoremap <leader>wb /\v(kkk<bar>:wq<bar>:q<bar>nigger<bar>shit<bar>fuck<bar>jjj?)<CR>
+ nnoremap <leader>wb /\v(kkk<bar>:wq<bar>:q<bar>nigger<bar>shit<bar>fuck<bar>jjj?)<CR>
 
 " Format css
-nnoremap <silent> <leader>cs :Cssfmt<CR>
-vnoremap <silent> <leader>cs :CssfmtVisual<CR>
+ nnoremap <silent> <leader>cs :Cssfmt<CR>
+ vnoremap <silent> <leader>cs :CssfmtVisual<CR>
 
 " Toggles
 " Goyo
-nnoremap <leader>tg :Goyo<CR>
+ nnoremap <leader>tg :Goyo<CR>
 " Highlight colors
-nnoremap <leader>tc :ColorToggle<CR>
+ nnoremap <leader>tc :ColorToggle<CR>
 
 " Pencil
-nnoremap <leader>tp :TogglePencil<CR>
+ nnoremap <leader>tp :TogglePencil<CR>
+ nnoremap <leader>wh :PencilHard<CR>
 
 " Syntax
 :map <leader>ts :if exists("g:syntax_on") <Bar>
@@ -152,67 +176,67 @@ nnoremap <leader>tp :TogglePencil<CR>
   \ endif <CR>
 
 " Search highlight
-nnoremap <leader>th :noh <CR>
+ nnoremap <leader>th :noh <CR>
 
 "-----------------------------------------------------------------------------
 " Options
 "-----------------------------------------------------------------------------
 
-  set showcmd
+ set showcmd
 
-  set t_Co=256                    " 256 colours.
+ set t_Co=256                    " 256 colours.
 
-  set shortmess+=I                " Hide splash screen.
-  set display+=lastline           " Show partial lines.
-  set showtabline=1               " Show tabs only when multiple tabs are open.
-  set laststatus=2                " Always show the status bar.
+ set shortmess+=I                " Hide splash screen.
+ set display+=lastline           " Show partial lines.
+ set showtabline=1               " Show tabs only when multiple tabs are open.
+ set laststatus=2                " Always show the status bar.
 " set statusline=%<%t%h%m%r%h%w%y\ %{fugitive#statusline()}%=\ Ln\ %l\/%L\,\ Col\ %-3v\ %P
 
 " Text display.
-  syntax on                       " Syntax highlighting.
-  set number                      " Shetow line numbers.
-  set textwidth=92                " Max line width.
-  set colorcolumn=+1              " Vertical line at textwidth.
+ syntax on                       " Syntax highlighting.
+ set number                      " Shetow line numbers.
+ set textwidth=92                " Max line width.
+ set colorcolumn=+1              " Vertical line at textwidth.
 " set guicursor+=a:blinkon1       " Turn cursor blinking on.
 " set guicursor=a:blinkon600-blinkoff400  " Slow down cursor blinking speed
-  set hlsearch                    " Search highlighting.
-  set scrolloff=3                 " Context lines above and below cursor. :set so=0 to toggle off.
-  set wrap                        " Wrapping on.
-  set lbr                         " Wrap at word.
-  set showbreak=··\               " Line break indicator.
+ set hlsearch                    " Search highlighting.
+ set scrolloff=3                 " Context lines above and below cursor. :set so=0 to toggle off.
+ set wrap                        " Wrapping on.
+ set lbr                         " Wrap at word.
+ set showbreak=··\               " Line break indicator.
 " set list
 " Two-space tabs.
-  set expandtab                   " Use spaces, not tabs.
-  set tabstop=2|set softtabstop=2 " Tabs = 2 spaces.
-  set shiftwidth=2
-  set list lcs=trail:·,precedes:«,extends:»,eol:¬,tab:▸\ 
+ set expandtab                   " Use spaces, not tabs.
+ set tabstop=2|set softtabstop=2 " Tabs = 2 spaces.
+ set shiftwidth=2
+ set list lcs=trail:·,precedes:«,extends:»,tab:▸\  " eol:¬
 
 " Editing.
-  set autoindent
-  set whichwrap+=<,>,h,l,b,s,[,]  " Backspace and arrows can wrap to previous/next line.
-  set splitbelow|set splitright   " Open new splits below and to the right.
+ set autoindent
+ set whichwrap+=<,>,h,l,b,s,[,]  " Backspace and arrows can wrap to previous/next line.
+ set splitbelow|set splitright   " Open new splits below and to the right.
 
 " Searching and matching.
-  set nowrapscan                  " Don't wrap search to beginning of file.
-  set incsearch                   " Incremental searching
-  set ignorecase                  " searches are case insensitive..                       .
-  set smartcase                   " ... unless they contain at least one capital letter
-  set gdefault                    " Substitute all matches in a line (i.e. :s///g) by default.
-  set showmatch                   " When a bracket is inserted, flash the matching one.
+ set nowrapscan                  " Don't wrap search to beginning of file.
+ set incsearch                   " Incremental searching
+ set ignorecase                  " searches are case insensitive..                       .
+ set smartcase                   " ... unless they contain at least one capital letter
+ set gdefault                    " Substitute all matches in a line (i.e. :s///g) by default.
+ set showmatch                   " When a bracket is inserted, flash the matching one.
 
 " System.
-  filetype plugin indent on       " Load file type plugins + indentation
-  set mouse=a                     " Enable the mouse in all possible modes.
-  set history=500                 " Keep 1000 lines of command line history.
-  set confirm                     " Confirm quit/save/etc.
-  set wildmenu                    " Tab completion on.
-  set wildmode=longest,full       " Tab complete longest common string, then each full match.
-  set cursorline
-  set backspace=indent,eol,start  " Backspace through everything in insert mode
+ filetype plugin indent on       " Load file type plugins + indentation
+ set mouse=a                     " Enable the mouse in all possible modes.
+ set history=500                 " Keep 1000 lines of command line history.
+ set confirm                     " Confirm quit/save/etc.
+ set wildmenu                    " Tab completion on.
+ set wildmode=longest,full       " Tab complete longest common string, then each full match.
+ set cursorline
+ set backspace=indent,eol,start  " Backspace through everything in insert mode
 " set relativenumber
-  set showcmd                     " Display incomplete commands
-  set encoding=utf-8
-  set clipboard=unnamedplus "(autoselect) " Use + register (X Window clipboard) as unnamed register
+ set showcmd                     " Display incomplete commands
+ set encoding=utf-8
+ set clipboard=unnamedplus "(autoselect) " Use + register (X Window clipboard) as unnamed register
 
 " Tidy swaps
   set directory=$HOME/.vim/swap/
@@ -239,31 +263,31 @@ nmap "" '"
 "-----------------------------------------------------------------------------
 
 " Read-only .doc through antiword
-autocmd BufReadPre *.doc silent set ro
-autocmd BufReadPost *.doc silent %!antiword "%"
+ autocmd BufReadPre *.doc silent set ro
+ autocmd BufReadPost *.doc silent %!antiword "%"
 
 " Read-only odt/odp through odt2txt
-autocmd BufReadPre *.odt,*.odp silent set ro
-autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
+ autocmd BufReadPre *.odt,*.odp silent set ro
+ autocmd BufReadPost *.odt,*.odp silent %!odt2txt "%"
 
 " Read-only pdf through pdftotext
-autocmd BufReadPre *.pdf silent set ro
-autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -87
+ autocmd BufReadPre *.pdf silent set ro
+ autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -87
 
 " Read-only rtf through unrtf
-autocmd BufReadPre *.rtf silent set ro
-autocmd BufReadPost *.rtf silent %!unrtf --text
+ autocmd BufReadPre *.rtf silent set ro
+ autocmd BufReadPost *.rtf silent %!unrtf --text
 
 " For jpegs
-autocmd BufReadPre *.jpg,*.jpeg silent set ro
-autocmd BufReadPost *.jpg,*.jpeg silent %!jp2a --width=87 "%"
+ autocmd BufReadPre *.jpg,*.jpeg silent set ro
+ autocmd BufReadPost *.jpg,*.jpeg silent %!jp2a --width=87 "%"
 
 " For other image formats
 "autocmd BufReadPre *.png,*.gif,*.bmp silent set ro
 "autocmd BufReadPost *.png,*.gif,*.bmp silent %!convert "%" jpg:- | jp2a --width=87 -
 
 " For epub
-au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
+ au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 
 "-----------------------------------------------------------------------------
 " Custom commands
@@ -271,12 +295,21 @@ au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 
 "  :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
 
+vmap ?? "zy:let @z = substitute(@z,'[[:space:]]','+','g')<CR>
+ \ :silent !start /usr/bin/firefox
+ \ [http://www.google.com/search?q=<C-R>z<CR> http://www.google.com/search?q=<C-R>z<CR>];
+
+" ix.io paste range and copy to clipboard.
+command! -range=% IX silent execute <line1> . "," . <line2> . "w !curl -F 'f:1=<-' ix.io | tr -d '\\n' | xclip -selection clipboard"
+
+command! -range=% PB silent execute <line1> . "," . <line2> . "w !curl -F 'c=@-' https://ptpb.pw/ | sed -n 's/^url: //p' | xclip -selection clipboard"
+
 "-----------------------------------------------------------------------------
 " Vim-operator-flashy
 "-----------------------------------------------------------------------------
 
-  map y <Plug>(operator-flashy)
-  nmap Y <Plug>(operator-flashy)$
+ map y <Plug>(operator-flashy)
+ nmap Y <Plug>(operator-flashy)$
 
 "-----------------------------------------------------------------------------
 " Lightline
@@ -284,12 +317,12 @@ au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 
   set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'krompuslight',
+      \ 'subseparator': {
+      \   'right': '' },
       \ 'component': {
       \   'readonly': '%{&readonly?"":""}',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
 "-----------------------------------------------------------------------------
@@ -331,6 +364,20 @@ fun! RangerChooser()
 endfun
 
 map <Leader>r :call RangerChooser()<CR>
+
+"-----------------------------------------------------------------------------
+" FZF
+"-----------------------------------------------------------------------------
+
+nnoremap <c-t> :FZF<CR>
+" ctrl-[a-z], alt-[a-z], f[1-4], or any single character
+let g:fzf_action = {
+  \ 'ctrl-m': 'e',
+  \ 'ctrl-t': 'tabedit',
+  \ 'ctrl-j':  'botright split',
+  \ 'ctrl-k':  'topleft split',
+  \ 'ctrl-h':  'vertical topleft split',
+  \ 'ctrl-l':  'vertical botright split' }
 
 "-----------------------------------------------------------------------------
 " Pencil
@@ -406,7 +453,7 @@ let g:gruvbox_termcolors=256
 "let g:badwolf_darkgutter=1
 syntax enable
 set background=dark
-colorscheme nompus
+colorscheme jellybeans
 
 "if $TERM == 'rxvt-unicode-256color'
 "    colorscheme noctu

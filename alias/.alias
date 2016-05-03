@@ -1,4 +1,5 @@
 # krompus
+#
 # global aliases
 
 # confirmation #
@@ -17,6 +18,7 @@ if [ $UID -ne 0 ]; then
     alias up='sudo pacman -Syu'
 fi
 
+#alias f='find . |grep '
 #alias rm='echo "This is not the command you are looking for."; false'
 alias :x='exit'
 alias ....='cd ../../../'
@@ -26,49 +28,244 @@ alias 360='gksudo "xboxdrv --detach-kernel-driver --buttonmap 1=3,3=1,2=4,4=2,rt
 alias k360='gksudo "kill -9 xboxdrv"'
 alias :q='exit'
 alias amb='play -c 2 -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass -1 120 gain +10'
-alias ISS='mpv http://www.ustream.tv/channel/live-iss-stream'
 alias balc='sh ~/scripts/bashcalc.sh'
+alias blue='sudo mount /dev/sdb1 /mnt/blue'
+alias brutaldoom='cd .config/gzdoom && gzdoom brutalv20b.pk3 DoomMetalVol4.wad'
 alias cath='highlight -O ansi'
 alias catl='lolcat'
 alias cd..='cd ..'
 alias celeryman='mpv ~/scripts/celeryman/celeryman.mp4'
-alias colemak='xmodmap .Xmodmap && setxkbmap us -variant colemak -option ctrl:nocaps'
 alias cofi='notify-send "COFI!  " && sleep 8m && notify-send "COFI!   ^_^" &'
-alias curl='noglob curl'
+alias colemak='xmodmap .Xmodmap && setxkbmap us -variant colemak -option ctrl:nocaps'
+alias delswp='find ./ -type f -name "\.*sw[klmnop]" -delete'
 alias delsym='find . -maxdepth 1 -type l -exec trash-put {} \;'
 alias dir='ls --color=auto'
-alias delswp='find ./ -type f -name "\.*sw[klmnop]" -delete'
+alias dlmus='wget -r -l1 -A.mp3 -np -erobots=off -nH --cut-dirs=1'
 alias edit='vim'
-#alias f='find . |grep '
-alias brutaldoom='cd .config/gzdoom && gzdoom brutalv20b.pk3 DoomMetalVol4.wad'
+alias fm='cd ~/music && fr mpc add && cd'
+alias fv='fr mpv'
 alias h='history|grep '
+alias ISS='mpv http://www.ustream.tv/channel/live-iss-stream'
 alias j='jobs -l'
 alias ll='ls -la'
 alias ls='ls -hF --color=auto'
 alias m='ncmpcpp'
 alias ma='mpc add'
-alias mu='mpc update'
 alias mpved='mpv --lua ~/bin/excerpt.lua --script-opts=osc-layout=bottombar'
+alias mu='mpc update'
 alias pacmake='makepkg -fcsi'    # Make package from PKGBUILD file in current directory
+alias pods='clerk --queue suspend'
+alias podr='clerk --queue resume'
 alias pu="pacaur -Syu"
 alias py='python'
 alias r='source $(which ranger)'
 alias rem='echo \!! >> ~/.histrem'
 alias resetres="xrandr --output DVI-I-1 --mode 1920x1080 --rate 120"
 alias rr='ranger'
+
 alias s='setopt nobanghist && s -p duckduckgo'
 alias sernix='steam steam://connect/216.131.79.171:27015'
 alias ssr='simplescreenrecorder'
 alias stahp='echo STAHP | toilet --gay'
 alias steam-wine='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe >/dev/null 2>&1 &'
+alias stowflac='cd /mnt/blue/ && stow -t /home/krompus/music/ flac && cd /home/krompus/music/ && mpc update && ls'
 alias t='task'
 alias te='trash-empty'
 alias tp='trash-put'
+alias trs='translate-shell -I'
+alias trss='translate-shell -I -b'
 alias trc='transmission-remote-cli'
 alias tron='ssh sshtron.zachlatta.com'
 alias um='udiskie-umount --detach'
 alias vis='vim "+set si"'
 alias yt='youtube-dl $(xclip -o)'
 
-alias fm='cd ~/music && fr mpc add && cd'
-alias fv='fr mpv'
+# Func
+
+ixc() {
+  if [[ -z "$1" ]]
+  then
+    echo 'Usage: ixc foo.bar'
+  else
+    cat $1 | curl -F 'f:1=<-' ix.io | xclip -selection c
+  fi
+}
+
+ixx() {
+  if [[ -z "$1" ]]
+  then
+    echo 'ix clipboard: ixc example.txt'
+  else
+    ix $1 | xclip -selection c
+  fi
+}
+
+trt() {
+  translate-shell -b -o translation &&  cat ~/translation | xsel -b
+}
+
+#fuzzy kill
+fk() {
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    kill -${1:-9} $pid
+  fi
+}
+
+fp() {
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+}
+
+#fuzzy read
+fr() { fzf -m -x | xargs -d'\n' -r "$@" ; }
+
+# fuzzy open
+# - CTRL-O to open with `open` command,
+# - CTRL-E or Enter key to open with the $EDITOR
+fo() {
+  local out file key
+  out=$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+  fi
+}
+
+orph() {
+  if [[ ! -n $(pacman -Qdt) ]]; then
+    echo "No orphans to remove."
+  else
+    sudo pacman -Rns $(pacman -Qdtq)
+  fi
+}
+
+#pull symlinked files into their links.
+pull () {
+  for f in "$@"
+  do
+      orig=$(readlink -f "$f") &&
+      mv "$orig" "$f"
+  done 
+}
+
+# Farore's Wind; mark a spot and return.
+fw() {
+  local st=0
+  if [[ $f ]]; then
+      cd "$f"; st=$?
+      unset f
+  else
+      f=$PWD
+  fi
+  return "$st"
+}
+
+mkcd() {
+  if [[ -z "$1" ]]
+  then
+    echo 'mkcd; mkdir and cd into it. Usage: mkcd <dir>'
+  else
+    mkdir $1; cd $1
+  fi
+}
+
+note () {
+  # if file doesn't exist, create it
+  if [[ ! -f $HOME/.notes ]]; then
+      touch "$HOME/.notes"
+  fi
+
+  if ! (($#)); then
+      # no arguments, print file
+      cat "$HOME/.notes"
+  elif [[ "$1" == "-c" ]]; then
+      # clear file
+      printf "%s" > "$HOME/.notes"
+  else
+      # add all arguments to file
+      printf "%s\n" "$*" >> "$HOME/.notes"
+  fi
+}
+
+# Paste text
+pb () {
+  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -b -l /dev/null -b
+}
+
+# Paste terminal recording
+pbs () {
+  asciinema rec /tmp/$$.json
+  pbt /tmp/$$.json
+}
+
+roulette () {
+(( RANDOM % 6 )) && echo "*click*" || echo "*BANG*"
+}
+
+vman() {
+  vim -c "SuperMan $*"
+
+  if [ "$?" != "0" ]; then
+    echo "No manual entry for $*"
+  fi
+}
+
+# edit configs
+conf() {
+  case $1 in
+  a)              $EDITOR ~/.alias ;;
+  apache)    sudo $EDITOR /etc/apache2/apache2.conf ;;
+  b)              $EDITOR ~/.bashrc ;;
+  clerk)          $EDITOR ~/.config/clerk/config ;;
+  compton)        $EDITOR ~/.config/compton/compton.conf ;;
+  dunst)          $EDITOR ~/.config/dunst/dunstrc ;;
+  func)           $EDITOR ~/.func ;;
+  gvim)           $EDITOR ~/.gvimrc ;;
+  i3)             $EDITOR ~/.i3/config ;;
+  i3b)            $EDITOR ~/.i3blocks.conf ;;
+  keynav)         $EDITOR ~/.keynavrc ;;
+  mirror)         $EDITOR /etc/pacman.d/mirrorlist ;;
+  mpd)            $EDITOR ~/.mpdconf ;;
+  mpv)            $EDITOR ~/.config/mpv/config ;;
+  mpvi)           $EDITOR ~/.config/mpv/input.conf ;;
+  ncmpcpp)        $EDITOR ~/.ncmpcpp/config ;;
+  pacman)         $EDITOR /etc/pacman.conf ;;
+  p)              $EDITOR ~/.pentadactylrc ;;
+  pcolor)         $EDITOR ~/.pentadactyl/colors/krompus.penta ;;
+  php)       sudo $EDITOR /etc/php5/apache2/php.ini ;;
+  qb)             $EDITOR ~/.config/qutebrowser/qutebrowser.conf ;;
+  qk)             $EDITOR ~/.config/qutebrowser/keys.conf ;;
+  r)              $EDITOR ~/.config/ranger/rc.conf ;;
+  rcom)           $EDITOR ~/.config/ranger/commands.py ;;
+  rifle)          $EDITOR ~/.config/ranger/rifle.conf ;;
+  rtv)            $EDITOR ~/.config/rtv/rtv.cfg ;;
+  scope)          $EDITOR ~/.config/ranger/scope.sh ;;
+  sxhkd)          $EDITOR ~/.config/sxhkd/sxhkdrc ;;
+  sxiv)           $EDITOR ~/.config/sxiv/exec/key-handler ;;
+  t)              $EDITOR ~/.config/termite/config ;;
+  tmux)           $EDITOR ~/.tmux.conf ;;
+  trc)            $EDITOR ~/.config/transmission-remote-cli/settings.cfg ;;
+  vimpc)          $EDITOR ~/.vimpcrc ;;
+  vim)            $EDITOR ~/.vimrc ;;
+  xinit)          $EDITOR ~/.xinitrc ;;
+  xres)           $EDITOR ~/.Xresources && xrdb ~/.Xresources ;;
+  zathura)        $EDITOR ~/.config/zathura/zathurarc ;;
+  z)              $EDITOR ~/.zshrc ;;
+  *)              echo "Unknown application: $1" ;;
+  esac
+}
+
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[01;31m") \
+    LESS_TERMCAP_md=$(printf "\e[01;38;5;74m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[38;5;246m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[04;38;5;146m") \
+    man "$@"
+}

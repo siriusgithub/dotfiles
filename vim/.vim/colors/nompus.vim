@@ -1,4 +1,4 @@
-" krompus.vim; fork of noctu.vim - Vim color scheme for 16-color terminals"{{{"}}}
+" krompus.vim; fork of noctu.vim - Vim color scheme for 16-color terminals"{{{"}}}"{{{"}}}"{{{"}}}
 " --------------------------------------------------------------
 " Author:   Krompus (https://github.com/krompus)
 " Author:   Noah Frederick (http://noahfrederick.com/)
@@ -35,9 +35,9 @@ hi CursorLineNr        ctermfg=11    ctermbg=NONE
 hi Visual              ctermfg=0     ctermbg=9
 hi IncSearch           ctermfg=0     ctermbg=13    cterm=NONE
 hi Search              ctermfg=16     ctermbg=9
-hi StatusLine          ctermfg=7     ctermbg=1     cterm=bold
+hi StatusLine          ctermfg=7     ctermbg=0     cterm=bold
 "hi StatusLine          ctermfg=7     ctermbg=NONE     cterm=bold
-hi StatusLineNC        ctermfg=8     ctermbg=1     cterm=bold
+hi StatusLineNC        ctermfg=8     ctermbg=0     cterm=bold
 "hi StatusLineNC        ctermfg=8     ctermbg=NONE     cterm=bold
 hi VertSplit           ctermfg=0     ctermbg=0     cterm=NONE
 hi TabLine             ctermfg=8     ctermbg=0     cterm=NONE

@@ -2,75 +2,93 @@
 " krompus .pentadactylrc
 "------------------------
 
-" External editor
   set editor='termite -e "vim <file>"'
-
-" Disable "Pentadactyl" window title
   set titlestring=
-  
-" Duck is love, Duck is life.
-  set defsearch=duckduckgo
-  
-" Disable Smoothscroll
-" set scrolltime=0
-" Disable Shift-space PageUp
-  nmap -b <s-space>         <Nop>
 
-" Leader keybinds 
-  map     <space>           <Leader>
+nmap -builtin <esc> <esc>:noh<cr>
+
+" doen't work if file has double quotes in name
+" need to find a way to escape them after <file> expands to the filename
+" or add something like <file-shell-escaped>
+"au DownloadPost * silent !~/bin/dl_move "<file>" 
+
+""Disable Smoothscroll
+" set scrolltime=0
+
+""Leader keybinds 
+  map     <space>           <Esc><leader>
   nmap    <leader>z         :js window.content.document.toggleImageSize();<CR>
   map     <leader>b         :buffers<CR>
   map     <leader>th        :noh<CR><Esc> 
 
-" Passthrough mode
+  map     <c-space>         <Esc><leader2>
+  map     <leader2><c-q>    D
+  map     <leader2><c-t>    gH
+
   map -b  s                 <pass-all-keys>
 
 " Faster scrolling
-  nmap -b k                5<Up>
-  nmap -b j                5<Down>
-  nmap -b h                5<Left>
-  nmap -b l                5<Right>
-  nmap -b K                2<Up>
-  nmap -b J                2<Down>
-  nmap -b H                2<Left>
-  nmap -b L                2<Right>
-  nmap -b <c-y>            4<c-y>
-  nmap -b <c-e>            4<c-e>
+  nmap -b k                 5<Up>
+  nmap -b j                 5<Down>
+  nmap -b h                 5<Left>
+  nmap -b l                 5<Right>
+  nmap -b K                 2<Up>
+  nmap -b J                 2<Down>
+  nmap -b H                 2<Left>
+  nmap -b L                 2<Right>
+  nmap -b <c-y>             4<c-y>
+  nmap -b <c-e>             4<c-e>
 
 " Reverse P/p open clipboard url
   nmap -b p <tab-open-clipboard-url>
   nmap -b P <open-clipboard-url>
 
 " Tab keybinds
+" s for search is useless since using yubnub and customs; don't need to type anything; replaced in wm bindings
 " Reverse tab close (d closes and focuses left)
   nmap -b d D
   nmap -b D d
-  map -b  <c-h>             :tabmove! -1<CR>
-  map -b  <c-l>             :tabmove! +1<CR>
-  map -b  <C-Space>         <C-^>
-  imap -b <C-Space>         <esc>     <C-^>
+  nmap -b <c-l> gt
+  nmap -b <c-h> gT
+" map -b <c-H>              :tabmove! -1<CR>
+" map -b <c-L>              :tabmove! +1<CR>
+  map -b <Leader2><C-space> <C-^>
+" imap -b <C-Space>         <esc><C-^>
+  imap -b <C-Space>         <esc>
 
 " Command mode keybinds
   cmap -b <c-b>             <Left>
   cmap -b <c-f>             <Right>
+  cmap -b <A-b>             <c-Left>
+  cmap -b <c-h>             <BS>
 
 " Insert mode keybinds
   imap -b <c-p>             <Up>
   imap -b <c-n>             <Down>
   imap -b <c-b>             <Left>
   imap -b <c-f>             <Right>
+  imap -b <A-b>             <c-Left>
   imap -b <c-s-Tab>         <Esc>gT
   imap -b <c-Tab>           <Esc>gt
   imap -b <c-j>             <CR>
-  imap -b <c-o>             <Nop>
+  imap -b <c-m>             <c-CR>
+
+" Input mode keybinds
+  Imap -b <c-o>             <C-i>
+  Imap -b <c-i>             <TAB>
+"  Imap -b <c-s-i>          <s-TAB>
 
 " Normal mode keybinds
+  nmap -b <c-p>             <Up>
+  nmap -b <c-n>             <Down>
   map -b  <c-k>             :marks    <CR>
   map -b  <c-o>             :back     <CR>
   map -b  <c-i>             :forward  <CR>
   map -b  <c-[>             <Esc>
   map -b  <c-j>             <Nop>
   map -b  ZZ                :restart  <CR>
+  nmap -b <s-space>         <Nop>
+  nmap -b r                 <Nop>
 
 " Main mode keybinds
   mmap -b <c-p>             <Up>
@@ -81,6 +99,8 @@
 " Start Caret mode
   map -b  v                 <Insert>
  
+  map -b i <;>
+
 " One-handed zoom
   map <=> <C-+>
   map <-> <C-->
@@ -94,6 +114,7 @@
   map -b gc o google.com/calendar<CR>
   map -b gC t google.com/calendar<CR>
   map -b gp b drive.google.com/drive/photos<CR>
+  map -b gP t drive.google.com/drive/photos<CR>
   map -b gd b drive.google.com<CR>
   map -b gD t drive.google.com<CR>
   map -b gs b soundcloud<CR>
@@ -104,18 +125,21 @@
 "Toggle stylish themes
   nmap -b ed :execute AddonManager.getAddonByID("146", a => a.userDisabled = !a.userDisabled);<CR>
   nmap -b et :execute AddonManager.getAddonByID("167", a => a.userDisabled = !a.userDisabled);<CR>
-  nmap -b em :execute AddonManager.getAddonByID("44", a => a.userDisabled = !a.userDisabled);<CR>
+  nmap -b em :execute AddonManager.getAddonByID("183", a => a.userDisabled = !a.userDisabled);<CR>
+  nmap -b ei :execute AddonManager.getAddonByID("44", a => a.userDisabled = !a.userDisabled);<CR>
+  nmap -b er :execute AddonManager.getAddonByID("68", a => a.userDisabled = !a.userDisabled);<CR>
   
 " Passkeys
   set pk+=*:<Up><Down><Left><Right>
 " set pk+=mail.google.com:c/hmuenxsyDpjkrRIUdli?#!g{}[]m,gi,gs,gd,ga,zz,gp,gl
-  set pk+=mail.google.com:c/uenxyjDpkrNRIUdli{}[]m,gi,gs,gd,ga,zz,gp,gl
-  set pk+=drive.google.com:c/hmuenxsyDpjkrRIUdli?#!<Left><Right><Up><Down>g{}[]m,gi,gs,gd,ga,zz,gp,gl,
+  set pk+=mail.google.com:c/uenxyjDpkrNRIUdli#{}[]m,gi,gs,gd,ga,zz,gp,gl
+  set pk+=drive.google.com:c/hmuenxsyDpjkRIUdli?#!<Left><Right><Up><Down>{}[]m,gi,gs,gd,ga,zz,gp,gl,
   set pk+=youtube.com/watch:fkjlpNPnm<>
   set pk+=soundcloud.com:<Space>0123456789mjklhP
   set pk+=duckduckgo.com:kjhlsmv
+" set pk+=reddit.com:r
   set pk+=stylish-edit:qwfpgjluyarstdhneiozxcvbkm./<Esc>
-  set pk+=github.com:scipwlicr,gc,gp,gw
+" set pk+=github.com:jkxcipwIlcr?,gc,gp,gw
   
 " Site settings
   :autocmd LocationChange 'https://docs.google.com/*'    :normal! gi
@@ -123,15 +147,17 @@
   :autocmd LocationChange 'https://discordapp.com/*'     :normal! gi
 " :autocmd LocationChange 'https://www.reddit.com/*'     :normal! <C-z>
 " :autocmd LocationChange 'https://www.codecademy.com/*' :normal! <C-z>
+" :autocmd LocationChange '*.mp3' :normal! <C-z>
   
 " Miscellaneous
+  set showtabline=multitab
   set maxitems=7
   set hlfind
   set findcase=smart
   :highlight -a Hint text-transform: uppercase;
   hi -a Hint font-size: 14pt !important;
   map <c-s-b> :toolbartoggle Bookmarks Toolbar<CR>
-  map <c-s>   :saveas downloads/
+  map <c-s>   :saveas dl/
 
 " Toolbar display
 " set guioptions+=B
@@ -152,3 +178,113 @@
 " Readability
   map -b R :readnow <CR>
   command! -nargs=0 -description="Clean slate <3" readnow open javascript:(%0A%28function%28%29%7Bwindow.baseUrl%3D%27//www.readability.com%27%3Bwindow.readabilityToken%3D%27%27%3Bvar%20s%3Ddocument.createElement%28%27script%27%29%3Bs.setAttribute%28%27type%27%2C%27text/javascript%27%29%3Bs.setAttribute%28%27charset%27%2C%27UTF-8%27%29%3Bs.setAttribute%28%27src%27%2CbaseUrl%2B%27/bookmarklet/read.js%27%29%3Bdocument.documentElement.appendChild%28s%29%3B%7D%29%28%29)
+
+"style -name minitabs chrome://* <<EOM
+"  #TabsToolbar toolbarbutton {
+"    display: none !important;
+"  }
+"  .tabbrowser-tabs {
+"    background: #1d282c !important;
+"  }
+"  .tabbrowser-tab {
+"    -moz-appearance: none !important;
+"    -moz-border-radius: 0 !important;
+"    background: #1d282c !important;
+"    border: none !important;
+"    color: #707880 !important;
+"    font-family: Cousine;
+"    font-size: 9pt !important;
+"    height: 18px !important;
+"    margin: 0 !important;
+"    min-height: 0 !important;
+"    padding: 0 0.5ex !important;
+"  }
+"  .tabbrowser-tab:not([pinned]) {
+"    max-width: 125px !important;
+"    min-width: 125px !important;
+"  }
+"  .tabbrowser-tab:not([fadein]) {
+"    max-width: 1px !important;
+"    min-width: 1px !important;
+"  }
+"  .tabbrowser-tab:hover {
+"    background: #F0C674 !important;
+"    color: #282A2E !important;
+"  }
+"  .tabbrowser-tab[selected] {
+"    background: #282A2E !important;
+"    color: #F0C674 !important;
+"  }
+"EOM
+
+"silent qmark 4 https://boards.4chan.org/g/
+"silent qmark 8 https://8ch.net/tech/
+silent qmark a https://bbs.archlinux.org/
+silent qmark e https://www.reddit.com/r/emacs/
+silent qmark g https://www.github.com/
+silent qmark G https://www.geekhack.org/
+silent qmark h https://news.ycombinator.com/news
+silent qmark i https://pelvis89.imgur.com/all/
+silent qmark I https://www.ign.com/games/vita?sortBy=score&sortOrder=desc
+silent qmark l https://www.gamingonlinux.com/
+silent qmark L http://www.last.fm/
+silent qmark q https://quora.com/
+silent qmark r https://reddit.com/
+silent qmark S http//stumbleupon.com/
+silent qmark T https://twitter.com/home/
+silent qmark v https://www.reddit.com/r/vim/
+silent qmark y https://youtube.com/
+
+silent bmark -keyword am -title 'Amazon' http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=%s
+silent bmark -keyword aw -title 'Arch Wiki' http://wiki.archlinux.org/index.php?search=%s
+silent bmark -keyword az -title 'Search Azlyrics' http://search.azlyrics.com/search.php?q=%s
+silent bmark -keyword d -title 'Duck Duck Go' http://duckduckgo.com/?q=%s
+silent bmark -keyword dv -title 'Search Deviantart' http://www.deviantart.com/?q=%s
+silent bmark -keyword g -title 'Google' https://www.google.com/search?q=%s&ie=utf-8&oe=utf-8
+silent bmark -keyword gh -title 'Search Github' http://github.com/search?q=%s
+silent bmark -keyword mus -title 'Search Albums' http://www.allmusic.com/search/all/%s
+silent bmark -keyword r -title 'Quickly Get to Subreddit' http://www.reddit.com/r/%s/
+silent bmark -keyword rt -title 'Rotten Tomatoes Search' http://www.rottentomatoes.com/search/?search=%s
+silent bmark -keyword s -title 'Searx' https://searx.me/?q=%s
+silent bmark -keyword sp -title 'Startpage' https://startpage.com/do/metasearch.pl?q=%s
+silent bmark -keyword t -title 'Search Tumblr' http://www.tumblr.com/search/%s
+" other useful yub nub commands: cnv, gim, tiny, ddg, torf, etc.
+" useful mostly for stuff that combines things like mash, split, weird piping stuff, etc.
+silent bmark -keyword yn -title 'YubNub' http://yubnub.org/parser/parse?command=%s
+silent bmark -keyword wb -title 'Search Wayback Machine' http://web.archive.org/web/*/%s
+
+" Duck is love, Duck is life.
+set defsearch=d
+
+" security
+" also see ./user.js
+" https://github.com/Earnestly/dotfiles/blob/master/.config/pentadactyl/pentadactylrc
+" require websites to perform safe ssl negotiation; breaks some sites (goodreads)
+" set! security.ssl.require_safe_negotiation=true
+" set! security.ssl.treat_unsafe_negotiation_as_broken=true
+" https://wiki.manjaro.org/index.php?title=Firefox_about:config_edits
+" block domains and sites known to track; can also reduce load time of sites
+set! privacy.trackingprotection.enabled=true
+" never send referring url when following a link; may cause problems for online banking sites and others
+set! network.http.sendRefererHeader=0
+" don't send referring url when navigating between https hosts
+set! network.http.sendSecureXSiteReferrer=false
+" don't download pages just because they are likely to be visited
+"set! network.prefetch-next=false
+" java plugin off
+set! plugin.state.java=0
+" ask to activate flash
+set! plugin.state.flash=1
+
+" full native html5 player
+set! media.mediasource.enabled=true
+set! media.mediasource.mp4.enabled=true
+set! media.mediasource.webm.enabled=true
+set! media.fragmented-mp4.enabled=true
+set! media.fragmented-mp4.exposed=true
+set! media.fragmented-mp4.ffmpeg.enabled=true
+set! media.fragmented-mp4.gmp.enabled=true
+set! media.fragmented-mp4.use-blank-decoder=false
+
+" Save  with pocket, tag
+"command! p -nargs=* :open javascript:(function(){window.open('https://getpocket.com/edit?url='+escape(window.location.href)+'&tags=<args>', '_self');})()/

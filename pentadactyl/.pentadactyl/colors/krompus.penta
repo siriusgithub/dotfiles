@@ -1,9 +1,9 @@
 "------------------
 " darkrompus.penta
 "------------------
-" 
+"
 " Maintainer: krompus <b.adam.martin@gmail.com>
-" 
+"
 " [Work in Progress]
 
 " Textboxes while editing with vim.
@@ -14,152 +14,152 @@ hi -l EditorBlink2 color: #0B9CF9 !important;
 " Status Line
 hi -a StatusLineNormal border-top: none;
 hi -a StatusLineNormal background: #009900 repeat scroll 0 0 transparent;
-hi -a StatusLine			 font-weight: normal; font-family: tamsyn !important;
-hi -a StatusLine		   color: #ffffff; font-size: 9pt !important; 
-hi -l StatusLineNormal StatusLineSecure     background: #0e0e0e !important;
+hi -a StatusLine       font-weight: normal; font-family: tamsyn !important;
+hi -a StatusLine       color: #cfcfcf; font-size: 9pt !important;
+hi -l StatusLineNormal StatusLineSecure     background: #121212 !important;
 hi -l StatusLineNormal StatusLineExtended   background: #100D14 !important;
 hi -l StatusLineNormal StatusLine[selected]
 hi -l StatusLineNormal StatusLineBroken     background: #160808 !important;
 
-" Toolbar Text  
+" Toolbar Text
 hi -a StatusModeMsg    padding-left: 28px !important;
-hi -a StatusModeMsg    color: #2feddd; background: #1C2131;
+hi -a StatusModeMsg    color: #58DBFC; background: #1C2131;
 
 hi -a StatusErrorMsg   color: #ff0000 !important; text-shadow: 0 0 0px #666666;
-hi -l StatusErrorMsg   StatusWarningMsg 
-hi -l StatusErrorMsg   StatusQuestion 
-hi -l StatusErrorMsg   StatusInfoMsg 
+hi -l StatusErrorMsg   StatusWarningMsg
+hi -l StatusErrorMsg   StatusQuestion
+hi -l StatusErrorMsg   StatusInfoMsg
 hi -a StatusInfoMsg    color: #24E000 !important;
 hi -l StatusInfoMsg StatusMoreMsg
 
 " Message
-hi -a ModeMsg											 color: #00E0BF; background: #0e0e0e !important;
-hi -a ModeMsg											 padding: 0.2em;
-hi -a ModeMsg											 border-top: none !important;
-hi -a ModeMsg											 border-bottom: none !important;
+hi -a ModeMsg                      color: #00E0BF; background: #121212 !important;
+hi -a ModeMsg                      padding: 0.2em;
+hi -a ModeMsg                      border-top: none !important;
+hi -a ModeMsg                      border-bottom: none !important;
 hi -l ModeMsg MoreMsg
 hi -l ModeMsg InfoMsg
 hi -l ModeMsg Question
-hi -a Question										 color: #23D3FF; text-shadow: none !important;
+hi -a Question                     color: #23D3FF; text-shadow: none !important;
 hi -l Question ErrorMsg            color: #ff0000;
 hi -l Question WarningMsg ErrorMsg color: #ff0000;
 
-hi -a CmdErrorMsg									 color: #ff0000;
-hi -a CmdWarningMsg								 color: #e55e23;
+hi -a CmdErrorMsg                  color: #ff0000;
+hi -a CmdWarningMsg                color: #e55e23;
 
 " Iframe
 hi -a Events                       border-bottom: none !important;
 hi -a Events                       background: #121212;
 
 " Wrappers, items and style
-hi -a Normal											 color: #ffffff; background: #1c1c1c;
+hi -a Normal                       color: #cfcfcf; background: #0a0a0a;
 
 hi -a CompGroup                    color: inherit; background: transparent;
 hi -a CompGroup                    border-top:   none;
 hi -a CompGroup                    border-left:  none; -moz-border-radius-topleft:  0px;
 hi -a CompGroup                    border-right: none; -moz-border-radius-topright: 0px;
 
-hi -a Completions                  
+hi -a Completions
 
 " Title
-hi -a Title												 color: #ff4545; background-color: transparent; 
-hi -a Title												 padding: 0px 5px;
-hi -a Title												 font-weight: normal; font-family: tamsyn; 
-hi -a Title												 text-shadow: none; font-size: 9pt;
+hi -a Title                        color: #ff4545; background-color: transparent;
+hi -a Title                        padding: 0px 5px;
+hi -a Title                        font-weight: normal; font-family: tamsyn;
+hi -a Title                        text-shadow: none; font-size: 9pt;
 
 hi -a CompTitle                    background: 00FF00;
 hi -a CompTitle                    font-family: tamsyn; font-size: 9pt; text-align: left;
 hi -a CompTitle>*                  padding-left: 40px;
-hi -a CompTitleSep								 height: 0px;
+hi -a CompTitleSep                 height: 0px;
 
 " Item
 hi -a CompItem                     font-family: tamsyn;
 hi -a CompItem                     font-size: 9pt;
 hi -a CompItem:nth-child(2n+1)     background: inherit;
-hi -a CompItem[selected]           background: #111111
+hi -a CompItem[selected]           background: #131313;
 hi -a CompIcon                     display: inline-block; width: 16px; min-width: 16px;
 hi -a CompIcon                     margin-right: 1em; margin-left: 2px;
-hi -a Filter                       color: #ff2b29; text-decoration: none;
+hi -a Filter                       color: #A7D511; text-decoration: none;
 "ITEM WITHOUT TEXT
-hi -a NonText				               color: #121212;
+hi -a NonText                      color: #121212;
 "TITLE > and ITEM >
-hi -a CompDesc										 width: 50%;
-hi -a CompDesc										 color: #ffffff; overflow: hidden;
+hi -a CompDesc                     width: 50%;
+hi -a CompDesc                     color: #cfcfcf; overflow: hidden;
 hi -l CompDesc CompResult
-hi -a CompResult									 width: 50%;
-hi -a CompResult									 border-right: 5px solid;
-hi -a CompResult									 -moz-border-right-colors: transparent transparent transparent transparent;
+hi -a CompResult                   width: 50%;
+hi -a CompResult                   border-right: 5px solid;
+hi -a CompResult                   -moz-border-right-colors: transparent transparent transparent transparent;
 
 "Messages in iframe
-hi -a CompMsg											 background: transparent;
-hi -a CompMsg											 font-style: tamsyn; font-size: 9pt;
+hi -a CompMsg                      background: transparent;
+hi -a CompMsg                      font-style: tamsyn; font-size: 9pt;
 
 "Arrow navigation
-hi -a CompLess										 text-align: center; height: 0; line-height: .5ex; padding-top: 1ex;
-hi -a CompMore										 text-align: center; height: .5ex; line-height: .5ex; margin-bottom: -.5ex;
+hi -a CompLess                     text-align: center; height: 0; line-height: .5ex; padding-top: 1ex;
+hi -a CompMore                     text-align: center; height: .5ex; line-height: .5ex; margin-bottom: -.5ex;
 
 "In item result
-hi -a Indicator				color: #2bef4s;
-hi -a Preview					color: gray;
+hi -a Indicator                    color: #2bef4s;
+hi -a Preview                      color: gray;
 
 "In description item
-hi -a Tag             color: #044C87;
-hi -a Keyword         color: #C51717;
+hi -a Tag                          color: #044C87;
+hi -a Keyword                      color: #C51717;
 
-hi -a Gradient				          height: 1px; margin-bottom: -1px; margin-top: -1px;
-hi -a GradientLeft							background-color: #121212;
-hi -a GradientRight							background-color: #121212;
+hi -a Gradient                     height: 1px; margin-bottom: -1px; margin-top: -1px;
+hi -a GradientLeft                 background-color: #121212;
+hi -a GradientRight                background-color: #121212;
 
 "Download
 hi -a DownloadHead                 color: #AFD700
 hi -a DownloadSource               color: #FFA34C
-hi -a LinkInfo                     color: #FFFFFF
+hi -a LinkInfo                     color: #cfcfcf
 hi -a Button                       color: #cccccc
 
 " Addon bar
 hi -a AddonName                    color: #ff4545; font-weight: bold;
-hi -a AddonVersion                 color: #ffffff
+hi -a AddonVersion                 color: #cfcfcf
 hi -a AddonDescription             color: #888888
 hi -a AddonHead                    color: transparent;
 hi -a Enabled                      color: #2FEDDD; font-weight: bold;
-hi -a Link                      color: #2feddd;
+hi -a Link                         color: #ff7b00;
 hi -l Link Link:not(:hover)>LinkInfo
-hi -l Link Message              color: #ffffff; 
-hi -l Link Message\ String      
-hi -l Link LinkInfo	               color: #ffffff;	         
+hi -l Link Message                 color: #cfcfcf;
+hi -l Link Message\ String
+hi -l Link LinkInfo                color: #cfcfcf;
 
-hi -a URL				    text-decoration: none; color: #2feddd; background: inherit;
-hi -a URL:hover			text-decoration: none; cursor: pointer;
+hi -a URL           text-decoration: none; color: #ffffff; background: inherit;
+hi -a URL:hover     text-decoration: none; cursor: pointer;
 
 hi -a CmdLine                      background: transparent !important;
-hi -a CmdCmdLine									 border:none;
-hi -a CmdNormal									   font-family: tamsyn;
-hi -a CmdNormal									   font-size: 9pt;
-hi -a CmdNormal									   background-color: #0e0e0e;
-hi -a CmdNormal									   padding-top: 2px;
+hi -a CmdCmdLine                   border:none;
+hi -a CmdNormal                    font-family: tamsyn;
+hi -a CmdNormal                    font-size: 9pt;
+hi -a CmdNormal                    background-color: #121212;
+hi -a CmdNormal                    padding-top: 2px;
 
-"hi -a CmdInput										 
-"hi -a CmdOutput										 color: #0000FF;
+"hi -a CmdInput
+"hi -a CmdOutput                   color: #0000FF;
 
-hi -a CmdModeMsg									 color: transparent !important;
-hi -l CmdModeMsg CmdInfoMsg				
-hi -l CmdModeMsg CmdModeMsg				
-hi -l CmdModeMsg CmdQuestion				
-hi -l CmdModeMsg CmdPrompt				
+hi -a CmdModeMsg                   color: transparent !important;
+hi -l CmdModeMsg CmdInfoMsg
+hi -l CmdModeMsg CmdModeMsg
+hi -l CmdModeMsg CmdQuestion
+hi -l CmdModeMsg CmdPrompt
 
 hi -a Search          font-family: tamsyn; font-size: 9pt !important; padding: 0; color: #FA6800 !important; background-color: transparent !important; padding: 0 !important;
 
 " Hints
-hi -a Hint						font-family: tamsyn !important; font-size: 12px !important; font-weight: bold !important;
-hi -a Hint						color: #2feddd !important; background-color: #0e0e0e !important; padding: 2px; border: none !important;
-hi -a Hint[active]		color: #c41f0c !important; background: #220707 !important; 
-hi -a HintActive			background: #2B0909 !important; color: #FF2B29 !important; 
-hi -a Hint::after			content: attr(text) !important;
-hi -a HintImage				opacity: 0.5 !important;
-hi -a HintElem				color: #1B9FAB !important; background: #0E0F14 !important; 
+hi -a Hint            font-family: tamsyn !important; font-size: 13px !important; font-weight: bold !important;
+hi -a Hint            color: #ff5555 !important; background-color: #0a0a0a !important; padding: 2px; border: none !important;
+hi -a Hint[active]    color: #c41f0c !important; background: #220707 !important;
+hi -a HintActive      background: #2B0909 !important; color: #FF2B29 !important;
+hi -a Hint::after     content: attr(text) !important;
+hi -a HintImage       opacity: 0.5 !important;
+hi -a HintElem        color: #00AFD7 !important; background: none !important;
 
-hi -a Function				color: #e6c080;
-hi -a Null						color: #8cd0d3;
+hi -a Function        color: #e6c080;
+hi -a Null            color: #8cd0d3;
 hi -l Null Number
-hi -l Null Object		
-hi -a String					color: #80c0d9;
+hi -l Null Object
+hi -a String          color: #80c0d9;
