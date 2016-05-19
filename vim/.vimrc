@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
  Plug 'ap/vim-css-color'
  Plug 'beloglazov/vim-online-thesaurus'
  Plug 'chrisbra/Colorizer'
-"Plug 'etnadji/vim-epub'
  Plug 'gmarik/Vundle.vim'
  Plug 'haya14busa/vim-operator-flashy'
  Plug 'itchyny/lightline.vim'
@@ -19,19 +18,23 @@ call plug#begin('~/.vim/plugged')
  Plug 'justinmk/vim-sneak'
  Plug 'kana/vim-operator-user'
  Plug 'kana/vim-arpeggio'
- Plug 'kewah/vim-cssfmt'
  Plug 'mattn/gist-vim'
  Plug 'mattn/webapi-vim'
  Plug 'mbbill/undotree'
-"Plug 'myusuf3/numbers.vim'
  Plug 'reedes/vim-lexical'
  Plug 'reedes/vim-pencil'
+ Plug 'tpope/vim-commentary'
  Plug 'tpope/vim-eunuch'
  Plug 'tpope/vim-markdown'
  Plug 'tpope/vim-repeat'
  Plug 'tpope/vim-rsi'
  Plug 'tpope/vim-surround'
  Plug 'xolox/vim-misc'
+ Plug 'kewah/vim-stylefmt'
+"Plug 'myusuf3/numbers.vim'
+"Plug 'kewah/vim-cssfmt'
+"Plug 'etnadji/vim-epub'
+"Plug 'vim-scripts/dbext.vim'
 "Plug 'KevinGoodsell/vim-csexact'
 "Plug 'LanguageTool'
 "Plug 'Yggdroot/indentLine'
@@ -42,13 +45,14 @@ call plug#begin('~/.vim/plugged')
  Plug 'romainl/apprentice'
  Plug 'badwolf'
  Plug 'chriskempson/base16-vim'
+ Plug 'jonathanfilip/vim-lucius'
  Plug 'lucy/term.vim'
  Plug 'morhetz/gruvbox'
  Plug 'noahfrederick/vim-noctu'
  Plug 'noahfrederick/vim-hemisu'
+ Plug 'nanotech/jellybeans.vim'
 "Plug 'altercation/vim-colors-solarized'
 "Plug 'flazz/vim-colorschemes'
- Plug 'nanotech/jellybeans.vim'
 "Plug 'tomasr/molokai'
 "Plug 'whatyouhide/vim-gotham'
 "Plug 'xolox/vim-colorscheme-switcher'
@@ -127,7 +131,8 @@ let g:arpeggio_timeoutlen=11
 
  set switchbuf=useopen,usetab
  nnoremap <Leader>b           :ls<cr>:b<space>
- nnoremap <Leader>tn          :NumbersToggle<CR>
+ nnoremap <Leader>tnu         :set nu<CR>
+ nnoremap <Leader>tno         :set nonu<CR>
 
 " Diff
  nnoremap <silent> <Leader>dt :diffthis<CR>
@@ -149,14 +154,14 @@ let g:arpeggio_timeoutlen=11
  nnoremap <leader>v V`]
 
 " New tab
- nnoremap <c-w><c-t> :tabnew 
+ nnoremap <c-w>t :tabnew 
 
 " Search for trails and bad words
  nnoremap <leader>wb /\v(kkk<bar>:wq<bar>:q<bar>nigger<bar>shit<bar>fuck<bar>jjj?)<CR>
 
 " Format css
- nnoremap <silent> <leader>cs :Cssfmt<CR>
- vnoremap <silent> <leader>cs :CssfmtVisual<CR>
+ nnoremap <silent> <leader>cs :Stylefmt<CR>
+ vnoremap <silent> <leader>cs :StylefmtVisual<CR>
 
 " Toggles
 " Goyo
@@ -184,6 +189,7 @@ let g:arpeggio_timeoutlen=11
 
  set showcmd
 
+"set browsedir=buffer
  set t_Co=256                    " 256 colours.
 
  set shortmess+=I                " Hide splash screen.
@@ -194,7 +200,7 @@ let g:arpeggio_timeoutlen=11
 
 " Text display.
  syntax on                       " Syntax highlighting.
- set number                      " Shetow line numbers.
+ set number                      " Show line numbers.
  set textwidth=92                " Max line width.
  set colorcolumn=+1              " Vertical line at textwidth.
 " set guicursor+=a:blinkon1       " Turn cursor blinking on.
@@ -453,7 +459,7 @@ let g:gruvbox_termcolors=256
 "let g:badwolf_darkgutter=1
 syntax enable
 set background=dark
-colorscheme jellybeans
+colorscheme mine
 
 "if $TERM == 'rxvt-unicode-256color'
 "    colorscheme noctu

@@ -131,9 +131,9 @@
     Alt + backslash 
 
 #Scrot
-"scrot -e 'mv $f ~/scrot'"
-    m:0x30 + c:40
-    Mod2+Mod3 + s 
+"sleep 7 && . ~/bin/screenshot"
+    m:0x28 + c:40
+    Alt+Mod3 + s 
 
 #screenshot imgur
 "imgur-screenshot -f"
@@ -149,6 +149,11 @@
 "scrot -e 'mv $f ~/scrot/'"
     m:0x0 + c:107
     Print 
+
+#screenshot ptpb full
+". ~/bin/screenshot"
+    m:0x20 + c:40
+    Mod3 + s 
 
 #youtube-dl
 "termite -e ~/bin/yt-dl.sh"
@@ -170,15 +175,30 @@
     m:0x0 + c:121
     XF86AudioMute 
 
+#ALSA mute toggle-Copy
+"amixer set Master toggle"
+    m:0x21 + c:58
+    Shift+Mod3 + m 
+
 #ALSA raise volume
 "amixer set Master 5%+"
     m:0x0 + c:123
     XF86AudioRaiseVolume 
 
+#ALSA raise volume-Copy
+"amixer set Master 5%+"
+    m:0x21 + c:43
+    Shift+Mod3 + h 
+
 #ALSA lower volume
 "amixer set Master 5%-"
     m:0x0 + c:122
     XF86AudioLowerVolume 
+
+#ALSA lower volume-Copy
+"amixer set Master 5%-"
+    m:0x21 + c:57
+    Shift+Mod3 + k 
 
 #mpc next
 "mpc next"
@@ -197,8 +217,8 @@
 
 #mpc raise volume-Copy
 "mpc volume +5"
-    m:0x20 + c:58
-    Mod3 + m 
+    m:0x20 + c:43
+    Mod3 + h 
 
 #mpc lower volume
 "mpc volume -5"
@@ -270,11 +290,6 @@
     m:0x20 + c:54
     Mod3 + c 
 
-#screenshot paste
-". ~/bin/screenshot"
-    m:0x20 + c:40
-    Mod3 + s 
-
 #mpv clip
 "mpv $(xclip -o)"
     m:0x20 + c:32
@@ -299,6 +314,16 @@
 "clerk --queue show"
     m:0x20 + c:24
     Mod3 + q 
+
+#Vim
+"termite -e 'vim'"
+    m:0x20 + c:47
+    Mod3 + o 
+
+#wallpaperd reload config
+"wallpaperd"
+    m:0x20 + c:21
+    Mod3 + equal 
 
 #
 # End of xbindkeys configuration

@@ -10,20 +10,22 @@ nmap -builtin <esc> <esc>:noh<cr>
 " doen't work if file has double quotes in name
 " need to find a way to escape them after <file> expands to the filename
 " or add something like <file-shell-escaped>
-"au DownloadPost * silent !~/bin/dl_move "<file>" 
+"au DownloadPost * silent !~/bin/dl_move "<file>"
 
 ""Disable Smoothscroll
 " set scrolltime=0
 
-""Leader keybinds 
-  map     <space>           <Esc><leader>
-  nmap    <leader>z         :js window.content.document.toggleImageSize();<CR>
-  map     <leader>b         :buffers<CR>
-  map     <leader>th        :noh<CR><Esc> 
+""Leader keybinds
+  map     <space>           <Esc><Leader>
+  nmap    <Leader>z         :js window.content.document.toggleImageSize();<CR>
+  map     <Leader>b         :buffers<CR>
+  map     <Leader>th        :noh<CR><Esc>
 
-  map     <c-space>         <Esc><leader2>
-  map     <leader2><c-q>    D
-  map     <leader2><c-t>    gH
+  map     <c-space>         <Esc><Leader2>
+  map     <Leader2><c-q>    D
+  map     <Leader2><c-t>    gH
+
+  map     <Insert> <Nop>
 
   map -b  s                 <pass-all-keys>
 
@@ -53,8 +55,8 @@ nmap -builtin <esc> <esc>:noh<cr>
 " map -b <c-H>              :tabmove! -1<CR>
 " map -b <c-L>              :tabmove! +1<CR>
   map -b <Leader2><C-space> <C-^>
-" imap -b <C-Space>         <esc><C-^>
-  imap -b <C-Space>         <esc>
+  imap -b <C-Space>         <c-[><Leader2>
+" imap -b <C-Space>         <Leader2>
 
 " Command mode keybinds
   cmap -b <c-b>             <Left>
@@ -68,6 +70,7 @@ nmap -builtin <esc> <esc>:noh<cr>
   imap -b <c-b>             <Left>
   imap -b <c-f>             <Right>
   imap -b <A-b>             <c-Left>
+  imap -b <C-^>             <Esc><C-^>
   imap -b <c-s-Tab>         <Esc>gT
   imap -b <c-Tab>           <Esc>gt
   imap -b <c-j>             <CR>
@@ -89,6 +92,8 @@ nmap -builtin <esc> <esc>:noh<cr>
   map -b  ZZ                :restart  <CR>
   nmap -b <s-space>         <Nop>
   nmap -b r                 <Nop>
+  map P <tab-open-clipboard-url>
+  map p :tabopen <c-v><c-v><CR>
 
 " Main mode keybinds
   mmap -b <c-p>             <Up>
@@ -98,7 +103,7 @@ nmap -builtin <esc> <esc>:noh<cr>
 
 " Start Caret mode
   map -b  v                 <Insert>
- 
+
   map -b i <;>
 
 " One-handed zoom
@@ -112,9 +117,10 @@ nmap -builtin <esc> <esc>:noh<cr>
   map -b ge b gmail<CR>
   map -b gE t gmail.com<CR>
   map -b gc o google.com/calendar<CR>
+  map -b gk b keyhero<CR>
   map -b gC t google.com/calendar<CR>
   map -b gp b drive.google.com/drive/photos<CR>
-  map -b gP t drive.google.com/drive/photos<CR>
+" map -b gP t drive.google.com/drive/photos<CR>
   map -b gd b drive.google.com<CR>
   map -b gD t drive.google.com<CR>
   map -b gs b soundcloud<CR>
@@ -123,9 +129,10 @@ nmap -builtin <esc> <esc>:noh<cr>
   map -b gx b xkcd<CR>
 
 "Toggle stylish themes
-  nmap -b ed :execute AddonManager.getAddonByID("146", a => a.userDisabled = !a.userDisabled);<CR>
-  nmap -b et :execute AddonManager.getAddonByID("167", a => a.userDisabled = !a.userDisabled);<CR>
-  nmap -b em :execute AddonManager.getAddonByID("183", a => a.userDisabled = !a.userDisabled);<CR>
+  nmap -b ef :execute AddonManager.getAddonByID("167", a => a.userDisabled = !a.userDisabled);<CR>
+  "Dark Mode 'shadow'
+  nmap -b et :execute AddonManager.getAddonByID("183", a => a.userDisabled = !a.userDisabled);<CR>
+  nmap -b es :execute AddonManager.getAddonByID("190", a => a.userDisabled = !a.userDisabled);<CR>
   nmap -b ei :execute AddonManager.getAddonByID("44", a => a.userDisabled = !a.userDisabled);<CR>
   nmap -b er :execute AddonManager.getAddonByID("68", a => a.userDisabled = !a.userDisabled);<CR>
   
@@ -140,9 +147,13 @@ nmap -builtin <esc> <esc>:noh<cr>
 " set pk+=reddit.com:r
   set pk+=stylish-edit:qwfpgjluyarstdhneiozxcvbkm./<Esc>
 " set pk+=github.com:jkxcipwIlcr?,gc,gp,gw
-  
+  set pk+=inbox.google.com:arqjkounpPMByz/#xX!?<C-k>
+  set pk+=google.com/maps:-=/
+  set pk+=google.ca/maps:-=/
+
 " Site settings
   :autocmd LocationChange 'https://docs.google.com/*'    :normal! gi
+  :autocmd LocationChange 'https://www.keyhero.com/*'    :normal! gi
   :autocmd LocationChange 'https://docs.google.com/*'    :normal! <C-z>
   :autocmd LocationChange 'https://discordapp.com/*'     :normal! gi
 " :autocmd LocationChange 'https://www.reddit.com/*'     :normal! <C-z>
@@ -217,11 +228,9 @@ nmap -builtin <esc> <esc>:noh<cr>
 "  }
 "EOM
 
-"silent qmark 4 https://boards.4chan.org/g/
-"silent qmark 8 https://8ch.net/tech/
 silent qmark a https://bbs.archlinux.org/
 silent qmark e https://www.reddit.com/r/emacs/
-silent qmark g https://www.github.com/
+silent qmark g https://www.github.com/notifications?all=1
 silent qmark G https://www.geekhack.org/
 silent qmark h https://news.ycombinator.com/news
 silent qmark i https://pelvis89.imgur.com/all/

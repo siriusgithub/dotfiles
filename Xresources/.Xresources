@@ -17,7 +17,7 @@
 ! Enabled modi
 ! rofi.modi:                           window,run,ssh
 ! ! Window opacity
- rofi.opacity:                        75
+ rofi.opacity:                        50
 ! ! Window width 8
  rofi.width:                          8                     
 ! ! Number of lines
@@ -25,7 +25,7 @@
 ! ! Number of columns
 ! rofi.columns:                        1
 ! ! Font to use
- rofi.font:                           tamsyn bold 14
+ rofi.font:                           hack bold 11
 ! ! Use extended color scheme
  rofi.color-enabled:                  true
 ! ! Color scheme for normal row       bg      fg      bgalt   hlbg    hlfg

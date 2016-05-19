@@ -36,7 +36,8 @@ fi
 
 xrdb ~/.Xresources &
 xbanish &
-nitrogen --restore
+#nitrogen --restore
+wallpaperd
 compton -G --config ~/.config/compton/compton.conf --no-fading-openclose &
 xset r rate 150 25 &
 setxkbmap us -variant colemak -option ctrl:nocaps shift:both_capslock
@@ -45,10 +46,11 @@ caffeine &
 udiskie -N -s &
 dunst &
 mpd &
-xcape -t 150 &
+xcape -t 170 &
 keynav &
 xbindkeys &
 transmission-daemon &
+/opt/urserver/urserver --daemon
 #./bin/start_jack.sh &
 
 exec i3

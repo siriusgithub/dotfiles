@@ -6,23 +6,18 @@
 
 # Terminal
   bindsym $mod+o                      exec termite --geometry=560x400
-  bindsym $mod+e                 exec urxvt
+  bindsym $mod+e                      exec urxvt
   bindsym $mod+shift+o                exec termite --geometry=560x400 --name=float
   for_window [instance="^float$" class="(?i)termite"] floating enable
 
-# Termituake!
-  bindsym $mod+shift+i                exec termite --geometry=1920x480 --name=floating
-  bindsym $mod+i                      [instance="^floating$" class="(?i)termite"] scratchpad show
-  for_window [instance="^floating$" class="(?i)termite"] floating enable, move position -1px 578px, move scratchpad
-
-#  bindsym $mod+b                      [instance="^floating$" class="(?i)URxvt"] scratchpad show
+# Next Vim
+  bindsym $mod+v [class="(?i)termite" title="VIM"] focus
+#
 
 # Rofi Launcher
-# bindsym ctrl+slash                  exec rofi -show run 
   bindsym $mod+shift+slash            exec rofi -run-list-command ". ~/sh/alias.sh" -run-command "/bin/bash -i -c '{cmd}'" -show run
   bindsym ctrl+slash                  exec rofi -show window -width 30
   bindsym $mod+slash                  exec --no-startup-id j4-dmenu-desktop --dmenu='rofi -dmenu -i'
-  bindsym $mod+equal                  exec teiler
 
 # Sizes
   set $bordersize                     1
@@ -34,26 +29,16 @@
   set $gso                            0
 
 # Colours
-
-# archblue                            #1793d1
-# debianred                           #d70a53
-# plasmagreen                         #18b092
-# matrixgreen                         #00ff00
-# mintgreen                           #5faa24
-# numixredorange                      #c84433
-# ubuntuorange                        #f37320
-# vertexdark                          #2c6ff0
-
-  set $fgcolor                        #cfcfcf
+  set $fgcolor                        #707070
   set $sfgcolor                       #ffffff
-  set $sbgcolor                       #262626
+  set $sbgcolor                       #030303
   set $hfgcolor                       #000020
   set $bdcolor                        #02394F
 # set $bdcolor                        #FF5959
 # set $bdcolor                        #06619e
 # set $bgcolor                        #0f0e0d
-  set $bgcolor                        #121212
-  set $iacolor                        #0a0a0a
+  set $bgcolor                        #000000
+  set $iacolor                        #000000
   set $ufgcolor                       #c41f0c
   set $ubgcolor                       #330808
   set $rfgcolor                       #ffffff
@@ -118,10 +103,12 @@
   for_window [class="Firefox"]        border none
   for_window [class="Gpick"]          floating enable, move absolute position 1279 px 0 px
   for_window [class="Gvim"]           floating enable
+  for_window [class="GParted"]        floating enable
   for_window [class="Lxappearance"]   floating enable
-  for_window [class="Nitrogen"]       floating enable
   for_window [class="Nitrogen"]       floating enable, workspace $ws11
   for_window [class="Pidgin"]         floating enable
+  for_window [Title="WinFF"]          floating enable
+  for_window [Title="ff.*"]           floating enable
   for_window [Title="Library"]        floating enable, border pixel $bordersize
   for_window [class="Qjackctl"]       floating enable
   for_window [class="Qjackctl"]       floating enable, move position mouse
@@ -153,9 +140,14 @@
   for_window [instance="gcolor2"]     move absolute position 1406 px 0 px
   for_window [instance="^floating$" class="^URxvt$"] floating enable, move position 1646px 0px
 
+# Termituake!
+  bindsym $mod+shift+i                exec termite -e tmux --geometry=1920x480 --name=floating
+  bindsym $mod+i                      [instance="^floating$" class="(?i)termite"] scratchpad show
+  bindsym 0xff9e                      [instance="^floating$" class="(?i)termite"] scratchpad show
+  for_window [instance="^floating$" class="(?i)termite"] floating enable, move position -1px 580px, move scratchpad, sticky toggle, border none
+
 # Workspace assignments
   assign [title="Transmission"]       $ws1
-# assign [class="Zathura"]            $ws2
   assign [class="Renoise"]            $ws2
   assign [title="LibreOffice"]        $ws3
   assign [title="GNU Image*"]         $ws4
@@ -168,7 +160,6 @@
   assign [title="OpenGL"]             $ws7
   assign [title="World of Warships"]  $ws7
   assign [class="Firefox"]            $ws9
-# assign [class="mpv"]                $ws10
   assign [class="Nitrogen"]           $ws11
 
 # Tiny Urxvt
@@ -257,6 +248,7 @@
 # MODE KEYBINDINGS
 #------------------
 
+
   mode "resize" {
 # Coarse adjustment
     bindsym $right       resize grow width $fr px or $tr ppt
@@ -275,6 +267,7 @@
 }
 
   bindsym $mod+r mode "resize"
+
 #------
 # GAPS
 #------

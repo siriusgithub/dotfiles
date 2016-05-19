@@ -1,1 +1,2 @@
--o "~/dl/yt-dl/%(autonumber)s-%(title)s.%(ext)s" --autonumber-size 2
+#-o "~/dl/yt-dl/%(autonumber)s-%(title)s.%(ext)s" --autonumber-size 2
+-o "~/dl/yt-dl/%(title)s.%(ext)s"

@@ -13,7 +13,7 @@ hi PreProc ctermfg=141 guifg=#af87ff
 hi Comment ctermfg=241 guifg=#606060
 hi Visual ctermbg=237 guibg=#3a3a3a
 hi CursorLine ctermbg=235 cterm=none guibg=#262626 gui=none
-hi LineNr ctermbg=233 ctermfg=236 guibg=#121212 guifg=#303030
+hi LineNr ctermbg=NONE ctermfg=236 guibg=#121212 guifg=#303030
 hi CursorLineNr ctermbg=none ctermfg=249 guibg=#1c1c1c guifg=#b2b2b2
 hi Boolean ctermfg=141 guifg=#af87ff
 hi String ctermfg=222 guifg=#ffd787
