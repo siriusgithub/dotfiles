@@ -92,6 +92,7 @@ case "$mimetype" in
     # Syntax highlight for text files:
     text/* | */xml)
         #try safepipe highlight --out-format=ansi "$path" && { dump | trim; exit 5; }
+        try safepipe highlight --style=candy --out-format=xterm256 "$path" && { dump | trim; exit 5; }
         try pygmentize -f 256 -O style=monokai "$path" && { dump | trim; exit 5; }
         #try safepipe pygmentize "$path" && { dump | trim; exit 5; }
         exit 2;;

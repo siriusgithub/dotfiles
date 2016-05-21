@@ -21,7 +21,7 @@ nmap -builtin <esc> <esc>:noh<cr>
   map     <Leader>b         :buffers<CR>
   map     <Leader>th        :noh<CR><Esc>
 
-  map     <c-space>         <Esc><Leader2>
+  map     <c-s>         <Esc><Leader2>
   map     <Leader2><c-q>    D
   map     <Leader2><c-t>    gH
 
@@ -54,9 +54,9 @@ nmap -builtin <esc> <esc>:noh<cr>
   nmap -b <c-h> gT
 " map -b <c-H>              :tabmove! -1<CR>
 " map -b <c-L>              :tabmove! +1<CR>
-  map -b <Leader2><C-space> <C-^>
-  imap -b <C-Space>         <c-[><Leader2>
-" imap -b <C-Space>         <Leader2>
+  map -b <Leader2><C-s> <C-^>
+  imap -b <C-s>         <c-[><Leader2>
+" imap -b <C-s>         <Leader2>
 
 " Command mode keybinds
   cmap -b <c-b>             <Left>
@@ -168,7 +168,7 @@ nmap -builtin <esc> <esc>:noh<cr>
   :highlight -a Hint text-transform: uppercase;
   hi -a Hint font-size: 14pt !important;
   map <c-s-b> :toolbartoggle Bookmarks Toolbar<CR>
-  map <c-s>   :saveas dl/
+  map S   :saveas dl/
 
 " Toolbar display
 " set guioptions+=B

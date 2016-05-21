@@ -141,9 +141,9 @@
 ! ! Keybinding
 ! rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
 ! ! Keybinding
-! rofi.kb-accept-custom:               Control+Return
+  rofi.kb-accept-custom:               Control+i
 ! ! Keybinding
-  rofi.kb-accept-entry-continue:       Tab
+! rofi.kb-accept-entry-continue:       Control+i
 ! ! Keybinding
 ! rofi.kb-mode-next:                   Shift+Right,Control+Tab
 ! ! Keybinding
@@ -161,7 +161,7 @@
 ! ! Keybinding
 ! rofi.kb-row-down:                    Down,Control+n
 ! ! Keybinding
-  rofi.kb-row-tab:                     Shift+Return
+! rofi.kb-row-tab:                     Control+i
 ! ! Keybinding
   rofi.kb-page-prev:                   Control+b
 ! ! Keybinding
