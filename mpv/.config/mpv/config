@@ -10,3 +10,5 @@ osd-font-size=16
 osd-bar-align-y=0.97
 osd-bar-h=0.5
 osd-color=0.4/0.8/1.0/0.90
+sub-auto=fuzzy
+sub-paths=sub:subtitles:/tmp/subs

@@ -36,8 +36,8 @@ nmap -builtin <esc> <esc>:noh<cr>
   nmap -b l                 5<Right>
   nmap -b K                 2<Up>
   nmap -b J                 2<Down>
-  nmap -b H                 2<Left>
-  nmap -b L                 2<Right>
+" nmap -b H                 2<Left>
+" nmap -b L                 2<Right>
   nmap -b <c-y>             4<c-y>
   nmap -b <c-e>             4<c-e>
 
@@ -52,8 +52,8 @@ nmap -builtin <esc> <esc>:noh<cr>
   nmap -b D d
   nmap -b <c-l> gt
   nmap -b <c-h> gT
-" map -b <c-H>              :tabmove! -1<CR>
-" map -b <c-L>              :tabmove! +1<CR>
+  map -b H              :tabmove! -1<CR>
+  map -b L              :tabmove! +1<CR>
   map -b <Leader2><C-s> <C-^>
   imap -b <C-s>         <c-[><Leader2>
 " imap -b <C-s>         <Leader2>

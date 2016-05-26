@@ -110,7 +110,6 @@
   for_window [Title="WinFF"]          floating enable
   for_window [Title="ff.*"]           floating enable
   for_window [Title="Library"]        floating enable, border pixel $bordersize
-  for_window [class="Qjackctl"]       floating enable
   for_window [class="Qjackctl"]       floating enable, move position mouse
   for_window [class="Renoise"]        border none
   for_window [class="Speedcrunch"]    floating enable
@@ -130,6 +129,7 @@
   for_window [title="JACK Audio Connection Kit"] floating enable
   for_window [title="LibreOffice"]    workspace $ws3
   for_window [title="OpenGL"]         fullscreen enable, floating disable, border none
+  for_window [title="Oracle VM VirtualBox"] floating disable, border none
   for_window [title="Volume Control"] floating enable
   for_window [title="Xbindkeys Config"] floating enable
   for_window [title="World of Warships"] border none
@@ -161,6 +161,7 @@
   assign [title="World of Warships"]  $ws7
   assign [class="Firefox"]            $ws9
   assign [class="Nitrogen"]           $ws11
+  assign [title="Oracle VM VirtualBox"] $ws1
 
 # Tiny Urxvt
   bindsym $mod+shift+Return exec urxvt -g 45x5 -name floating

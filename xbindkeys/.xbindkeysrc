@@ -65,7 +65,7 @@
     m:0x40 + c:115
     Mod4 + End 
 
-#Qwerty-Copy
+#Qwerty(numbers)
 "setxkbmap us -option ctrl:nocaps && xmodmap .Xmodmapq"
     m:0x20 + c:10
     Mod3 + 1 
@@ -75,7 +75,7 @@
     m:0x40 + c:110
     Mod4 + Home 
 
-#Colemak-Copy
+#Colemak(numbers)
 "setxkbmap us -variant colemak -option ctrl:nocaps shift:both_capslock && xmodmap .Xmodmapc"
     m:0x20 + c:11
     Mod3 + 2 
@@ -130,7 +130,7 @@
     m:0x8 + c:51
     Alt + backslash 
 
-#Scrot
+#scrot
 "sleep 7 && . ~/bin/screenshot"
     m:0x28 + c:40
     Alt+Mod3 + s 
@@ -155,10 +155,15 @@
     m:0x20 + c:40
     Mod3 + s 
 
-#youtube-dl
+#yt-dl
 "termite -e ~/bin/yt-dl.sh"
     m:0x21 + c:32
     Shift+Mod3 + y 
+
+#yt-dl-mus
+"termite -e ~/bin/yt-dl-mus.sh"
+    m:0x25 + c:32
+    Control+Shift+Mod3 + y 
 
 #lock transparent
 "xtrlock"
@@ -175,7 +180,7 @@
     m:0x0 + c:121
     XF86AudioMute 
 
-#ALSA mute toggle-Copy
+#ALSA mute toggle(alpha)
 "amixer set Master toggle"
     m:0x21 + c:58
     Shift+Mod3 + m 
@@ -185,7 +190,7 @@
     m:0x0 + c:123
     XF86AudioRaiseVolume 
 
-#ALSA raise volume-Copy
+#ALSA raise volume(alpha)
 "amixer set Master 5%+"
     m:0x21 + c:43
     Shift+Mod3 + h 
@@ -195,7 +200,7 @@
     m:0x0 + c:122
     XF86AudioLowerVolume 
 
-#ALSA lower volume-Copy
+#ALSA lower volume(alpha)
 "amixer set Master 5%-"
     m:0x21 + c:57
     Shift+Mod3 + k 
@@ -215,7 +220,7 @@
     m:0x18 + c:69
     Alt+Mod2 + F3 
 
-#mpc raise volume-Copy
+#mpc raise volume(alpha)
 "mpc volume +5"
     m:0x20 + c:43
     Mod3 + h 
@@ -225,7 +230,7 @@
     m:0x18 + c:68
     Alt+Mod2 + F2 
 
-#mpc lower volume-Copy
+#mpc lower volume(alpha)
 "mpc volume -5"
     m:0x20 + c:57
     Mod3 + k 
@@ -295,17 +300,12 @@
     m:0x20 + c:32
     Mod3 + y 
 
-#teiler toggle cast
-"teiler --togglecast"
-    m:0x20 + c:107
-    Mod3 + Print 
-
 #clerk playlist
 "clerk --playlist load"
     m:0x20 + c:39
     Mod3 + r 
 
-#clerk rss (podcast
+#clerk rss (podcast)
 "clerk --rss"
     m:0x30 + c:27
     Mod2+Mod3 + p 
@@ -315,7 +315,12 @@
     m:0x20 + c:24
     Mod3 + q 
 
-#Vim
+#teiler toggle cast
+"teiler --togglecast"
+    m:0x20 + c:107
+    Mod3 + Print 
+
+#vim
 "termite -e 'vim'"
     m:0x20 + c:47
     Mod3 + o 
