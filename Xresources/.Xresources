@@ -1,67 +1,67 @@
 ! Compile xft: Turn on/off double-buffering for xft (default enabled).  On
 ! URxvt*buffered: boolean
 ! Select the fonts to be used. This is a comma separated list of font names
-  URxvt*font: xft:tamsyn:size=9
-  URxvt*boldFont: xft:tamsyn:size=9:bold
+  URxvt*font: xft:ohsnap:size=9
+  URxvt*boldFont: xft:ohsnap:size=9:bold
   URxvt.letterSpace: 0
   URxvt*lineSpace: 1
-  URxvt.geometry: 104x35
+  URxvt.geometry: 94x33
 
   URxvt*depth: 32
 !  URxvt*inheritPixmap: true
   URxvt*.transparent: false
 !  URxvt shading: 0 to 99 darkens, 101 to 200 lightens
-  URxvt*.shading: 30
+  URxvt*.shading: 10
 
 ! Rofi
 ! Enabled modi
 ! rofi.modi:                           window,run,ssh
 ! ! Window opacity
- rofi.opacity:                        50
+  rofi.opacity:                        70
 ! ! Window width 8
- rofi.width:                          8                     
+  rofi.width:                          8
 ! ! Number of lines
- rofi.lines:                          15
+  rofi.lines:                          15
 ! ! Number of columns
 ! rofi.columns:                        1
 ! ! Font to use
- rofi.font:                           hack bold 11
+  rofi.font:                           hack bold 12
 ! ! Use extended color scheme
- rofi.color-enabled:                  true
+  rofi.color-enabled:                  true
 ! ! Color scheme for normal row       bg      fg      bgalt   hlbg    hlfg
- rofi.color-normal:                   #000000,#ffffff,#000000,#452800,#ffffff
+  rofi.color-normal:                   #000000,#ffffff,#000000,#452800,#ffffff
 ! ! Color scheme for urgent row
- rofi.color-urgent:                   #330b0b,#ff5555,#330b0b,#cc0000,#000000
+  rofi.color-urgent:                   #330b0b,#ff5555,#330b0b,#cc0000,#000000
 ! ! Color scheme for active row
- rofi.color-active:                   #1a2135,#23d3ff,#1a2135,#268bd2,#ffffff
+  rofi.color-active:                   #1a2135,#23d3ff,#1a2135,#268bd2,#ffffff
 ! ! Color scheme window
- rofi.color-window:                   #000000,#000000
+  rofi.color-window:                   #000000,#000000
 ! ! Border width
 ! rofi.bw:                             1
 ! ! Location on screen
- rofi.location:                       0
+  rofi.location:                       0
 ! ! Padding
- rofi.padding:                        90
+  rofi.padding:                        90
 ! ! Y-offset relative to location
- rofi.yoffset:                        0
+  rofi.yoffset:                        0
 ! ! X-offset relative to location
- rofi.xoffset:                        0
+  rofi.xoffset:                        0
 ! ! Always show number of lines
 ! rofi.fixed-num-lines:                false
 ! ! Terminal to use
- rofi.terminal:                       termite
+  rofi.terminal:                       termite
 ! ! Ssh client to use
- rofi.ssh-client:                     ssh
+  rofi.ssh-client:                     ssh
 ! ! Ssh command to execute
- rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+  rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
 ! ! Run command to execute
 ! rofi.run-command:                    {cmd}
 ! ! Command to get extra run targets
-! rofi.run-list-command:               
+! rofi.run-list-command:
 ! ! Run command to execute that runs in shell
 ! rofi.run-shell-command:              {terminal} -e {cmd}
 ! ! Disable history in run/ssh
- rofi.disable-history:                true
+  rofi.disable-history:                true
 ! ! Use levenshtein sorting
 ! rofi.levenshtein-sort:               false
 ! ! Set case-sensitivity
@@ -73,7 +73,7 @@
 ! ! Row height (in chars)
 ! rofi.eh:                             1
 ! ! Enable auto select mode
- rofi.auto-select:                    false
+  rofi.auto-select:                    false
 ! ! Parse hosts file for ssh mode
 ! rofi.parse-hosts:                    false
 ! ! Parse known_hosts file for ssh mode
@@ -93,7 +93,7 @@
 ! ! Margin between rows
 ! rofi.line-margin:                    2
 ! ! Pre-set filter
-! rofi.filter:                         
+! rofi.filter:
 ! ! Separator style (none, dash, solid)
   rofi.separator-style:                none
 ! ! Hide scroll-bar
@@ -217,108 +217,57 @@
 ! ! Keybinding
 ! rofi.kb-toggle-sort:                 Alt+grave
 ! ! Keybinding
-! rofi.key-window: !Control+apostrophe           
+! rofi.key-window: !Control+apostrophe
 ! ! Keybinding
-  rofi.key-run:  Control+slash                       
+  rofi.key-run:  Control+slash
 ! ! Keybinding
-! rofi.key-ssh:                        
+! rofi.key-ssh:
 !
 
-
-*colorBD:       #00F3FF
+  *colorBD:       #00F3FF
 !*cursorColor:   #0A9DFF
 !*cursorColor2:  #000000
-*highlightColor: #C33230
-*highlightTextColor: #ffffff
- 
-!! special
-URxvt.foreground:   #d7d7d7
+  *highlightColor: #C33230
+  *highlightTextColor: #ffffff
+
+! special
+  URxvt.foreground:   #d7d7d7
 !*.background:   #060606
-URxvt*background: [66]#000000
-!
+  URxvt*background: [90]#000000
+
 ! black
 !URxvt*.color0: [85]#000000
-URxvt.color0:       #000000
-URxvt.color8:       #877E7C
+  URxvt.color0:       #000000
+  URxvt.color8:       #877E7C
 
 ! red
-URxvt.color1:       #ff0000
-URxvt.color9:       #ff5555
+  URxvt.color1:       #ff0000
+  URxvt.color9:       #ff5555
 
 ! green
-URxvt.color2:       #7f9c00
-URxvt.color10:      #a7d511
+  URxvt.color2:       #7f9c00
+  URxvt.color10:      #a7d511
 
 ! yellow
-URxvt.color3:       #ff7b00
-URxvt.color11:      #ffcc82
+  URxvt.color3:       #ff7b00
+  URxvt.color11:      #ffcc82
 
 ! blue
-URxvt.color4:       #00b3d6
-URxvt.color12:      #55e3ff
+  URxvt.color4:       #00b3d6
+  URxvt.color12:      #55e3ff
 
 ! magenta
-URxvt.color5:       #ff4287
-URxvt.color13:      #FF87b2
+  URxvt.color5:       #ff4287
+  URxvt.color13:      #FF87b2
 
 ! cyan
-URxvt.color6:       #00ffe1
-URxvt.color14:      #89fff5
+  URxvt.color6:       #00ffe1
+  URxvt.color14:      #89fff5
 
 ! white
-URxvt.color7:       #bababa
-URxvt.color15:      #f0f0f0
-!
-! Base16 Default
-! Scheme: Chris Kempson (http://chriskempson.com)
+  URxvt.color7:       #bababa
+  URxvt.color15:      #f0f0f0
 
-!#define base00 #181818
-!#define base01 #282828
-!#define base02 #383838
-!#define base03 #585858
-!#define base04 #b8b8b8
-!#define base05 #d8d8d8
-!#define base06 #e8e8e8
-!#define base07 #f8f8f8
-!#define base08 #ab4642
-!#define base09 #dc9656
-!#define base0A #f7ca88
-!#define base0B #a1b56c
-!#define base0C #86c1b9
-!#define base0D #7cafc2
-!#define base0E #ba8baf
-!#define base0F #a16946
-
-!*.foreground:   base05
-!*.background:   base00
-!*.cursorColor:  base05
-!
-!*.color0:       base00
-!*.color1:       base08
-!*.color2:       base0B
-!*.color3:       base0A
-!*.color4:       base0D
-!*.color5:       base0E
-!*.color6:       base0C
-!*.color7:       base05
-!
-!*.color8:       base03
-!*.color9:       base08
-!*.color10:      base0B
-!*.color11:      base0A
-!*.color12:      base0D
-!*.color13:      base0E
-!*.color14:      base0C
-!*.color15:      base07
-!
-!! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-!! use 'shell' template to set these if necessary
-!*.color16:      base09
-!*.color17:      base0F
-!*.color18:      base01
-!*.color19:      base02
-!*.color20:      base04
-!*.color21:      base06
   URxvt*scrollColor: #000000
   URxvt*urgentOnBell: true
   URxvt*scrollstyle: plain
@@ -344,6 +293,6 @@ URxvt.color15:      #f0f0f0
   URxvt.resize-font.smaller: C-minus
   URxvt.resize-font.bigger: C-equal
 
-xterm*faceName: Tamsyn:size=9:antialias=false
-xterm*font: 7x13
-xterm*boldfont: Tamsyn:size=9:antialias=false
+  xterm*faceName: Tamsyn:size=9:antialias=false
+  xterm*font: 7x13
+  xterm*boldfont: Tamsyn:size=9:antialias=false

@@ -63,6 +63,7 @@ nmap -builtin <esc> <esc>:noh<cr>
   cmap -b <c-f>             <Right>
   cmap -b <A-b>             <c-Left>
   cmap -b <c-h>             <BS>
+  cmap -b <c-m>             <CR>
 
 " Insert mode keybinds
   imap -b <c-p>             <Up>
@@ -94,6 +95,8 @@ nmap -builtin <esc> <esc>:noh<cr>
   nmap -b r                 <Nop>
   map P <tab-open-clipboard-url>
   map p :tabopen <c-v><c-v><CR>
+  map -b r :tabopen r 
+  map -b <c-m>              <CR>
 
 " Main mode keybinds
   mmap -b <c-p>             <Up>
@@ -162,7 +165,7 @@ nmap -builtin <esc> <esc>:noh<cr>
   
 " Miscellaneous
   set showtabline=multitab
-  set maxitems=7
+  set maxitems=10
   set hlfind
   set findcase=smart
   :highlight -a Hint text-transform: uppercase;

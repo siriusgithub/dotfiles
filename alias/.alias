@@ -123,7 +123,7 @@ trt() {
 
 #fuzzy kill
 fk() {
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  pid=$(ps -ef | sed 1d | fzf -m --reverse | awk '{print $2}')
 
   if [ "x$pid" != "x" ]
   then

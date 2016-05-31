@@ -182,8 +182,8 @@
 
 #ALSA mute toggle(alpha)
 "amixer set Master toggle"
-    m:0x21 + c:58
-    Shift+Mod3 + m 
+    m:0x21 + c:65
+    Shift+Mod3 + space 
 
 #ALSA raise volume
 "amixer set Master 5%+"

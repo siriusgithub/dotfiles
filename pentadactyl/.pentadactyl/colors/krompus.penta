@@ -14,8 +14,8 @@ hi -l EditorBlink2 color: #0B9CF9 !important;
 " Status Line
 hi -a StatusLineNormal border-top: none;
 hi -a StatusLineNormal background: #009900 repeat scroll 0 0 transparent;
-hi -a StatusLine       font-weight: normal; font-family: tamsyn !important;
-hi -a StatusLine       color: #cfcfcf; font-size: 9pt !important;
+hi -a StatusLine       font-weight: normal; font-family: ohsnap !important;
+hi -a StatusLine       color: #cfcfcf; font-size: 7pt !important;
 hi -l StatusLineNormal StatusLineSecure     background: #000000 !important;
 hi -l StatusLineNormal StatusLineExtended   background: #100D14 !important;
 hi -l StatusLineNormal StatusLine[selected]
@@ -64,17 +64,17 @@ hi -a Completions
 " Title
 hi -a Title                        color: #ff4545; background-color: transparent;
 hi -a Title                        padding: 0px 5px;
-hi -a Title                        font-weight: normal; font-family: tamsyn;
-hi -a Title                        text-shadow: none; font-size: 9pt;
+hi -a Title                        font-weight: normal; font-family: ohsnap;
+hi -a Title                        text-shadow: none; font-size: 7pt;
 
 hi -a CompTitle                    background: 00FF00;
-hi -a CompTitle                    font-family: tamsyn; font-size: 9pt; text-align: left;
+hi -a CompTitle                    font-family: ohsnap; font-size: 7pt; text-align: left;
 hi -a CompTitle>*                  padding-left: 40px;
 hi -a CompTitleSep                 height: 0px;
 
 " Item
-hi -a CompItem                     font-family: tamsyn;
-hi -a CompItem                     font-size: 9pt;
+hi -a CompItem                     font-family: ohsnap;
+hi -a CompItem                     font-size: 7pt;
 hi -a CompItem:nth-child(2n+1)     background: inherit;
 hi -a CompItem[selected]           background: #131313;
 hi -a CompIcon                     display: inline-block; width: 16px; min-width: 16px;
@@ -92,7 +92,7 @@ hi -a CompResult                   -moz-border-right-colors: transparent transpa
 
 "Messages in iframe
 hi -a CompMsg                      background: transparent;
-hi -a CompMsg                      font-style: tamsyn; font-size: 9pt;
+hi -a CompMsg                      font-style: ohsnap; font-size: 7pt;
 
 "Arrow navigation
 hi -a CompLess                     text-align: center; height: 0; line-height: .5ex; padding-top: 1ex;
@@ -133,8 +133,8 @@ hi -a URL:hover     text-decoration: none; cursor: pointer;
 
 hi -a CmdLine                      background: transparent !important;
 hi -a CmdCmdLine                   border:none;
-hi -a CmdNormal                    font-family: tamsyn;
-hi -a CmdNormal                    font-size: 9pt;
+hi -a CmdNormal                    font-family: ohsnap !important;
+hi -a CmdNormal                    font-size: 7pt;
 hi -a CmdNormal                    background-color: #000000;
 hi -a CmdNormal                    padding-top: 2px;
 
@@ -147,10 +147,10 @@ hi -l CmdModeMsg CmdModeMsg
 hi -l CmdModeMsg CmdQuestion
 hi -l CmdModeMsg CmdPrompt
 
-hi -a Search          font-family: tamsyn; font-size: 9pt !important; padding: 0; color: #FA6800 !important; background-color: transparent !important; padding: 0 !important;
+hi -a Search          font-family: ohsnap; font-size: 7pt !important; padding: 0; color: #FA6800 !important; background-color: transparent !important; padding: 0 !important;
 
 " Hints
-hi -a Hint            font-family: tamsyn !important; font-size: 13px !important; font-weight: bold !important;
+hi -a Hint            font-family: ohsnap !important; font-size: 14px !important; font-weight: bold !important;
 hi -a Hint            color: #ff5555 !important; background-color: #000000 !important; padding: 2px; border: none !important;
 hi -a Hint[active]    color: #c41f0c !important; background: #220707 !important;
 hi -a HintActive      background: #2B0909 !important; color: #FF2B29 !important;

@@ -42,15 +42,16 @@ call plug#begin('~/.vim/plugged')
 "Plug 'maxbrunsfeld/vim-yankstack'
 
 "Colourschemes
- Plug 'romainl/apprentice'
+ Plug 'airodactyl/hybrid-krompus.vim'
  Plug 'badwolf'
  Plug 'chriskempson/base16-vim'
  Plug 'jonathanfilip/vim-lucius'
  Plug 'lucy/term.vim'
  Plug 'morhetz/gruvbox'
- Plug 'noahfrederick/vim-noctu'
- Plug 'noahfrederick/vim-hemisu'
  Plug 'nanotech/jellybeans.vim'
+ Plug 'noahfrederick/vim-hemisu'
+ Plug 'noahfrederick/vim-noctu'
+ Plug 'romainl/apprentice'
 "Plug 'altercation/vim-colors-solarized'
 "Plug 'flazz/vim-colorschemes'
 "Plug 'tomasr/molokai'
@@ -278,7 +279,7 @@ nmap "" '"
 
 " Read-only pdf through pdftotext
  autocmd BufReadPre *.pdf silent set ro
- autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -87
+ autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -89
 
 " Read-only rtf through unrtf
  autocmd BufReadPre *.rtf silent set ro
