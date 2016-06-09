@@ -86,7 +86,7 @@
     XF86AudioPlay 
 
 #zelda goddess
-". ~/bin/zeldapomodoro/goddess.sh"
+". ~/bin/goddess/goddess.sh"
     m:0x40 + c:26
     Mod4 + f 
 
