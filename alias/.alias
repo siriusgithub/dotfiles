@@ -1,5 +1,6 @@
 # krompus
 #
+MAIL=/var/spool/mail/krompus && export MAIL
 # global aliases
 
 # confirmation #
@@ -13,8 +14,8 @@ alias chmod='chmod --preserve-root'
 alias chown='chown --preserve-root'
 
 # if user is not root, pass all commands via sudo #
+#   alias reboot='sudo reboot'
 if [ $UID -ne 0 ]; then
-    alias reboot='sudo reboot'
     alias up='sudo pacman -Syu'
 fi
 
@@ -77,6 +78,7 @@ alias py='python'
 alias r='source $(which ranger)'
 alias rem='echo \!! >> ~/.histrem'
 alias resetres="xrandr --output DVI-I-1 --mode 1920x1080 --rate 120"
+alias rolls='vim ~/text/colemak_rolls'
 alias rr='ranger'
 
 alias s='setopt nobanghist && s -p duckduckgo'
@@ -253,6 +255,7 @@ conf() {
   mpd)            $EDITOR ~/.mpdconf ;;
   mpv)            $EDITOR ~/.config/mpv/config ;;
   mpvi)           $EDITOR ~/.config/mpv/input.conf ;;
+  mutt)           $EDITOR ~/.muttrc ;;
   ncmpcpp)        $EDITOR ~/.ncmpcpp/config ;;
   n)              $EDITOR ~/.config/newsbeuter/urls ;;
   pacman)         $EDITOR /etc/pacman.conf ;;

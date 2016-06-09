@@ -460,7 +460,7 @@ let g:gruvbox_termcolors=256
 "let g:badwolf_darkgutter=1
 syntax enable
 set background=dark
-colorscheme mine
+colorscheme nompus
 
 "if $TERM == 'rxvt-unicode-256color'
 "    colorscheme noctu

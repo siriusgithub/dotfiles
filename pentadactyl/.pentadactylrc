@@ -16,14 +16,17 @@ nmap -builtin <esc> <esc>:noh<cr>
 " set scrolltime=0
 
 ""Leader keybinds
-  map     <space>           <Esc><Leader>
-  nmap    <Leader>z         :js window.content.document.toggleImageSize();<CR>
-  map     <Leader>b         :buffers<CR>
-  map     <Leader>th        :noh<CR><Esc>
+" map     <space>           <Esc><Leader>
+" nmap    <Leader>z         :js window.content.document.toggleImageSize();<CR>
+" map     <Leader>b         :buffers<CR>
+" map     <Leader>th        :noh<CR><Esc>
 
-  map     <c-s>         <Esc><Leader2>
+  map     <c-s>             <Esc><Leader2>
   map     <Leader2><c-q>    D
   map     <Leader2><c-t>    gH
+  map     <Leader2>z        :js window.content.document.toggleImageSize();<CR>
+  map     <Leader2>b        :buffers<CR>
+  map     <Leader2>th       :noh<CR><Esc>
 
   map     <Insert> <Nop>
 
@@ -88,6 +91,7 @@ nmap -builtin <esc> <esc>:noh<cr>
   map -b  <c-k>             :marks    <CR>
   map -b  <c-o>             :back     <CR>
   map -b  <c-i>             :forward  <CR>
+  map -b  <c-t>             :buffer! 
   map -b  <c-[>             <Esc>
   map -b  <c-j>             <Nop>
   map -b  ZZ                :restart  <CR>
@@ -137,7 +141,7 @@ nmap -builtin <esc> <esc>:noh<cr>
   nmap -b et :execute AddonManager.getAddonByID("183", a => a.userDisabled = !a.userDisabled);<CR>
   nmap -b es :execute AddonManager.getAddonByID("190", a => a.userDisabled = !a.userDisabled);<CR>
   nmap -b ei :execute AddonManager.getAddonByID("44", a => a.userDisabled = !a.userDisabled);<CR>
-  nmap -b er :execute AddonManager.getAddonByID("68", a => a.userDisabled = !a.userDisabled);<CR>
+  nmap -b er :execute AddonManager.getAddonByID("19", a => a.userDisabled = !a.userDisabled);<CR>
   
 " Passkeys
   set pk+=*:<Up><Down><Left><Right>

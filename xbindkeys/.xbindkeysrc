@@ -140,12 +140,12 @@
     m:0x20 + c:46
     Mod3 + i 
 
-#screenshot imgur (selection)
-"imgur-screenshot"
+#screenshot select ptpb
+". ~/bin/screenshot-select"
     m:0x21 + c:40
     Shift+Mod3 + s 
 
-#screenshot local
+#screenshot localh
 "scrot -e 'mv $f ~/scrot/'"
     m:0x0 + c:107
     Print 

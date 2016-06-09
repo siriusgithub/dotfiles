@@ -1,10 +1,10 @@
 ! Compile xft: Turn on/off double-buffering for xft (default enabled).  On
 ! URxvt*buffered: boolean
 ! Select the fonts to be used. This is a comma separated list of font names
-  URxvt*font: xft:ohsnap:size=9
-  URxvt*boldFont: xft:ohsnap:size=9:bold
+  URxvt*font: xft:tamsyn:size=9
+  URxvt*boldFont: xft:tamsyn:size=9:bold
   URxvt.letterSpace: 0
-  URxvt*lineSpace: 1
+  URxvt*lineSpace: 0
   URxvt.geometry: 94x33
 
   URxvt*depth: 32
@@ -25,7 +25,7 @@
 ! ! Number of columns
 ! rofi.columns:                        1
 ! ! Font to use
-  rofi.font:                           hack bold 12
+  rofi.font:                           source code pro bold 10
 ! ! Use extended color scheme
   rofi.color-enabled:                  true
 ! ! Color scheme for normal row       bg      fg      bgalt   hlbg    hlfg

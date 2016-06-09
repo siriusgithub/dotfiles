@@ -46,8 +46,8 @@
   set $rhlcolor                       #23d3ff
 
 # Fonts
-  set $font1                          pango:ohsnap 9
-  set $fontbar                        pango:ohsnap 9
+  set $font1                          pango:tamsyn 9
+  set $fontbar                        pango:tamsyn 9
 
 # Workspaces
   set $ws1                           1:
@@ -133,9 +133,9 @@
   for_window [title="Volume Control"] floating enable
   for_window [title="Xbindkeys Config"] floating enable
   for_window [title="World of Warships"] border none
-  for_window [title="pentadactyl.www*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px
-  for_window [title="pentadactyl.*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px
-  for_window [title="pentadactyl.txt*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px
+  for_window [title="pentadactyl.www*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px, sticky toggle
+  for_window [title="pentadactyl.*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px, sticky toggle
+  for_window [title="pentadactyl.txt*" class="(?i)termite"]  floating enable, move absolute position 802 px 640 px, sticky toggle
   for_window [title="qutebrowser"]    border none
   for_window [instance="gcolor2"]     move absolute position 1406 px 0 px
   for_window [instance="^floating$" class="^URxvt$"] floating enable, move position 1646px 0px
@@ -143,10 +143,10 @@
 # Termituake!
   bindsym $mod+shift+t                exec termite -e tmux --geometry=1920x480 --name=floating
   bindsym $mod+i                      [instance="^floating$" class="(?i)termite"] scratchpad show
-  bindsym 0xff9e                      [instance="^floating$" class="(?i)termite"] scratchpad show
+# bindsym 0xffc9                      [instance="^floating$" class="(?i)termite"] scratchpad show
   for_window [instance="^floating$" class="(?i)termite"] floating enable, move position -1px 580px, move scratchpad, sticky toggle, border none
+  bindsym $mod+shift+i floating enable, move position -1px 580px, move scratchpad, sticky toggle, border none
 
-  bindsym $mod+shift+i move position -1px 580px
 # Workspace assignments
   assign [title="Transmission"]       $ws1
   assign [class="Renoise"]            $ws2
